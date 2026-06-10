@@ -89,6 +89,9 @@ def fix_yaml(file_path):
     # And ignores 'server: \"1.2.3.4\"' or 'server:  \"1.2.3.4\"'
     content = re.sub(r'server:\s+([^\s\"\'\{][^,\}\n]*)', r'server: \"\1\"', content)
     
+    # Aggressively strip any ASCII control characters (0-31, 127) except tab (9), newline (10), carriage return (13)
+    content = re.sub(r'[\x00-\x08\x0b-\x0c\x0e-\x1f\x7f]', '', content)
+
     with open(file_path, 'w', encoding='utf-8') as f:
         f.write(content)
 
