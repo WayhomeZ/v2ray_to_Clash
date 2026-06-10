@@ -83,9 +83,11 @@ def fix_yaml(file_path):
     with open(file_path, 'r', encoding='utf-8') as f:
         content = f.read()
     
-    # Fix unquoted IPv6 addresses in server field
+    # Fix unquoted IPv6 addresses in server field, avoiding already quoted ones
+    # We match 'server: ' followed by any spaces, then capture a string that DOES NOT start with a quote.
     # It replaces 'server: ::ffff:1.2.3.4' with 'server: \"::ffff:1.2.3.4\"'
-    content = re.sub(r'server:\s*([^,\"}]+)', r'server: \"\1\"', content)
+    # And ignores 'server: \"1.2.3.4\"' or 'server:  \"1.2.3.4\"'
+    content = re.sub(r'server:\s+([^\s\"\'\{][^,\}\n]*)', r'server: \"\1\"', content)
     
     with open(file_path, 'w', encoding='utf-8') as f:
         f.write(content)
