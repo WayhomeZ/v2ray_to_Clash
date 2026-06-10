@@ -1,0 +1,64 @@
+name: Update Proxy Configuration
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 */6 * * *' # Every 6 hours
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  update-config:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Make scripts executable
+        run: chmod +x scripts/*.sh
+
+      - name: Convert Subscription Nodes
+        run: ./scripts/convert.sh
+
+      - name: Generate Dynamic Proxy Provider Config
+        run: ./scripts/publish.sh
+
+      - name: Commit and Push changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add docs/
+          # Only commit if there are changes
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Auto-update proxy configurations"
+            git push
+          fi
+
+  deploy-pages:
+    needs: update-config
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          ref: main # Ensure we deploy the latest committed changes
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'docs/'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
