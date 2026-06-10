@@ -41,7 +41,7 @@ docker run -d --name subconverter -p 25500:25500 -v "$(pwd)/config:/base/config"
 bash ./scripts/healthcheck.sh
 
 echo "Generating pure proxies list (Proxy Provider mode)..."
-http_code=$(curl -s -w "%{http_code}" -o docs/proxies.yaml "http://localhost:25500/sub?target=clashmeta&list=true&url=${encoded_urls}")
+http_code=$(curl -s -w "%{http_code}" -o docs/proxies.yaml "http://localhost:25500/sub?target=clash&list=true&url=${encoded_urls}")
 if [ "$http_code" != "200" ]; then
     echo "Error: Subconverter failed with HTTP code $http_code. Response body:"
     cat docs/proxies.yaml
@@ -50,7 +50,7 @@ fi
 echo "docs/proxies.yaml generated."
 
 echo "Generating monolithic configuration..."
-http_code=$(curl -s -w "%{http_code}" -o docs/config_monolithic.yaml "http://localhost:25500/sub?target=clashmeta&config=config/flclash.ini&url=${encoded_urls}")
+http_code=$(curl -s -w "%{http_code}" -o docs/config_monolithic.yaml "http://localhost:25500/sub?target=clash&config=config/flclash.ini&url=${encoded_urls}")
 if [ "$http_code" != "200" ]; then
     echo "Error: Subconverter monolithic failed with HTTP code $http_code. Response body:"
     cat docs/config_monolithic.yaml
