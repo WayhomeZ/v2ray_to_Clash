@@ -26,24 +26,8 @@ fi
 
 echo "Source URLs read successfully."
 
-# URL-encode function using bash
-urlencode() {
-    local string="${1}"
-    local strlen=${#string}
-    local encoded=""
-    local pos c o
-    for (( pos=0 ; pos<strlen ; pos++ )); do
-        c=${string:$pos:1}
-        case "$c" in
-            [-_.~a-zA-Z0-9] ) o="${c}" ;;
-            * )               printf -v o '%%%02x' "'$c"
-        esac
-        encoded="${encoded}${o}"
-    done
-    echo "${encoded}"
-}
-
-encoded_urls=$(urlencode "$urls")
+# URL-encode function using Python3
+encoded_urls=$(python3 -c "import sys, urllib.parse; print(urllib.parse.quote(sys.argv[1]))" "$urls")
 
 echo "Starting Dockerized Subconverter..."
 # Stop any existing container
@@ -57,11 +41,21 @@ docker run -d --name subconverter -p 25500:25500 -v "$(pwd)/config:/base/config"
 bash ./scripts/healthcheck.sh
 
 echo "Generating pure proxies list (Proxy Provider mode)..."
-curl -s -S -f -o docs/proxies.yaml "http://localhost:25500/sub?target=clashmeta&list=true&url=${encoded_urls}"
+http_code=$(curl -s -w "%{http_code}" -o docs/proxies.yaml "http://localhost:25500/sub?target=clashmeta&list=true&url=${encoded_urls}")
+if [ "$http_code" != "200" ]; then
+    echo "Error: Subconverter failed with HTTP code $http_code. Response body:"
+    cat docs/proxies.yaml
+    exit 1
+fi
 echo "docs/proxies.yaml generated."
 
 echo "Generating monolithic configuration..."
-curl -s -S -f -o docs/config_monolithic.yaml "http://localhost:25500/sub?target=clashmeta&config=config/flclash.ini&url=${encoded_urls}"
+http_code=$(curl -s -w "%{http_code}" -o docs/config_monolithic.yaml "http://localhost:25500/sub?target=clashmeta&config=config/flclash.ini&url=${encoded_urls}")
+if [ "$http_code" != "200" ]; then
+    echo "Error: Subconverter monolithic failed with HTTP code $http_code. Response body:"
+    cat docs/config_monolithic.yaml
+    exit 1
+fi
 echo "docs/config_monolithic.yaml generated."
 
 echo "Stopping Subconverter..."
