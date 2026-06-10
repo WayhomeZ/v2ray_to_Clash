@@ -74,6 +74,26 @@ if [ "$http_code" != "200" ]; then
 fi
 echo "docs/config_monolithic.yaml generated."
 
+echo "Fixing Subconverter YAML IPv6 unquoted formatting bug..."
+python3 -c "
+import re
+import sys
+
+def fix_yaml(file_path):
+    with open(file_path, 'r', encoding='utf-8') as f:
+        content = f.read()
+    
+    # Fix unquoted IPv6 addresses in server field
+    # It replaces 'server: ::ffff:1.2.3.4' with 'server: \"::ffff:1.2.3.4\"'
+    content = re.sub(r'server:\s*([^,\"}]+)', r'server: \"\1\"', content)
+    
+    with open(file_path, 'w', encoding='utf-8') as f:
+        f.write(content)
+
+fix_yaml('docs/proxies.yaml')
+fix_yaml('docs/config_monolithic.yaml')
+"
+
 echo "Cleaning up..."
 kill $HTTP_PID
 docker rm -f subconverter >/dev/null 2>&1 || true
