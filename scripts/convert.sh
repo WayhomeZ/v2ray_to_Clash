@@ -31,11 +31,9 @@ encoded_urls=$(python3 -c "import sys, urllib.parse; print(urllib.parse.quote(sy
 
 echo "Starting Dockerized Subconverter..."
 # Stop any existing container
-docker rm -f subconverter 2>/dev/null || true
-
-# Run Subconverter and mount the local config directory to /base/config
-# Workaround for docker running in Windows GitHub Actions or Unix: $(pwd) works in git bash/WSL
-docker run -d --name subconverter -p 25500:25500 -v "$(pwd)/config:/base/config" tindy2013/subconverter:latest
+docker rm -f subconverter >/dev/null 2>&1 || true
+# Start metacubex/subconverter for VLESS/Reality support
+docker run -d --name subconverter -p 25500:25500 -v "$(pwd)/config:/base/config" metacubex/subconverter:latest
 
 # Run healthcheck
 bash ./scripts/healthcheck.sh
