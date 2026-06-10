@@ -35,8 +35,58 @@ proxy-groups:
       - ConfigForge
     proxies:
       - ♻️ 自动选择
+      - 🇭🇰 香港节点
+      - 🇹🇼 台湾节点
+      - 🇯🇵 日本节点
+      - 🇸🇬 狮城节点
+      - 🇺🇸 美国节点
       - 🔯 故障转移
       - 🎯 全球直连
+
+  - name: 🇭🇰 香港节点
+    type: url-test
+    use:
+      - ConfigForge
+    filter: "(?i)港|hk|hongkong|hong kong"
+    url: https://cp.cloudflare.com/generate_204
+    interval: 300
+    tolerance: 50
+
+  - name: 🇹🇼 台湾节点
+    type: url-test
+    use:
+      - ConfigForge
+    filter: "(?i)台|tw|taiwan"
+    url: https://cp.cloudflare.com/generate_204
+    interval: 300
+    tolerance: 50
+
+  - name: 🇯🇵 日本节点
+    type: url-test
+    use:
+      - ConfigForge
+    filter: "(?i)日本|jp|japan"
+    url: https://cp.cloudflare.com/generate_204
+    interval: 300
+    tolerance: 50
+
+  - name: 🇸🇬 狮城节点
+    type: url-test
+    use:
+      - ConfigForge
+    filter: "(?i)新|sg|singapore"
+    url: https://cp.cloudflare.com/generate_204
+    interval: 300
+    tolerance: 50
+
+  - name: 🇺🇸 美国节点
+    type: url-test
+    use:
+      - ConfigForge
+    filter: "(?i)美|us|united states"
+    url: https://cp.cloudflare.com/generate_204
+    interval: 300
+    tolerance: 50
 
   - name: ♻️ 自动选择
     type: url-test
