@@ -17,4 +17,10 @@ fi
 
 echo "Generating Proxy-Provider config for $OWNER/$REPO..."
 sed "s/<owner>/$OWNER/g; s/<repo>/$REPO/g" "$TEMPLATE" > "$OUTPUT"
+
+# Inject dynamic country groups from .countries.json
+if [ -f "docs/.countries.json" ]; then
+    python3 scripts/inject_countries.py "$OUTPUT" "docs/.countries.json"
+fi
+
 echo "docs/config.yaml generated."

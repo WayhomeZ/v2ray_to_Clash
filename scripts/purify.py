@@ -6,6 +6,36 @@ import socket
 import concurrent.futures
 import yaml
 import maxminddb
+import json
+
+COUNTRY_NAMES = {
+    "HK": "香港", "TW": "台湾", "JP": "日本", "SG": "新加坡", "US": "美国",
+    "KR": "韩国", "GB": "英国", "FR": "法国", "DE": "德国", "RU": "俄罗斯",
+    "CA": "加拿大", "AU": "澳大利亚", "IN": "印度", "IR": "伊朗", "TR": "土耳其",
+    "NL": "荷兰", "CH": "瑞士", "SE": "瑞典", "NO": "挪威", "DK": "丹麦",
+    "FI": "芬兰", "IT": "意大利", "ES": "西班牙", "PT": "葡萄牙", "BE": "比利时",
+    "AT": "奥地利", "PL": "波兰", "CZ": "捷克", "SK": "斯洛伐克", "HU": "匈牙利",
+    "RO": "罗马尼亚", "BG": "保加利亚", "GR": "希腊", "IE": "爱尔兰", "NZ": "新西兰",
+    "ZA": "南非", "EG": "埃及", "AE": "阿联酋", "SA": "沙特", "IL": "以色列",
+    "TH": "泰国", "VN": "越南", "MY": "马来西亚", "PH": "菲律宾", "ID": "印度尼西亚",
+    "MO": "澳门", "KP": "朝鲜", "MN": "蒙古", "MM": "缅甸", "KH": "柬埔寨",
+    "LA": "老挝", "NP": "尼泊尔", "BD": "孟加拉国", "PK": "巴基斯坦", "LK": "斯里兰卡",
+    "MX": "墨西哥", "BR": "巴西", "AR": "阿根廷", "CL": "智利", "CO": "哥伦比亚",
+    "PE": "秘鲁", "UN": "未知地区",
+    "IQ": "伊拉克", "KG": "吉尔吉斯斯坦", "SC": "塞舌尔",
+    "UA": "乌克兰", "KZ": "哈萨克斯坦", "UZ": "乌兹别克斯坦",
+    "AZ": "阿塞拜疆", "GE": "格鲁吉亚", "AM": "亚美尼亚",
+    "RS": "塞尔维亚", "HR": "克罗地亚", "SI": "斯洛文尼亚",
+    "LT": "立陶宛", "LV": "拉脱维亚", "EE": "爱沙尼亚",
+    "IS": "冰岛", "LU": "卢森堡", "MT": "马耳他",
+    "CY": "塞浦路斯", "MA": "摩洛哥", "NG": "尼日利亚",
+    "KE": "肯尼亚", "TW": "台湾",
+}
+
+def iso_code_to_flag(code):
+    if len(code) != 2 or not code.isalpha():
+        return "🌍"
+    return chr(0x1F1E6 + ord(code[0].upper()) - 0x41) + chr(0x1F1E6 + ord(code[1].upper()) - 0x41)
 
 class FilterMetrics:
     def __init__(self, name):
@@ -188,6 +218,11 @@ def purify_yaml(file_path, db_path):
     l4_proxies = []
     with GeoIPLookup(db_path) as geoip:
         for p in l3_proxies:
+            # Skip if already tagged with [XX] prefix
+            if re.match(r'^\[\w{2}\] ', p['name']):
+                l4_proxies.append(p)
+                continue
+            
             ip = proxy_ips.get(id(p))
             country = geoip.lookup(ip)
             
@@ -275,7 +310,24 @@ def purify_yaml(file_path, db_path):
     config['proxies'] = l8_proxies
     valid_names_new = {p['name'] for p in l8_proxies}
     
-    # Define mapping from regional group names to country code prefix
+    # Collect unique country codes from purified proxies
+    discovered_codes = sorted(set(
+        p['name'].split(']')[0].lstrip('[')
+        for p in l8_proxies
+        if p['name'].startswith('[') and ']' in p['name']
+    ))
+    countries_data = [
+        {"code": c, "name": COUNTRY_NAMES.get(c, c), "emoji": iso_code_to_flag(c)}
+        for c in discovered_codes
+    ]
+    # Write countries list for publish.sh (only from proxy-provider pool)
+    if 'proxies.yaml' in file_path:
+        countries_json_path = 'docs/.countries.json'
+        with open(countries_json_path, 'w', encoding='utf-8') as f:
+            json.dump(countries_data, f, ensure_ascii=False)
+        print(f"Discovered {len(countries_data)} regions: {[c['code'] for c in countries_data]}")
+    
+    # Define mapping from standard regional group names to country code prefix
     regional_groups_map = {
         '🇭🇰 香港节点': 'HK',
         '🇹🇼 台湾节点': 'TW',
@@ -303,6 +355,57 @@ def purify_yaml(file_path, db_path):
                     else:
                         new_group_proxies.append(name)
                 group['proxies'] = new_group_proxies
+        
+        # Add dynamic proxy groups for countries not in the hardcoded map
+        existing_codes = set(regional_groups_map.values())
+        # Check which countries already have groups (by matching proxy names in existing groups)
+        countries_with_groups = set()
+        for g in config['proxy-groups']:
+            if 'proxies' in g and isinstance(g['proxies'], list):
+                for pname in g['proxies']:
+                    m = re.match(r'^\[(\w{2})\]', pname)
+                    if m:
+                        countries_with_groups.add(m.group(1))
+        
+        new_countries = [
+            c for c in countries_data
+            if c["code"] not in existing_codes
+            and c["code"] != "UN"
+            and c["code"] not in countries_with_groups
+        ]
+        
+        for nc in new_countries:
+            group_name = f"{nc['emoji']} {nc['name']}节点"
+            new_group = {
+                "name": group_name,
+                "type": "url-test",
+                "proxies": [p['name'] for p in l8_proxies if p['name'].startswith(f"[{nc['code']}]")],
+                "url": "https://cp.cloudflare.com/generate_204",
+                "interval": 300,
+                "tolerance": 50,
+            }
+            # Insert before ♻️ 自动选择, or append at end
+            insert_idx = -1
+            for i, g in enumerate(config['proxy-groups']):
+                if g.get('name') == '♻️ 自动选择':
+                    insert_idx = i
+                    break
+            if insert_idx >= 0:
+                config['proxy-groups'].insert(insert_idx, new_group)
+            else:
+                config['proxy-groups'].append(new_group)
+            
+            # Add to 🚀 节点选择's proxies list (before 🎯 全球直连)
+            for g in config['proxy-groups']:
+                if g.get('name') == '🚀 节点选择' and 'proxies' in g and isinstance(g['proxies'], list):
+                    g['proxies'].insert(-1, group_name)
+                    break
+            
+            # Add to 🔯 故障转移's proxies list
+            for g in config['proxy-groups']:
+                if g.get('name') == '🔯 故障转移' and 'proxies' in g and isinstance(g['proxies'], list):
+                    g['proxies'].append(group_name)
+                    break
                 
     output_content = yaml.safe_dump(config, allow_unicode=True, default_flow_style=False, sort_keys=False)
     output_content = re.sub(r'server:\s+([^\s\"\'\{][^,\}\n]*)', r'server: "\1"', output_content)
