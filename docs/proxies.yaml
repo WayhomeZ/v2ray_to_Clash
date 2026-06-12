@@ -34,6 +34,15 @@ proxies:
     path: /assignment
     headers:
       Host: www.calmlunch.com
+- name: '[UN] ShatakVPN 472225'
+  server: "104.18.1.55"
+  port: 443
+  type: trojan
+  password: humanity
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /assignment
 - name: '[UN] ShatakVPN 312668'
   server: "8.6.112.0"
   port: 443
@@ -126,6 +135,18 @@ proxies:
     headers:
       Host: cf.hulume.ccwu.cc
   skip-cert-verify: true
+- name: '[UN] ShatakVPN 479837'
+  server: "8.6.112.6"
+  port: 443
+  type: trojan
+  password: humanity
+  sni: www.calmloud.com
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmloud.com
 - name: '[UN] ShatakVPN 987622'
   server: "104.18.9.83"
   port: 443
@@ -228,6 +249,17 @@ proxies:
     path: /tsghdws
     headers:
       Host: octopusss4.com
+- name: '[UN] ️ ShatakVPN 603663'
+  server: "172.64.152.23"
+  port: 443
+  type: trojan
+  password: humanity
+  sni: www.calmloud.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmloud.com
 - name: '[UN] ️ ShatakVPN 241575'
   server: "104.18.10.110"
   port: 443
@@ -310,6 +342,19 @@ proxies:
       Host: www.calmlunch.com
 - name: '[CH] ️ ShatakVPN 729408'
   server: "185.18.250.252"
+  port: 443
+  type: vless
+  tls: true
+  uuid: fc965ad9-bdd7-4815-ad71-b39ec5972dc1
+  servername: octopusss4.com
+  network: ws
+  ws-opts:
+    path: /tsghdws
+    headers:
+      Host: octopusss4.com
+  skip-cert-verify: true
+- name: '[DE] ️ ShatakVPN 477414'
+  server: "89.116.46.210"
   port: 443
   type: vless
   tls: true
@@ -727,6 +772,21 @@ proxies:
     path: /assignment
     headers:
       Host: www.ignitelimit.com
+- name: '[SC] ️ ShatakVPN 796189'
+  server: "45.130.125.158"
+  port: 443
+  type: vless
+  tls: true
+  uuid: b3bd8d0e-3cbe-4241-a4f1-e3dd0a9e432c
+  servername: server-ir-3.ariyuz.org
+  alpn:
+  - h3%2Ch2%2Chttp%2F1.1
+  network: ws
+  ws-opts:
+    path: /page=2
+    headers:
+      Host: server-ir-3.ariyuz.org
+  skip-cert-verify: false
 - name: '[US] ️ ShatakVPN 545496'
   server: "69.84.182.78"
   port: 443
@@ -821,6 +881,29 @@ proxies:
     path: /
     headers:
       Host: tr-cd.sublink-vip2.com
+- name: '[UN] ️ ShatakVPN 527170'
+  server: "104.26.14.16"
+  port: 8080
+  type: vless
+  tls: true
+  uuid: cabbfe13-038b-4dbb-9c45-5079c829abfa
+  network: ws
+  ws-opts:
+    headers:
+      Host: tr-cd.sublink-vip2.com
+- name: '[UN] ️ ShatakVPN 352836'
+  server: "104.21.14.232"
+  port: 443
+  type: vless
+  tls: true
+  uuid: 2bcfbfba-b446-4ad5-93ad-72af9e008f61
+  servername: nuclear.us.kg
+  network: ws
+  ws-opts:
+    path: /free/1.226.227.169:50001
+    headers:
+      Host: nuclear.us.kg
+  skip-cert-verify: false
 - name: '[UN] ️ ShatakVPN 149317'
   server: "188.114.96.3"
   port: 443
@@ -843,6 +926,18 @@ proxies:
     path: /
     headers:
       Host: main.boobie.eu.cc
+- name: '[UN] ️ ShatakVPN 718004'
+  server: "104.20.6.134"
+  port: 443
+  type: trojan
+  password: humanity
+  sni: www.calmloud.com
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmloud.com
 - name: '[UN] ️ ShatakVPN 272916'
   server: "188.114.98.0"
   port: 443
@@ -1093,6 +1188,17 @@ proxies:
     path: /
     headers:
       Host: max-gb1.global.ssl.fastly.net
+- name: '[US] ️ ShatakVPN 733327'
+  server: "151.101.66.219"
+  port: 80
+  type: vless
+  tls: true
+  uuid: cabbfe13-038b-4dbb-9c45-5079c829abfa
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
 - name: '[US] ️ ShatakVPN 904445'
   server: "151.101.0.1"
   port: 80
@@ -1199,6 +1305,15 @@ proxies:
     path: /vless/
     headers:
       Host: SC-TheNetherlands2.09vpn.com
+- name: '[FR] ️ ShatakVPN 653227'
+  server: "152.228.162.19"
+  port: 80
+  type: vless
+  tls: true
+  uuid: 25f86cb1-2140-4085-abcb-c3a0ea7a4be0
+  network: ws
+  ws-opts:
+    path: /vless/
 - name: '[FR] ️ ShatakVPN 859045'
   server: "196.196.35.35"
   port: 443
@@ -1288,30 +1403,6 @@ proxies:
   - h2
   host: api-6a20f558.noooo.win
   flow: xtls-rprx-vision
-- name: '[GB] ️ ShatakVPN 512076'
-  server: "165.231.33.235"
-  port: 443
-  type: vless
-  tls: true
-  uuid: 7b241232-208d-4d36-857e-913f91b044f4
-  servername: api-6a20f558.noooo.win
-  alpn:
-  - h2
-  host: api-6a20f558.noooo.win
-  flow: xtls-rprx-vision
-  skip-cert-verify: true
-- name: '[IQ] ️ ShatakVPN 941611'
-  server: "196.199.104.132"
-  port: 443
-  type: vless
-  tls: true
-  uuid: 7b241232-208d-4d36-857e-913f91b044f4
-  servername: api-6a20f558.noooo.win
-  alpn:
-  - h2
-  host: api-6a20f558.noooo.win
-  flow: xtls-rprx-vision
-  skip-cert-verify: true
 - name: '[RO] ️ ShatakVPN 689817'
   server: "77.74.123.180"
   port: 8443
@@ -1319,6 +1410,17 @@ proxies:
   tls: true
   uuid: 931729a8-3c20-4841-89a1-f18dc9ce0a6f
   path: /
+- name: '[FR] ️ ShatakVPN 809564'
+  server: "152.228.162.19"
+  port: 80
+  type: vless
+  tls: true
+  uuid: 5ce84688-f535-46ad-a512-37b17becf6ea
+  network: ws
+  ws-opts:
+    path: /vless/
+    headers:
+      Host: akamaized.net
 - name: '[NL] ️ ShatakVPN 893032'
   server: "46.229.243.68"
   port: 8443
@@ -1370,23 +1472,6 @@ proxies:
   servername: de1.fromblancwithlove.com
   host: de1.fromblancwithlove.com
   skip-cert-verify: true
-- name: '[NL] ️ ShatakVPN 638307'
-  server: "108.181.58.239"
-  port: 8388
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: CJmTCCx7Ltud
-- name: '[IQ] ️ ShatakVPN 506579'
-  server: "196.199.104.131"
-  port: 443
-  type: vless
-  tls: true
-  uuid: 7b241232-208d-4d36-857e-913f91b044f4
-  servername: api-6a20f558.noooo.win
-  alpn:
-  - h2
-  host: api-6a20f558.noooo.win
-  flow: xtls-rprx-vision
 - name: '[NL] ️ ShatakVPN 207718'
   server: "46.229.243.73"
   port: 8443
@@ -1499,18 +1584,6 @@ proxies:
   type: vless
   tls: true
   uuid: 3f3bb5cc-da8b-4551-8b76-ba223f1a5255
-- name: '[DE] ️ ShatakVPN 870911'
-  server: "18.198.170.186"
-  port: 22223
-  type: trojan
-  password: telegram-id-directvpn
-  sni: trojan.burgerip.co.uk
-- name: '[DE] ️ ShatakVPN 874944'
-  server: "18.198.170.186"
-  port: 22222
-  type: trojan
-  password: telegram-id-privatevpns
-  sni: trojan.burgerip.co.uk
 - name: '[RO] ️ ShatakVPN 385498'
   server: "77.74.123.163"
   port: 8443
@@ -1896,15 +1969,6 @@ proxies:
     public-key: c8fQY4Ywo9NPZS0CuujyztRI-8z0D7fREoz8laMDVkQ
     short-id: 5d8e1a9c4f72b3
   client-fingerprint: random
-- name: '[RU] ️ ShatakVPN 163383'
-  server: "37.9.4.160"
-  port: 443
-  type: vless
-  tls: true
-  uuid: fc91db3d-d096-487e-90fe-e3e6b3b5a2d4
-  servername: yandex.ru
-  host: yandex.ru
-  flow: xtls-rprx-vision
 - name: '[RU] ️ ShatakVPN 251155'
   server: "87.228.52.147"
   port: 443
@@ -2143,6 +2207,19 @@ proxies:
     public-key: bEX0sADFhBSfvkcH7CaxjIvTXfdqUUYZQDXRsTJTVAQ
     short-id: a1c01ea388528afb
   client-fingerprint: random
+- name: '[RU] ️ ShatakVPN 440132'
+  server: "158.160.208.250"
+  port: 443
+  type: vless
+  tls: true
+  uuid: be79e15e-5788-494c-a482-3fc67226ff38
+  servername: ads.x5.ru
+  host: ads.x5.ru
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: zYJherUg8rsyTsumgWLweMea_Tp2j4ZpVuRlskKTwiY
+    short-id: 92df5620ac107be4
+  client-fingerprint: random
 - name: '[RU] ️ ShatakVPN 688563'
   server: "158.160.47.253"
   port: 443
@@ -2328,12 +2405,6 @@ proxies:
     public-key: ZlXBEYDy1NPe1mLvq7j8CCB9fBIaIvc8X3UZsbVxNT8
     short-id: ae03e6ef452252e0
   client-fingerprint: random
-- name: '[SE] ️ ShatakVPN 537524'
-  server: "109.120.132.142"
-  port: 40617
-  type: vless
-  tls: true
-  uuid: d8d05386-e381-40a4-bb63-715c208b3ed3
 - name: '[RU] ️ ShatakVPN 324406'
   server: "130.193.56.208"
   port: 443
@@ -3208,18 +3279,6 @@ proxies:
   uuid: 394f6981-a782-4779-9a85-e6cf22935d93
   servername: bog-co-01.fromblancwithlove.com
   host: bog-co-01.fromblancwithlove.com
-- name: '[RU] ️ ShatakVPN 400539'
-  server: "45.12.75.242"
-  port: 26424
-  type: vless
-  tls: true
-  uuid: 633f424e-2b11-48da-a6b3-a849dd71456f
-  servername: ya.ru
-  host: ya.ru
-  reality-opts:
-    public-key: l8AubqcxQO-HRFJy4pZL1vbLOo-eXit69s-XulSELE0
-    short-id: 23103e1e
-  client-fingerprint: random
 - name: '[FR] ️ ShatakVPN 993925'
   server: "51.75.168.50"
   port: 26179
@@ -3749,17 +3808,6 @@ proxies:
     path: /
     headers:
       Host: filter.elitesilver002.workers.dev
-- name: '[GB] ️ ShatakVPN 686631'
-  server: "165.231.33.236"
-  port: 443
-  type: vless
-  tls: true
-  uuid: 7b241232-208d-4d36-857e-913f91b044f4
-  servername: api-6a20f558.noooo.win
-  alpn:
-  - h2
-  host: api-6a20f558.noooo.win
-  flow: xtls-rprx-vision
 - name: '[US] ️ ShatakVPN 960071'
   server: "5.78.26.104"
   port: 443
@@ -3793,6 +3841,14 @@ proxies:
   host: cdn3-87.vk-cdnvideo.com
 - name: '[RO] ️ ShatakVPN 363281'
   server: "162.249.126.72"
+  port: 8443
+  type: vless
+  tls: true
+  uuid: 931729a8-3c20-4841-89a1-f18dc9ce0a6f
+  servername: cdn3-87.vk-cdnvideo.com
+  host: cdn3-87.vk-cdnvideo.com
+- name: '[RO] ️ ShatakVPN 361901'
+  server: "162.249.126.73"
   port: 8443
   type: vless
   tls: true
@@ -3913,6 +3969,29 @@ proxies:
     path: /
     headers:
       Host: max-gb1.global.ssl.fastly.net
+- name: '[UN] ️ ShatakVPN 874291'
+  server: "104.26.14.137"
+  port: 8080
+  type: vless
+  tls: true
+  uuid: cabbfe13-038b-4dbb-9c45-5079c829abfa
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: tr-cd.sublink-vip2.com
+- name: '[UN] ️ ShatakVPN 839139'
+  server: "104.16.0.0"
+  port: 443
+  type: vless
+  tls: true
+  uuid: cabbfe13-038b-4dbb-9c45-5079c829abfa
+  servername: tr-cd.sublink-vip2.com
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: tr-cd.sublink-vip2.com
 - name: '[UN] ️ ShatakVPN 699844'
   server: "104.26.15.137"
   port: 8080
@@ -4878,15 +4957,3 @@ proxies:
     path: /assignment
     headers:
       Host: www.calmlunch.com
-- name: '[DE] ️ ShatakVPN 546973'
-  server: "3.78.191.119"
-  port: 22223
-  type: trojan
-  password: telegram-id-directvpn
-  sni: trojan.burgerip.co.uk
-- name: '[DE] ️ ShatakVPN 526443'
-  server: "3.78.191.119"
-  port: 22222
-  type: trojan
-  password: telegram-id-privatevpns
-  sni: trojan.burgerip.co.uk
