@@ -105,5 +105,9 @@ A: 确保 GitHub Pages 已开启，浏览器直接访问你的 `.yaml` 链接应
 
 默认订阅源来自 [ShatakVPN/ConfigForge-V2Ray](https://github.com/ShatakVPN/ConfigForge-V2Ray)，感谢作者提供的优质节点聚合。
 
+## 🤖 AI 生成声明
+
+本项目完全由 AI（Claude）生成，仅作为 AI 相关技术的学习和实践用途。
+
 ## 📜 License
 GNU General Public License v3.0. 欢迎随时提交 PR 与建议！
