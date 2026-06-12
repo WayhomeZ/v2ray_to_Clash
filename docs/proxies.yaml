@@ -1472,12 +1472,6 @@ proxies:
   servername: de1.fromblancwithlove.com
   host: de1.fromblancwithlove.com
   skip-cert-verify: true
-- name: '[NL] ️ ShatakVPN 638307'
-  server: "108.181.58.239"
-  port: 8388
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: CJmTCCx7Ltud
 - name: '[NL] ️ ShatakVPN 207718'
   server: "46.229.243.73"
   port: 8443
@@ -1738,6 +1732,17 @@ proxies:
   type: vless
   tls: true
   uuid: dfc0cb9d-f005-41b0-848c-7703bd39d0de
+- name: '[FR] ️ ShatakVPN 545520'
+  server: "162.19.228.119"
+  port: 80
+  type: vless
+  tls: true
+  uuid: dc8eccdb-ecfa-435f-9ac1-5dc4882e7b51
+  network: ws
+  ws-opts:
+    path: /http
+    headers:
+      Host: de.vpnbase.net
 - name: '[NL] ️ ShatakVPN 826645'
   server: "46.229.243.131"
   port: 8443
@@ -2052,15 +2057,6 @@ proxies:
   uuid: 749a5df1-2d12-45cf-80f3-f85ea6b2e405
   servername: google.com
   host: google.com
-  flow: xtls-rprx-vision
-- name: '[FI] ️ ShatakVPN 414542'
-  server: "109.120.185.230"
-  port: 443
-  type: vless
-  tls: true
-  uuid: 3559f1f7-7d70-46c9-82db-d2b46269300b
-  servername: dipvpn.ru
-  host: dipvpn.ru
   flow: xtls-rprx-vision
 - name: '[RU] ️ ShatakVPN 534398'
   server: "81.163.22.94"
@@ -2503,12 +2499,6 @@ proxies:
   alterId: 0
   cipher: auto
   tls: true
-- name: '[TR] ️ ShatakVPN 655917'
-  server: "62.133.63.169"
-  port: 37096
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: KP6FQVmJhlXPgvPhrw2gnI
 - name: '[RU] ️ ShatakVPN 926014'
   server: "84.201.168.201"
   port: 443
@@ -3092,19 +3082,6 @@ proxies:
     public-key: fLBaSnICDNyn0zZ-YqzdnoE9ZrlXZ7F7bXH46WkuGEI
     short-id: a2668873387ce099
   client-fingerprint: random
-- name: '[RU] ️ ShatakVPN 379314'
-  server: "95.183.11.123"
-  port: 443
-  type: vless
-  tls: true
-  uuid: 1e1dc5b3-515d-47f9-ac68-a7274f591769
-  servername: wl-8-1.nodes.ac
-  host: wl-8-1.nodes.ac
-  flow: xtls-rprx-vision
-  reality-opts:
-    public-key: knrqm393ghxJNYj-4qu2BYpwpG5_zOG5h5-H7yyyR38
-    short-id: 0be28edc1b0278d6
-  client-fingerprint: random
 - name: '[FR] ️ ShatakVPN 374555'
   server: "137.74.119.18"
   port: 2053
@@ -3167,6 +3144,12 @@ proxies:
   network: ws
   ws-opts:
     path: /pourya
+- name: '[US] ️ ShatakVPN 161913'
+  server: "107.172.250.161"
+  port: 59556
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: QTmLViU4VEmuwbOxUw4IXd
 - name: '[RU] ️ ShatakVPN 221896'
   server: "89.208.230.241"
   port: 5443
@@ -3252,7 +3235,7 @@ proxies:
   type: trojan
   password: 4f4d1167-ef14-4304-9bce-0740472503ef
   sni: de.01.naiun.bilibili.com
-- name: '[US] ️ ShatakVPN 729271'
+- name: '[US] ️ ShatakVPN 156365'
   server: "104.168.30.161"
   port: 443
   type: vless
@@ -3294,7 +3277,7 @@ proxies:
   uuid: 394f6981-a782-4779-9a85-e6cf22935d93
   servername: bog-co-01.fromblancwithlove.com
   host: bog-co-01.fromblancwithlove.com
-- name: '[RU] ️ ShatakVPN 465281'
+- name: '[RU] ️ ShatakVPN 400539'
   server: "45.12.75.242"
   port: 26424
   type: vless
