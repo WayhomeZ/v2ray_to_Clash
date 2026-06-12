@@ -81,7 +81,12 @@ import re
 
 def fix_yaml(file_path):
     with open(file_path, 'r', encoding='utf-8') as f:
-        config = yaml.safe_load(f)
+        content = f.read()
+    
+    content = re.sub(r'server:\s+([^\s\"\'\{][^,\}\n]*)', r'server: \"\1\"', content)
+    content = re.sub(r'[\x00-\x08\x0b-\x0c\x0e-\x1f\x7f]', '', content)
+    
+    config = yaml.safe_load(content)
     
     if not config or 'proxies' not in config:
         return
