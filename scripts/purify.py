@@ -171,16 +171,17 @@ def purify_yaml(file_path, db_path):
     name_map = {p['name']: p['name'] for p in proxies}
     
     # Define metric trackers for 10 distinct layers
+    # Order: low-cost instant layers first, then dedup, then high-cost protocol layers
     layer1 = FilterMetrics("Server 主机过滤")
     layer2 = FilterMetrics("Port 端口过滤")
-    layer3 = FilterMetrics("TCP 连通性过滤(1s)")
-    layer4 = FilterMetrics("TLS 握手验证")
-    layer5 = FilterMetrics("Trojan 协议验证")
-    layer6 = FilterMetrics("GeoIP 地区标记")
-    layer7 = FilterMetrics("SS Cipher 过滤")
-    layer8 = FilterMetrics("Reality Short-ID 过滤")
-    layer9 = FilterMetrics("UUID 格式过滤")
-    layer10 = FilterMetrics("Identity 节点去重")
+    layer3 = FilterMetrics("SS Cipher 过滤")
+    layer4 = FilterMetrics("Reality Short-ID 过滤")
+    layer5 = FilterMetrics("UUID 格式过滤")
+    layer6 = FilterMetrics("Identity 节点去重")
+    layer7 = FilterMetrics("TCP 连通性过滤(1s)")
+    layer8 = FilterMetrics("TLS 握手验证")
+    layer9 = FilterMetrics("Trojan 协议验证")
+    layer10 = FilterMetrics("GeoIP 地区标记")
     
     # ------------------ Layer 1: Server ------------------
     layer1.start(len(proxies))
@@ -208,21 +209,92 @@ def purify_yaml(file_path, db_path):
             continue
     layer2.end(len(l2_proxies))
     
-    # ------------------ Layer 3: TCP Connectivity ------------------
+    # ------------------ Layer 3: SS Cipher ------------------
     layer3.start(len(l2_proxies))
-    print(f"Performing TCP connectivity checks on {len(l2_proxies)} endpoints...")
-    l3_results = check_all_proxies_connectivity(l2_proxies)
-    l3_proxies = [item[0] for item in l3_results]
+    l3_proxies = []
+    for p in l2_proxies:
+        cipher = p.get('cipher')
+        if cipher == 'ss':
+            continue
+        if cipher == 'chacha20-poly1305':
+            p['cipher'] = 'chacha20-ietf-poly1305'
+        l3_proxies.append(p)
     layer3.end(len(l3_proxies))
     
-    # Map from proxy index in l3_proxies to resolved IP
-    proxy_ips = {id(item[0]): item[1] for item in l3_results}
-    
-    # ------------------ Layer 4: TLS Handshake ------------------
+    # ------------------ Layer 4: Reality Short-ID ------------------
     layer4.start(len(l3_proxies))
+    l4_proxies = []
+    for p in l3_proxies:
+        ptype = p.get('type')
+        valid = True
+        if ptype == 'vless':
+            opts = p.get('reality-opts', {})
+            sid = opts.get('short-id')
+            if sid is not None:
+                sid_str = str(sid)
+                try:
+                    bytes.fromhex(sid_str)
+                    if len(sid_str) % 2 != 0 or len(sid_str) > 16:
+                        valid = False
+                except Exception:
+                    valid = False
+        if valid:
+            l4_proxies.append(p)
+    layer4.end(len(l4_proxies))
+    
+    # ------------------ Layer 5: UUID ------------------
+    layer5.start(len(l4_proxies))
+    l5_proxies = []
+    for p in l4_proxies:
+        ptype = p.get('type')
+        valid = True
+        if ptype in ('vmess', 'vless'):
+            uuid_str = p.get('uuid')
+            if not uuid_str or not isinstance(uuid_str, str) or len(uuid_str) != 36:
+                valid = False
+        if valid:
+            l5_proxies.append(p)
+    layer5.end(len(l5_proxies))
+    
+    # ------------------ Layer 6: Identity Deduplication ------------------
+    layer6.start(len(l5_proxies))
+    l6_proxies = []
+    seen_keys = set()
+    
+    for p in l5_proxies:
+        ptype = p.get('type')
+        server = p.get('server')
+        port = p.get('port')
+        
+        cred = ""
+        if ptype in ('vless', 'vmess'):
+            cred = p.get('uuid', '')
+        elif ptype in ('ss', 'trojan'):
+            cred = p.get('password', '')
+            
+        identity_key = (ptype, server, port, cred)
+        
+        if identity_key not in seen_keys:
+            seen_keys.add(identity_key)
+            l6_proxies.append(p)
+            
+    layer6.end(len(l6_proxies))
+    
+    # ------------------ Layer 7: TCP Connectivity ------------------
+    layer7.start(len(l6_proxies))
+    print(f"Performing TCP connectivity checks on {len(l6_proxies)} endpoints...")
+    l7_results = check_all_proxies_connectivity(l6_proxies)
+    l7_proxies = [item[0] for item in l7_results]
+    layer7.end(len(l7_proxies))
+    
+    # Map from proxy index in l7_proxies to resolved IP
+    proxy_ips = {id(item[0]): item[1] for item in l7_results}
+    
+    # ------------------ Layer 8: TLS Handshake ------------------
+    layer8.start(len(l7_proxies))
     print(f"Performing TLS handshake checks on TLS-enabled nodes...")
-    tls_proxies = [p for p in l3_proxies if p.get('tls') == True]
-    nontls_proxies = [p for p in l3_proxies if p.get('tls') != True]
+    tls_proxies = [p for p in l7_proxies if p.get('tls') == True]
+    nontls_proxies = [p for p in l7_proxies if p.get('tls') != True]
     
     def tls_worker(p):
         server = p['server']
@@ -239,19 +311,19 @@ def purify_yaml(file_path, db_path):
         except Exception:
             return None
     
-    l4_proxies = list(nontls_proxies)
+    l8_proxies = list(nontls_proxies)
     if tls_proxies:
         with concurrent.futures.ThreadPoolExecutor(max_workers=100) as executor:
             for result in executor.map(tls_worker, tls_proxies):
                 if result is not None:
-                    l4_proxies.append(result)
-    layer4.end(len(l4_proxies))
+                    l8_proxies.append(result)
+    layer8.end(len(l8_proxies))
     
-    # ------------------ Layer 5: Trojan Protocol ------------------
-    layer5.start(len(l4_proxies))
+    # ------------------ Layer 9: Trojan Protocol ------------------
+    layer9.start(len(l8_proxies))
     print(f"Performing Trojan protocol verification...")
-    trojan_proxies = [p for p in l4_proxies if p.get('type') == 'trojan' and not p.get('network') == 'ws']
-    nontrojan_proxies = [p for p in l4_proxies if not (p.get('type') == 'trojan' and not p.get('network') == 'ws')]
+    trojan_proxies = [p for p in l8_proxies if p.get('type') == 'trojan' and not p.get('network') == 'ws']
+    nontrojan_proxies = [p for p in l8_proxies if not (p.get('type') == 'trojan' and not p.get('network') == 'ws')]
     
     def trojan_worker(p):
         server = p['server']
@@ -281,22 +353,22 @@ def purify_yaml(file_path, db_path):
         except Exception:
             return None
     
-    l5_proxies = list(nontrojan_proxies)
+    l9_proxies = list(nontrojan_proxies)
     if trojan_proxies:
         with concurrent.futures.ThreadPoolExecutor(max_workers=100) as executor:
             for result in executor.map(trojan_worker, trojan_proxies):
                 if result is not None:
-                    l5_proxies.append(result)
-    layer5.end(len(l5_proxies))
+                    l9_proxies.append(result)
+    layer9.end(len(l9_proxies))
     
-    # ------------------ Layer 6: GeoIP Tagging ------------------
-    layer6.start(len(l5_proxies))
-    l6_proxies = []
+    # ------------------ Layer 10: GeoIP Tagging ------------------
+    layer10.start(len(l9_proxies))
+    l10_proxies = []
     with GeoIPLookup(db_path) as geoip:
-        for p in l5_proxies:
+        for p in l9_proxies:
             # Skip if already tagged with [XX] prefix
             if re.match(r'^\[\w{2}\] ', p['name']):
-                l6_proxies.append(p)
+                l10_proxies.append(p)
                 continue
             
             ip = proxy_ips.get(id(p))
@@ -308,78 +380,7 @@ def purify_yaml(file_path, db_path):
             p['name'] = new_name
             name_map[old_name] = new_name
             
-            l6_proxies.append(p)
-    layer6.end(len(l6_proxies))
-    
-    # ------------------ Layer 7: SS Cipher ------------------
-    layer7.start(len(l6_proxies))
-    l7_proxies = []
-    for p in l6_proxies:
-        cipher = p.get('cipher')
-        if cipher == 'ss':
-            continue
-        if cipher == 'chacha20-poly1305':
-            p['cipher'] = 'chacha20-ietf-poly1305'
-        l7_proxies.append(p)
-    layer7.end(len(l7_proxies))
-    
-    # ------------------ Layer 8: Reality Short-ID ------------------
-    layer8.start(len(l7_proxies))
-    l8_proxies = []
-    for p in l7_proxies:
-        ptype = p.get('type')
-        valid = True
-        if ptype == 'vless':
-            opts = p.get('reality-opts', {})
-            sid = opts.get('short-id')
-            if sid is not None:
-                sid_str = str(sid)
-                try:
-                    bytes.fromhex(sid_str)
-                    if len(sid_str) % 2 != 0 or len(sid_str) > 16:
-                        valid = False
-                except Exception:
-                    valid = False
-        if valid:
-            l8_proxies.append(p)
-    layer8.end(len(l8_proxies))
-    
-    # ------------------ Layer 9: UUID ------------------
-    layer9.start(len(l8_proxies))
-    l9_proxies = []
-    for p in l8_proxies:
-        ptype = p.get('type')
-        valid = True
-        if ptype in ('vmess', 'vless'):
-            uuid_str = p.get('uuid')
-            if not uuid_str or not isinstance(uuid_str, str) or len(uuid_str) != 36:
-                valid = False
-        if valid:
-            l9_proxies.append(p)
-    layer9.end(len(l9_proxies))
-    
-    # ------------------ Layer 10: Identity Deduplication ------------------
-    layer10.start(len(l9_proxies))
-    l10_proxies = []
-    seen_keys = set()
-    
-    for p in l9_proxies:
-        ptype = p.get('type')
-        server = p.get('server')
-        port = p.get('port')
-        
-        cred = ""
-        if ptype in ('vless', 'vmess'):
-            cred = p.get('uuid', '')
-        elif ptype in ('ss', 'trojan'):
-            cred = p.get('password', '')
-            
-        identity_key = (ptype, server, port, cred)
-        
-        if identity_key not in seen_keys:
-            seen_keys.add(identity_key)
             l10_proxies.append(p)
-            
     layer10.end(len(l10_proxies))
     
     # Save the cleaned proxies
