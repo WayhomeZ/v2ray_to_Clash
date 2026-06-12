@@ -28,7 +28,22 @@
 
 ---
 
-## 2. 核心踩坑点与 Agent 约束 (Constraints & Anti-Patterns)
+## 2. 节点筛选设计哲学 (Node Filtering Philosophy)
+
+本项目对“可用节点”的筛选采用**动静分离**的设计思路，开发后续功能时须遵循此原则：
+
+### 🚫 静态转换过滤（Server-side / Actions 阶段）
+在 GitHub Actions 构建配置文件时，仅做**语法和格式级**的静态筛选，**禁止**引入复杂的网络探测（Ping/Curl）来判断节点存活。
+* **原因**：GitHub Actions 构建环境与用户本地真实网络差异巨大，在构建服务器上能连通的节点在用户本地可能超时，反之亦然；且测速会严重延长 Actions 执行时间。
+* **清洗内容**：仅过滤或修正无法被 Mihomo 解析器读取的语法垃圾（如无效的 SS cipher、Reality short-id 报错、未加引号的 IPv6 等）。
+
+### ⚡ 动态客户端筛选（Client-side / 运行时阶段）
+真实的节点存活和延迟筛选应**完全交给客户端内核**动态完成。
+* **实现方案**：通过 `config_template.yaml` 模版配置客户端的 `proxy-providers` 健康检查（`health-check`，每 5 分钟请求一次 `generate_204`），并在策略组中使用 `url-test`（自动选择延迟最低节点）和 `fallback`（故障转移）策略组来动态剔除死节点。
+
+---
+
+## 3. 核心踩坑点与 Agent 约束 (Constraints & Anti-Patterns)
 
 Mihomo (Clash Meta) 内核的 YAML 解析器极其严格，任何单个节点的格式不合法都会导致**整个订阅配置文件导入失败**。以下是已解决的致命格式问题，未来修改代码时**严禁回退**：
 
