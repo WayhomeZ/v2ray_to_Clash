@@ -8,6 +8,10 @@ on:
   schedule:
     - cron: '0 * * * *' # Every 1 hour
 
+concurrency:
+  group: pages-deploy
+  cancel-in-progress: true
+
 permissions:
   contents: write
   pages: write
