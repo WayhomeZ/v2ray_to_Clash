@@ -1765,17 +1765,6 @@ proxies:
   type: vless
   tls: true
   uuid: dfc0cb9d-f005-41b0-848c-7703bd39d0de
-- name: '[FR] ️ ShatakVPN 545520'
-  server: "162.19.228.119"
-  port: 80
-  type: vless
-  tls: true
-  uuid: dc8eccdb-ecfa-435f-9ac1-5dc4882e7b51
-  network: ws
-  ws-opts:
-    path: /http
-    headers:
-      Host: de.vpnbase.net
 - name: '[NL] ️ ShatakVPN 826645'
   server: "46.229.243.131"
   port: 8443
@@ -1790,6 +1779,14 @@ proxies:
   type: ss
   cipher: chacha20-ietf-poly1305
   password: 7a5af500cb295935
+- name: '[FR] ️ ShatakVPN 267322'
+  server: "51.254.142.162"
+  port: 2053
+  type: vmess
+  uuid: 500e29aa-c40b-43e1-905c-e6e7ac4a5b83
+  alterId: 0
+  cipher: auto
+  tls: true
 - name: '[DE] ️ ShatakVPN 973196'
   server: "185.137.157.254"
   port: 443
@@ -4755,6 +4752,15 @@ proxies:
   uuid: a6bd2cf2-cb83-4ac3-82a3-350cc9d0d469
   servername: max.ru
   host: max.ru
+  flow: xtls-rprx-vision
+- name: '[RU] ️ ShatakVPN 873381'
+  server: "176.108.245.184"
+  port: 25565
+  type: vless
+  tls: true
+  uuid: b84bd2ec-6a5d-4fbb-89af-31cc8ef458d7
+  servername: gp.x5.ru
+  host: gp.x5.ru
   flow: xtls-rprx-vision
 - name: '[RU] ️ ShatakVPN 331625'
   server: "51.250.40.74"
