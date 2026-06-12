@@ -47,7 +47,7 @@ proxy-groups:
     type: url-test
     use:
       - ConfigForge
-    filter: "(?i)港|hk|hongkong|hong kong"
+    filter: '(?i)^\[HK\]'
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
@@ -56,7 +56,7 @@ proxy-groups:
     type: url-test
     use:
       - ConfigForge
-    filter: "(?i)台|tw|taiwan"
+    filter: '(?i)^\[TW\]'
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
@@ -65,7 +65,7 @@ proxy-groups:
     type: url-test
     use:
       - ConfigForge
-    filter: "(?i)日本|jp|japan"
+    filter: '(?i)^\[JP\]'
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
@@ -74,7 +74,7 @@ proxy-groups:
     type: url-test
     use:
       - ConfigForge
-    filter: "(?i)新|sg|singapore"
+    filter: '(?i)^\[SG\]'
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
@@ -83,7 +83,7 @@ proxy-groups:
     type: url-test
     use:
       - ConfigForge
-    filter: "(?i)美|us|united states"
+    filter: '(?i)^\[US\]'
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
