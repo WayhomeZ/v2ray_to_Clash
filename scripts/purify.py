@@ -32,6 +32,8 @@ COUNTRY_NAMES = {
     "KE": "肯尼亚", "TW": "台湾",
 }
 
+MIN_NODES_FOR_GROUP = 5
+
 def iso_code_to_flag(code):
     if len(code) != 2 or not code.isalpha():
         return "🌍"
@@ -310,14 +312,16 @@ def purify_yaml(file_path, db_path):
     config['proxies'] = l8_proxies
     valid_names_new = {p['name'] for p in l8_proxies}
     
-    # Collect unique country codes from purified proxies
-    discovered_codes = sorted(set(
-        p['name'].split(']')[0].lstrip('[')
-        for p in l8_proxies
-        if p['name'].startswith('[') and ']' in p['name']
-    ))
+    # Collect unique country codes from purified proxies with node counts
+    code_count = {}
+    for p in l8_proxies:
+        if p['name'].startswith('[') and ']' in p['name']:
+            c = p['name'].split(']')[0].lstrip('[')
+            code_count[c] = code_count.get(c, 0) + 1
+    
+    discovered_codes = sorted(code_count.keys())
     countries_data = [
-        {"code": c, "name": COUNTRY_NAMES.get(c, c), "emoji": iso_code_to_flag(c)}
+        {"code": c, "name": COUNTRY_NAMES.get(c, c), "emoji": iso_code_to_flag(c), "count": code_count[c]}
         for c in discovered_codes
     ]
     # Write countries list for publish.sh (only from proxy-provider pool)
@@ -358,7 +362,6 @@ def purify_yaml(file_path, db_path):
         
         # Add dynamic proxy groups for countries not in the hardcoded map
         existing_codes = set(regional_groups_map.values())
-        # Check which countries already have groups (by matching proxy names in existing groups)
         countries_with_groups = set()
         for g in config['proxy-groups']:
             if 'proxies' in g and isinstance(g['proxies'], list):
@@ -367,14 +370,23 @@ def purify_yaml(file_path, db_path):
                     if m:
                         countries_with_groups.add(m.group(1))
         
-        new_countries = [
+        # Separate into large (≥MIN_NODES_FOR_GROUP) and small (< threshold + UN)
+        large_countries = [
             c for c in countries_data
             if c["code"] not in existing_codes
-            and c["code"] != "UN"
             and c["code"] not in countries_with_groups
+            and c["code"] != "UN"
+            and c["count"] >= MIN_NODES_FOR_GROUP
+        ]
+        small_codes = [
+            c for c in countries_data
+            if c["code"] not in existing_codes
+            and c["code"] not in countries_with_groups
+            and (c["count"] < MIN_NODES_FOR_GROUP or c["code"] == "UN")
         ]
         
-        for nc in new_countries:
+        # Create dedicated groups for large countries
+        for nc in large_countries:
             group_name = f"{nc['emoji']} {nc['name']}节点"
             new_group = {
                 "name": group_name,
@@ -384,7 +396,6 @@ def purify_yaml(file_path, db_path):
                 "interval": 300,
                 "tolerance": 50,
             }
-            # Insert before ♻️ 自动选择, or append at end
             insert_idx = -1
             for i, g in enumerate(config['proxy-groups']):
                 if g.get('name') == '♻️ 自动选择':
@@ -395,16 +406,47 @@ def purify_yaml(file_path, db_path):
             else:
                 config['proxy-groups'].append(new_group)
             
-            # Add to 🚀 节点选择's proxies list (before 🎯 全球直连)
             for g in config['proxy-groups']:
                 if g.get('name') == '🚀 节点选择' and 'proxies' in g and isinstance(g['proxies'], list):
                     g['proxies'].insert(-1, group_name)
                     break
-            
-            # Add to 🔯 故障转移's proxies list
             for g in config['proxy-groups']:
                 if g.get('name') == '🔯 故障转移' and 'proxies' in g and isinstance(g['proxies'], list):
                     g['proxies'].append(group_name)
+                    break
+        
+        # Create 🌍 其他地区 group for small countries
+        other_proxies = []
+        for c in small_codes:
+            other_proxies.extend(
+                p['name'] for p in l8_proxies if p['name'].startswith(f"[{c['code']}]")
+            )
+        if other_proxies:
+            other_group = {
+                "name": "🌍 其他地区",
+                "type": "url-test",
+                "proxies": other_proxies,
+                "url": "https://cp.cloudflare.com/generate_204",
+                "interval": 300,
+                "tolerance": 50,
+            }
+            insert_idx = -1
+            for i, g in enumerate(config['proxy-groups']):
+                if g.get('name') == '♻️ 自动选择':
+                    insert_idx = i
+                    break
+            if insert_idx >= 0:
+                config['proxy-groups'].insert(insert_idx, other_group)
+            else:
+                config['proxy-groups'].append(other_group)
+            
+            for g in config['proxy-groups']:
+                if g.get('name') == '🚀 节点选择' and 'proxies' in g and isinstance(g['proxies'], list):
+                    g['proxies'].insert(-1, "🌍 其他地区")
+                    break
+            for g in config['proxy-groups']:
+                if g.get('name') == '🔯 故障转移' and 'proxies' in g and isinstance(g['proxies'], list):
+                    g['proxies'].append("🌍 其他地区")
                     break
                 
     output_content = yaml.safe_dump(config, allow_unicode=True, default_flow_style=False, sort_keys=False)
