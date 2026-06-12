@@ -55,11 +55,13 @@ def purify_yaml(file_path):
     proxies = config['proxies']
     total_initial = len(proxies)
     
-    # Define metric trackers
+    # Define metric trackers for 6 distinct layers
     layer1 = FilterMetrics("Server 主机过滤")
     layer2 = FilterMetrics("Port 端口过滤")
-    layer3 = FilterMetrics("Protocol 协议过滤")
-    layer4 = FilterMetrics("Identity 节点去重")
+    layer3 = FilterMetrics("SS Cipher 过滤")
+    layer4 = FilterMetrics("Reality Short-ID 过滤")
+    layer5 = FilterMetrics("UUID 格式过滤")
+    layer6 = FilterMetrics("Identity 节点去重")
     
     # ------------------ Layer 1: Server ------------------
     layer1.start(len(proxies))
@@ -87,19 +89,24 @@ def purify_yaml(file_path):
             continue
     layer2.end(len(l2_proxies))
     
-    # ------------------ Layer 3: Protocol ------------------
+    # ------------------ Layer 3: SS Cipher ------------------
     layer3.start(len(l2_proxies))
     l3_proxies = []
     for p in l2_proxies:
-        valid = True
-        ptype = p.get('type')
-        
         cipher = p.get('cipher')
         if cipher == 'ss':
-            valid = False
-        elif cipher == 'chacha20-poly1305':
+            continue
+        if cipher == 'chacha20-poly1305':
             p['cipher'] = 'chacha20-ietf-poly1305'
-            
+        l3_proxies.append(p)
+    layer3.end(len(l3_proxies))
+    
+    # ------------------ Layer 4: Reality Short-ID ------------------
+    layer4.start(len(l3_proxies))
+    l4_proxies = []
+    for p in l3_proxies:
+        ptype = p.get('type')
+        valid = True
         if ptype == 'vless':
             opts = p.get('reality-opts', {})
             sid = opts.get('short-id')
@@ -111,23 +118,31 @@ def purify_yaml(file_path):
                         valid = False
                 except Exception:
                     valid = False
-                    
+        if valid:
+            l4_proxies.append(p)
+    layer4.end(len(l4_proxies))
+    
+    # ------------------ Layer 5: UUID ------------------
+    layer5.start(len(l4_proxies))
+    l5_proxies = []
+    for p in l4_proxies:
+        ptype = p.get('type')
+        valid = True
         if ptype in ('vmess', 'vless'):
             uuid_str = p.get('uuid')
             if not uuid_str or not isinstance(uuid_str, str) or len(uuid_str) != 36:
                 valid = False
-                
         if valid:
-            l3_proxies.append(p)
-    layer3.end(len(l3_proxies))
+            l5_proxies.append(p)
+    layer5.end(len(l5_proxies))
     
-    # ------------------ Layer 4: Identity Deduplication ------------------
-    layer4.start(len(l3_proxies))
-    l4_proxies = []
+    # ------------------ Layer 6: Identity Deduplication ------------------
+    layer6.start(len(l5_proxies))
+    l6_proxies = []
     seen_keys = set()
     invalid_names = set()
     
-    for p in l3_proxies:
+    for p in l5_proxies:
         ptype = p.get('type')
         server = p.get('server')
         port = p.get('port')
@@ -142,18 +157,18 @@ def purify_yaml(file_path):
         
         if identity_key not in seen_keys:
             seen_keys.add(identity_key)
-            l4_proxies.append(p)
+            l6_proxies.append(p)
         else:
             invalid_names.add(p['name'])
             
-    l4_names = {p['name'] for p in l4_proxies}
+    l6_names = {p['name'] for p in l6_proxies}
     for p in proxies:
-        if p['name'] not in l4_names:
+        if p['name'] not in l6_names:
             invalid_names.add(p['name'])
             
-    layer4.end(len(l4_proxies))
+    layer6.end(len(l6_proxies))
     
-    config['proxies'] = l4_proxies
+    config['proxies'] = l6_proxies
     
     if 'proxy-groups' in config:
         for group in config['proxy-groups']:
@@ -167,14 +182,22 @@ def purify_yaml(file_path):
     with open(file_path, 'w', encoding='utf-8') as f:
         f.write(output_content)
         
-    print(f"Purification completed. Remaining proxies: {len(l4_proxies)} / {total_initial}")
-    return [layer1, layer2, layer3, layer4], total_initial, len(l4_proxies)
+    print(f"Purification completed. Remaining proxies: {len(l6_proxies)} / {total_initial}")
+    return [layer1, layer2, layer3, layer4, layer5, layer6], total_initial, len(l6_proxies)
 
 def generate_report(metrics_list, initial, final):
     report_path = 'docs/filter_report.md'
     total_duration = sum(m.duration_ms for m in metrics_list)
     total_filtered = initial - final
     total_rate = (total_filtered / initial * 100.0) if initial > 0 else 0.0
+    
+    # Dynamic table rows based on metrics
+    rows = []
+    for i, m in enumerate(metrics_list):
+        rows.append(
+            f"| {i+1}. {m.name} | {m.input_count} | {m.output_count} | {m.filtered_count} | {m.filter_rate_pct:.2f}% | {m.duration_ms:.4f} ms |"
+        )
+    table_content = "\n".join(rows)
     
     report_content = f"""# 节点过滤与评估报告 (Node Filtering Evaluation Report)
 
@@ -184,10 +207,7 @@ def generate_report(metrics_list, initial, final):
 
 | 过滤层级 (Filter Layer) | 输入节点数 | 留存节点数 | 过滤节点数 | 过滤占比 | 耗时 (ms) |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| 1. {metrics_list[0].name} | {metrics_list[0].input_count} | {metrics_list[0].output_count} | {metrics_list[0].filtered_count} | {metrics_list[0].filter_rate_pct:.2f}% | {metrics_list[0].duration_ms:.4f} ms |
-| 2. {metrics_list[1].name} | {metrics_list[1].input_count} | {metrics_list[1].output_count} | {metrics_list[1].filtered_count} | {metrics_list[1].filter_rate_pct:.2f}% | {metrics_list[1].duration_ms:.4f} ms |
-| 3. {metrics_list[2].name} | {metrics_list[2].input_count} | {metrics_list[2].output_count} | {metrics_list[2].filtered_count} | {metrics_list[2].filter_rate_pct:.2f}% | {metrics_list[2].duration_ms:.4f} ms |
-| 4. {metrics_list[3].name} | {metrics_list[3].input_count} | {metrics_list[3].output_count} | {metrics_list[3].filtered_count} | {metrics_list[3].filter_rate_pct:.2f}% | {metrics_list[3].duration_ms:.4f} ms |
+{table_content}
 
 ### 📈 过滤效果综合评价 (Overall Evaluation)
 
