@@ -75,69 +75,8 @@ fi
 echo "docs/config_monolithic.yaml generated."
 
 echo "Fixing Subconverter YAML IPv6 unquoted formatting bug..."
-python3 -c "
-import yaml
-import re
-
-def fix_yaml(file_path):
-    with open(file_path, 'r', encoding='utf-8') as f:
-        content = f.read()
-    
-    content = re.sub(r'server:\s+([^\s\"\'\{][^,\}\n]*)', r'server: \"\1\"', content)
-    content = re.sub(r'[\x00-\x08\x0b-\x0c\x0e-\x1f\x7f]', '', content)
-    
-    config = yaml.safe_load(content)
-    
-    if not config or 'proxies' not in config:
-        return
-
-    invalid_names = set()
-    valid_proxies = []
-    
-    for p in config['proxies']:
-        valid = True
-        
-        if p.get('cipher') == 'ss':
-            valid = False
-            
-        if p.get('cipher') == 'chacha20-poly1305':
-            p['cipher'] = 'chacha20-ietf-poly1305'
-            
-        if p.get('type') == 'vless':
-            opts = p.get('reality-opts', {})
-            sid = opts.get('short-id')
-            if sid is not None:
-                sid_str = str(sid)
-                try:
-                    bytes.fromhex(sid_str)
-                    if len(sid_str) % 2 != 0 or len(sid_str) > 16:
-                        valid = False
-                except Exception:
-                    valid = False
-                    
-        if valid:
-            valid_proxies.append(p)
-        else:
-            invalid_names.add(p['name'])
-            
-    config['proxies'] = valid_proxies
-    
-    if 'proxy-groups' in config:
-        for group in config['proxy-groups']:
-            if 'proxies' in group and isinstance(group['proxies'], list):
-                group['proxies'] = [name for name in group['proxies'] if name not in invalid_names]
-                
-    content = yaml.safe_dump(config, allow_unicode=True, default_flow_style=False, sort_keys=False)
-    
-    content = re.sub(r'server:\s+([^\s\"\'\{][^,\}\n]*)', r'server: \"\1\"', content)
-    content = re.sub(r'[\x00-\x08\x0b-\x0c\x0e-\x1f\x7f]', '', content)
-    
-    with open(file_path, 'w', encoding='utf-8') as f:
-        f.write(content)
-
-fix_yaml('docs/proxies.yaml')
-fix_yaml('docs/config_monolithic.yaml')
-"
+python3 scripts/purify.py docs/proxies.yaml
+python3 scripts/purify.py docs/config_monolithic.yaml
 
 echo "Cleaning up..."
 kill $HTTP_PID
