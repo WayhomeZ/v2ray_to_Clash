@@ -1738,17 +1738,6 @@ proxies:
   type: vless
   tls: true
   uuid: dfc0cb9d-f005-41b0-848c-7703bd39d0de
-- name: '[FR] ️ ShatakVPN 545520'
-  server: "162.19.228.119"
-  port: 80
-  type: vless
-  tls: true
-  uuid: dc8eccdb-ecfa-435f-9ac1-5dc4882e7b51
-  network: ws
-  ws-opts:
-    path: /http
-    headers:
-      Host: de.vpnbase.net
 - name: '[NL] ️ ShatakVPN 826645'
   server: "46.229.243.131"
   port: 8443
@@ -2514,6 +2503,12 @@ proxies:
   alterId: 0
   cipher: auto
   tls: true
+- name: '[TR] ️ ShatakVPN 655917'
+  server: "62.133.63.169"
+  port: 37096
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: KP6FQVmJhlXPgvPhrw2gnI
 - name: '[RU] ️ ShatakVPN 926014'
   server: "84.201.168.201"
   port: 443
@@ -3097,6 +3092,19 @@ proxies:
     public-key: fLBaSnICDNyn0zZ-YqzdnoE9ZrlXZ7F7bXH46WkuGEI
     short-id: a2668873387ce099
   client-fingerprint: random
+- name: '[RU] ️ ShatakVPN 379314'
+  server: "95.183.11.123"
+  port: 443
+  type: vless
+  tls: true
+  uuid: 1e1dc5b3-515d-47f9-ac68-a7274f591769
+  servername: wl-8-1.nodes.ac
+  host: wl-8-1.nodes.ac
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: knrqm393ghxJNYj-4qu2BYpwpG5_zOG5h5-H7yyyR38
+    short-id: 0be28edc1b0278d6
+  client-fingerprint: random
 - name: '[FR] ️ ShatakVPN 374555'
   server: "137.74.119.18"
   port: 2053
@@ -3250,14 +3258,6 @@ proxies:
   type: trojan
   password: 4f4d1167-ef14-4304-9bce-0740472503ef
   sni: de.01.naiun.bilibili.com
-- name: '[US] ️ ShatakVPN 156365'
-  server: "104.168.30.161"
-  port: 443
-  type: vless
-  tls: true
-  uuid: 7131f38f-9a4a-4e38-ae1d-aa9e132265ea
-  servername: proxy.wastech.org
-  host: proxy.wastech.org
 - name: '[US] ️ ShatakVPN 652299'
   server: "62.146.231.112"
   port: 12012
@@ -3292,6 +3292,18 @@ proxies:
   uuid: 394f6981-a782-4779-9a85-e6cf22935d93
   servername: bog-co-01.fromblancwithlove.com
   host: bog-co-01.fromblancwithlove.com
+- name: '[RU] ️ ShatakVPN 465281'
+  server: "45.12.75.242"
+  port: 26424
+  type: vless
+  tls: true
+  uuid: 633f424e-2b11-48da-a6b3-a849dd71456f
+  servername: ya.ru
+  host: ya.ru
+  reality-opts:
+    public-key: l8AubqcxQO-HRFJy4pZL1vbLOo-eXit69s-XulSELE0
+    short-id: 23103e1e
+  client-fingerprint: random
 - name: '[FR] ️ ShatakVPN 993925'
   server: "51.75.168.50"
   port: 26179
