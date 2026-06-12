@@ -16,11 +16,8 @@
 ```mermaid
 graph TD;
     A[V2Ray/Sing-Box 订阅源] -->|定期拉取| B(GitHub Actions);
-    B -->|启动| C[Docker: Subconverter];
-    C -->|模式1| D(Proxy-Providers 节点池);
-    C -->|模式2| E(Monolithic 完整配置);
-    D --> F[GitHub Pages 发布];
-    E --> F;
+    B -->|自动转换 + 净化| C(节点池 + 配置文件);
+    C --> F[GitHub Pages 发布];
     F -->|直连导入| G[FlClash / Mihomo / OpenClash];
 ```
 
@@ -73,29 +70,36 @@ graph TD;
 
 ---
 
+## 🌐 节点地区识别与智能分组
+
+导入配置后，你会在客户端里看到：
+
+- **节点名称自动带地区前缀**：如 `[HK] 香港节点`、`[JP] 日本节点`、`[US] 美国节点`，从名称就能知道节点物理位置。
+- **策略组按地区自动归类**：客户端中自动生成对应的地区策略组（如 🇭🇰 香港节点、🇩🇪 德国节点）。
+- **节点多的地区独立分组，少的自动合并**：节点数达到一定数量的地区会独立成组；节点稀少的地区会自动归入「🌍 其他地区」，避免策略组列表过长。
+- **自动生成过滤报告**：每次构建后可在 `docs/filter_report.md` 查看节点数量、存活率、地区分布等统计。
+
+---
+
 ## 🛠 高级设置与进阶
 
 ### 更新频率说明
-默认的更新频率为 **每 6 小时** 执行一次。
-如需调整，请编辑 `.github/workflows/update.yml` 中的 `cron: '0 */6 * * *'`。
+默认的更新频率为 **每 1 小时** 执行一次。
+如需调整，请编辑 `.github/workflows/update.yml` 中的 `cron: '0 * * * *'`。
 
-### 如何更换规则模板
-本仓库使用 Loyalsoldier 的规则集。如果你想更改规则逻辑：
-*   **Proxy-Provider 模式**：修改 `config/config_template.yaml` 即可。
-*   **Monolithic 模式**：修改 `config/flclash.ini` 即可。
+### 自定义配置
+所有可编辑的配置文件都在 `config/` 目录下：
+- **`config_template.yaml`**：Proxy-Provider 模式的策略组、规则、DNS 设定
+- **`flclash.ini`**：Monolithic 单文件模式的策略组与规则集
+- **`source.txt`**：订阅源链接列表
 
-### 如何更换测速地址
-本仓库默认使用 `https://cp.cloudflare.com/generate_204`，速度快且稳定。如需更换，在上述两份配置文件中搜索替换该地址即可。
+### 常见问题
 
-### 如何增加策略组
-在 `config/config_template.yaml` 的 `proxy-groups:` 列表中添加新项，然后在 `rules:` 列表中将其分配。
+**Q: Actions 执行失败？**
+A: 点击 Actions → 失败任务 → "Re-run all jobs" 重试即可。
 
-### 常见问题 / 故障排查
-**Q1: Actions 执行失败，提示端口占用或启动超时？**
-A1: Docker Subconverter 通常很稳定。如果偶尔失败，请点击 Actions -> 对应的失败任务 -> "Re-run all jobs" 重试。
-
-**Q2: 客户端提示无法获取节点？**
-A2: 请确保你在 GitHub Pages 设置中开启了服务，并且在浏览器中直接访问你的 `.yaml` 链接时能够正常显示配置内容。
+**Q: 客户端无法获取节点？**
+A: 确保 GitHub Pages 已开启，浏览器直接访问你的 `.yaml` 链接应能正常显示内容。
 
 ## 📜 License
 MIT License. 欢迎随时提交 PR 与建议！
