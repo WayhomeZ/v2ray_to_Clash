@@ -101,5 +101,9 @@ A: Go to Actions → failed job → click "Re-run all jobs" to retry.
 **Q: Client can't fetch nodes?**
 A: Make sure GitHub Pages is enabled and your `.yaml` URL returns content when opened in a browser.
 
+## 🙏 Credits
+
+Default subscription source from [ShatakVPN/ConfigForge-V2Ray](https://github.com/ShatakVPN/ConfigForge-V2Ray). Thanks to the author for providing high-quality aggregated nodes.
+
 ## 📜 License
 GNU General Public License v3.0. PRs and suggestions welcome!
