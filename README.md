@@ -102,4 +102,4 @@ A: 点击 Actions → 失败任务 → "Re-run all jobs" 重试即可。
 A: 确保 GitHub Pages 已开启，浏览器直接访问你的 `.yaml` 链接应能正常显示内容。
 
 ## 📜 License
-MIT License. 欢迎随时提交 PR 与建议！
+GNU General Public License v3.0. 欢迎随时提交 PR 与建议！
