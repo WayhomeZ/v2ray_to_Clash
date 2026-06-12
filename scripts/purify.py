@@ -4,6 +4,7 @@ import re
 import time
 import socket
 import concurrent.futures
+import ssl
 import yaml
 import maxminddb
 import json
@@ -101,7 +102,7 @@ class GeoIPLookup:
             pass
         return 'UN'
 
-def check_tcp_port(server, port, timeout=2.0):
+def check_tcp_port(server, port, timeout=1.0):
     try:
         addr_info = socket.getaddrinfo(server, port, socket.AF_UNSPEC, socket.SOCK_STREAM)
         for res in addr_info:
@@ -131,7 +132,7 @@ def check_all_proxies_connectivity(proxies, max_workers=100):
         if server in ('127.0.0.1', 'localhost', '::1'):
             return None, None
             
-        success, ip = check_tcp_port(server, port, timeout=2.0)
+        success, ip = check_tcp_port(server, port, timeout=1.0)
         if success:
             return p, ip
         return None, None
@@ -169,15 +170,17 @@ def purify_yaml(file_path, db_path):
     # Store initial name map to rename references in proxy-groups later
     name_map = {p['name']: p['name'] for p in proxies}
     
-    # Define metric trackers for 8 distinct layers
+    # Define metric trackers for 10 distinct layers
     layer1 = FilterMetrics("Server 主机过滤")
     layer2 = FilterMetrics("Port 端口过滤")
-    layer3 = FilterMetrics("TCP 连通性过滤")
-    layer4 = FilterMetrics("GeoIP 地区标记")
-    layer5 = FilterMetrics("SS Cipher 过滤")
-    layer6 = FilterMetrics("Reality Short-ID 过滤")
-    layer7 = FilterMetrics("UUID 格式过滤")
-    layer8 = FilterMetrics("Identity 节点去重")
+    layer3 = FilterMetrics("TCP 连通性过滤(1s)")
+    layer4 = FilterMetrics("TLS 握手验证")
+    layer5 = FilterMetrics("Trojan 协议验证")
+    layer6 = FilterMetrics("GeoIP 地区标记")
+    layer7 = FilterMetrics("SS Cipher 过滤")
+    layer8 = FilterMetrics("Reality Short-ID 过滤")
+    layer9 = FilterMetrics("UUID 格式过滤")
+    layer10 = FilterMetrics("Identity 节点去重")
     
     # ------------------ Layer 1: Server ------------------
     layer1.start(len(proxies))
@@ -215,14 +218,85 @@ def purify_yaml(file_path, db_path):
     # Map from proxy index in l3_proxies to resolved IP
     proxy_ips = {id(item[0]): item[1] for item in l3_results}
     
-    # ------------------ Layer 4: GeoIP Tagging ------------------
+    # ------------------ Layer 4: TLS Handshake ------------------
     layer4.start(len(l3_proxies))
-    l4_proxies = []
+    print(f"Performing TLS handshake checks on TLS-enabled nodes...")
+    tls_proxies = [p for p in l3_proxies if p.get('tls') == True]
+    nontls_proxies = [p for p in l3_proxies if p.get('tls') != True]
+    
+    def tls_worker(p):
+        server = p['server']
+        port = p['port']
+        sni = p.get('sni') or p.get('servername')
+        try:
+            ctx = ssl.create_default_context()
+            ctx.check_hostname = False
+            ctx.verify_mode = ssl.CERT_NONE
+            with socket.create_connection((server, port), timeout=1.0) as sock:
+                with ctx.wrap_socket(sock, server_hostname=sni or server) as ssock:
+                    ssock.do_handshake()
+            return p
+        except Exception:
+            return None
+    
+    l4_proxies = list(nontls_proxies)
+    if tls_proxies:
+        with concurrent.futures.ThreadPoolExecutor(max_workers=100) as executor:
+            for result in executor.map(tls_worker, tls_proxies):
+                if result is not None:
+                    l4_proxies.append(result)
+    layer4.end(len(l4_proxies))
+    
+    # ------------------ Layer 5: Trojan Protocol ------------------
+    layer5.start(len(l4_proxies))
+    print(f"Performing Trojan protocol verification...")
+    trojan_proxies = [p for p in l4_proxies if p.get('type') == 'trojan' and not p.get('network') == 'ws']
+    nontrojan_proxies = [p for p in l4_proxies if not (p.get('type') == 'trojan' and not p.get('network') == 'ws')]
+    
+    def trojan_worker(p):
+        server = p['server']
+        port = p['port']
+        password = p.get('password', '')
+        tls = p.get('tls', False)
+        sni = p.get('sni') or p.get('servername')
+        try:
+            sock = socket.create_connection((server, port), timeout=1.0)
+            if tls:
+                ctx = ssl.create_default_context()
+                ctx.check_hostname = False
+                ctx.verify_mode = ssl.CERT_NONE
+                sock = ctx.wrap_socket(sock, server_hostname=sni or server)
+            sock.settimeout(2.0)
+            sock.sendall(f"{password}\r\n".encode())
+            try:
+                sock.recv(1)
+                result = p
+            except socket.timeout:
+                result = p
+            except ConnectionResetError:
+                result = None
+            finally:
+                sock.close()
+            return result
+        except Exception:
+            return None
+    
+    l5_proxies = list(nontrojan_proxies)
+    if trojan_proxies:
+        with concurrent.futures.ThreadPoolExecutor(max_workers=100) as executor:
+            for result in executor.map(trojan_worker, trojan_proxies):
+                if result is not None:
+                    l5_proxies.append(result)
+    layer5.end(len(l5_proxies))
+    
+    # ------------------ Layer 6: GeoIP Tagging ------------------
+    layer6.start(len(l5_proxies))
+    l6_proxies = []
     with GeoIPLookup(db_path) as geoip:
-        for p in l3_proxies:
+        for p in l5_proxies:
             # Skip if already tagged with [XX] prefix
             if re.match(r'^\[\w{2}\] ', p['name']):
-                l4_proxies.append(p)
+                l6_proxies.append(p)
                 continue
             
             ip = proxy_ips.get(id(p))
@@ -234,25 +308,25 @@ def purify_yaml(file_path, db_path):
             p['name'] = new_name
             name_map[old_name] = new_name
             
-            l4_proxies.append(p)
-    layer4.end(len(l4_proxies))
+            l6_proxies.append(p)
+    layer6.end(len(l6_proxies))
     
-    # ------------------ Layer 5: SS Cipher ------------------
-    layer5.start(len(l4_proxies))
-    l5_proxies = []
-    for p in l4_proxies:
+    # ------------------ Layer 7: SS Cipher ------------------
+    layer7.start(len(l6_proxies))
+    l7_proxies = []
+    for p in l6_proxies:
         cipher = p.get('cipher')
         if cipher == 'ss':
             continue
         if cipher == 'chacha20-poly1305':
             p['cipher'] = 'chacha20-ietf-poly1305'
-        l5_proxies.append(p)
-    layer5.end(len(l5_proxies))
+        l7_proxies.append(p)
+    layer7.end(len(l7_proxies))
     
-    # ------------------ Layer 6: Reality Short-ID ------------------
-    layer6.start(len(l5_proxies))
-    l6_proxies = []
-    for p in l5_proxies:
+    # ------------------ Layer 8: Reality Short-ID ------------------
+    layer8.start(len(l7_proxies))
+    l8_proxies = []
+    for p in l7_proxies:
         ptype = p.get('type')
         valid = True
         if ptype == 'vless':
@@ -267,13 +341,13 @@ def purify_yaml(file_path, db_path):
                 except Exception:
                     valid = False
         if valid:
-            l6_proxies.append(p)
-    layer6.end(len(l6_proxies))
+            l8_proxies.append(p)
+    layer8.end(len(l8_proxies))
     
-    # ------------------ Layer 7: UUID ------------------
-    layer7.start(len(l6_proxies))
-    l7_proxies = []
-    for p in l6_proxies:
+    # ------------------ Layer 9: UUID ------------------
+    layer9.start(len(l8_proxies))
+    l9_proxies = []
+    for p in l8_proxies:
         ptype = p.get('type')
         valid = True
         if ptype in ('vmess', 'vless'):
@@ -281,15 +355,15 @@ def purify_yaml(file_path, db_path):
             if not uuid_str or not isinstance(uuid_str, str) or len(uuid_str) != 36:
                 valid = False
         if valid:
-            l7_proxies.append(p)
-    layer7.end(len(l7_proxies))
+            l9_proxies.append(p)
+    layer9.end(len(l9_proxies))
     
-    # ------------------ Layer 8: Identity Deduplication ------------------
-    layer8.start(len(l7_proxies))
-    l8_proxies = []
+    # ------------------ Layer 10: Identity Deduplication ------------------
+    layer10.start(len(l9_proxies))
+    l10_proxies = []
     seen_keys = set()
     
-    for p in l7_proxies:
+    for p in l9_proxies:
         ptype = p.get('type')
         server = p.get('server')
         port = p.get('port')
@@ -304,17 +378,17 @@ def purify_yaml(file_path, db_path):
         
         if identity_key not in seen_keys:
             seen_keys.add(identity_key)
-            l8_proxies.append(p)
+            l10_proxies.append(p)
             
-    layer8.end(len(l8_proxies))
+    layer10.end(len(l10_proxies))
     
     # Save the cleaned proxies
-    config['proxies'] = l8_proxies
-    valid_names_new = {p['name'] for p in l8_proxies}
+    config['proxies'] = l10_proxies
+    valid_names_new = {p['name'] for p in l10_proxies}
     
     # Collect unique country codes from purified proxies with node counts
     code_count = {}
-    for p in l8_proxies:
+    for p in l10_proxies:
         if p['name'].startswith('[') and ']' in p['name']:
             c = p['name'].split(']')[0].lstrip('[')
             code_count[c] = code_count.get(c, 0) + 1
@@ -347,7 +421,7 @@ def purify_yaml(file_path, db_path):
             if gname in regional_groups_map:
                 # Regroup regional groups using GeoIP tags from purified proxies
                 target_code = regional_groups_map[gname]
-                group['proxies'] = [p['name'] for p in l8_proxies if p['name'].startswith(f"[{target_code}]")]
+                group['proxies'] = [p['name'] for p in l10_proxies if p['name'].startswith(f"[{target_code}]")]
             elif 'proxies' in group and isinstance(group['proxies'], list):
                 # For non-regional groups, update names and remove dropped ones
                 new_group_proxies = []
@@ -391,7 +465,7 @@ def purify_yaml(file_path, db_path):
             new_group = {
                 "name": group_name,
                 "type": "url-test",
-                "proxies": [p['name'] for p in l8_proxies if p['name'].startswith(f"[{nc['code']}]")],
+                "proxies": [p['name'] for p in l10_proxies if p['name'].startswith(f"[{nc['code']}]")],
                 "url": "https://cp.cloudflare.com/generate_204",
                 "interval": 300,
                 "tolerance": 50,
@@ -419,7 +493,7 @@ def purify_yaml(file_path, db_path):
         other_proxies = []
         for c in small_codes:
             other_proxies.extend(
-                p['name'] for p in l8_proxies if p['name'].startswith(f"[{c['code']}]")
+                p['name'] for p in l10_proxies if p['name'].startswith(f"[{c['code']}]")
             )
         if other_proxies:
             other_group = {
@@ -456,8 +530,8 @@ def purify_yaml(file_path, db_path):
     with open(file_path, 'w', encoding='utf-8') as f:
         f.write(output_content)
         
-    print(f"Purification completed. Remaining proxies: {len(l8_proxies)} / {total_initial}")
-    return [layer1, layer2, layer3, layer4, layer5, layer6, layer7, layer8], total_initial, len(l8_proxies)
+    print(f"Purification completed. Remaining proxies: {len(l10_proxies)} / {total_initial}")
+    return [layer1, layer2, layer3, layer4, layer5, layer6, layer7, layer8, layer9, layer10], total_initial, len(l10_proxies)
 
 def generate_report(metrics_list, initial, final):
     report_path = 'docs/filter_report.md'
