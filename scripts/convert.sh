@@ -76,22 +76,57 @@ echo "docs/config_monolithic.yaml generated."
 
 echo "Fixing Subconverter YAML IPv6 unquoted formatting bug..."
 python3 -c "
+import yaml
 import re
-import sys
 
 def fix_yaml(file_path):
     with open(file_path, 'r', encoding='utf-8') as f:
-        content = f.read()
+        config = yaml.safe_load(f)
     
-    # Fix unquoted IPv6 addresses in server field, avoiding already quoted ones
-    # We match 'server: ' followed by any spaces, then capture a string that DOES NOT start with a quote.
-    # It replaces 'server: ::ffff:1.2.3.4' with 'server: \"::ffff:1.2.3.4\"'
-    # And ignores 'server: \"1.2.3.4\"' or 'server:  \"1.2.3.4\"'
-    content = re.sub(r'server:\s+([^\s\"\'\{][^,\}\n]*)', r'server: \"\1\"', content)
-    
-    # Aggressively strip any ASCII control characters (0-31, 127) except tab (9), newline (10), carriage return (13)
-    content = re.sub(r'[\x00-\x08\x0b-\x0c\x0e-\x1f\x7f]', '', content)
+    if not config or 'proxies' not in config:
+        return
 
+    invalid_names = set()
+    valid_proxies = []
+    
+    for p in config['proxies']:
+        valid = True
+        
+        if p.get('cipher') == 'ss':
+            valid = False
+            
+        if p.get('cipher') == 'chacha20-poly1305':
+            p['cipher'] = 'chacha20-ietf-poly1305'
+            
+        if p.get('type') == 'vless':
+            opts = p.get('reality-opts', {})
+            sid = opts.get('short-id')
+            if sid is not None:
+                sid_str = str(sid)
+                try:
+                    bytes.fromhex(sid_str)
+                    if len(sid_str) % 2 != 0 or len(sid_str) > 16:
+                        valid = False
+                except Exception:
+                    valid = False
+                    
+        if valid:
+            valid_proxies.append(p)
+        else:
+            invalid_names.add(p['name'])
+            
+    config['proxies'] = valid_proxies
+    
+    if 'proxy-groups' in config:
+        for group in config['proxy-groups']:
+            if 'proxies' in group and isinstance(group['proxies'], list):
+                group['proxies'] = [name for name in group['proxies'] if name not in invalid_names]
+                
+    content = yaml.safe_dump(config, allow_unicode=True, default_flow_style=False, sort_keys=False)
+    
+    content = re.sub(r'server:\s+([^\s\"\'\{][^,\}\n]*)', r'server: \"\1\"', content)
+    content = re.sub(r'[\x00-\x08\x0b-\x0c\x0e-\x1f\x7f]', '', content)
+    
     with open(file_path, 'w', encoding='utf-8') as f:
         f.write(content)
 
