@@ -46,6 +46,7 @@ proxy-groups:
       - 🇷🇴 罗马尼亚节点
       - 🇷🇺 俄罗斯节点
       - 🇸🇨 塞舌尔节点
+      - 🇸🇪 瑞典节点
       - 🌍 其他地区
       - 🔯 故障转移
       - 🎯 全球直连
@@ -143,11 +144,19 @@ proxy-groups:
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
+  - name: 🇸🇪 瑞典节点
+    type: url-test
+    use:
+      - ConfigForge
+    filter: '(?i)^\[SE\]'
+    url: https://cp.cloudflare.com/generate_204
+    interval: 300
+    tolerance: 50
   - name: 🌍 其他地区
     type: url-test
     use:
       - ConfigForge
-    filter: '(?i)^\[(AT|BE|CA|CH|CO|EE|ES|FR|IL|IR|IT|KR|KZ|MX|PL|SE|TR|UN|ZA)\]'
+    filter: '(?i)^\[(AT|BE|CA|CH|CO|ES|FR|IL|IR|IT|KR|KZ|MX|PL|UN|ZA)\]'
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
