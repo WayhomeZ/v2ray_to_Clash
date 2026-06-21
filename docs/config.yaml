@@ -42,7 +42,7 @@ proxy-groups:
       - 🇺🇸 美国节点
       - 🇩🇪 德国节点
       - 🇫🇷 法国节点
-      - 🇮🇷 伊朗节点
+      - 🇬🇧 英国节点
       - 🇳🇱 荷兰节点
       - 🇷🇴 罗马尼亚节点
       - 🇷🇺 俄罗斯节点
@@ -113,11 +113,11 @@ proxy-groups:
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
-  - name: 🇮🇷 伊朗节点
+  - name: 🇬🇧 英国节点
     type: url-test
     use:
       - ConfigForge
-    filter: '(?i)^\[IR\]'
+    filter: '(?i)^\[GB\]'
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
@@ -165,7 +165,7 @@ proxy-groups:
     type: url-test
     use:
       - ConfigForge
-    filter: '(?i)^\[(AE|AT|BE|CA|CH|CO|CZ|EE|ES|GB|IL|IT|KR|MX|PL|TR|UN|ZA)\]'
+    filter: '(?i)^\[(AE|AT|BE|CA|CH|CO|CZ|ES|FI|IL|IQ|IR|IT|KR|LV|MX|PL|TR|UN|ZA)\]'
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
