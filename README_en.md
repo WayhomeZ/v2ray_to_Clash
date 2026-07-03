@@ -48,6 +48,8 @@ Replace `<username>` and `<repo>` with your GitHub username and repository name:
 **Recommended (Proxy-Provider Mode):**
 `https://<username>.github.io/<repo>/config.yaml`
 
+e.g. this repo: `https://wayhomez.github.io/v2ray_to_Clash/config.yaml`
+
 **Alternative (Monolithic Mode):**
 `https://<username>.github.io/<repo>/config_monolithic.yaml`
 

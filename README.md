@@ -48,6 +48,8 @@ graph TD;
 **推荐（Proxy-Provider 极速模式）：**
 `https://<username>.github.io/<repo>/config.yaml`
 
+例如本仓库：`https://wayhomez.github.io/v2ray_to_Clash/config.yaml`
+
 **备选（传统单文件模式）：**
 `https://<username>.github.io/<repo>/config_monolithic.yaml`
 
