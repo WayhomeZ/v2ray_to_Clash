@@ -44,7 +44,6 @@ proxy-groups:
       - 🇫🇮 芬兰节点
       - 🇫🇷 法国节点
       - 🇬🇧 英国节点
-      - 🇱🇹 立陶宛节点
       - 🇳🇱 荷兰节点
       - 🇷🇺 俄罗斯节点
       - 🇸🇨 塞舌尔节点
@@ -129,14 +128,6 @@ proxy-groups:
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
-  - name: 🇱🇹 立陶宛节点
-    type: url-test
-    use:
-      - ConfigForge
-    filter: '(?i)^\[LT\]'
-    url: https://cp.cloudflare.com/generate_204
-    interval: 300
-    tolerance: 50
   - name: 🇳🇱 荷兰节点
     type: url-test
     use:
@@ -165,7 +156,7 @@ proxy-groups:
     type: url-test
     use:
       - ConfigForge
-    filter: '(?i)^\[(AE|AT|AU|BY|CA|CH|ES|HU|IE|IN|IR|IT|KR|KZ|PL|RO|SE|UN|ZA)\]'
+    filter: '(?i)^\[(AE|AT|AU|CA|CH|CZ|ES|HU|IE|IN|IR|IT|KR|KZ|LT|PL|RO|SE|UN|ZA)\]'
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
