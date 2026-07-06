@@ -48,7 +48,6 @@ proxy-groups:
       - 🇮🇷 伊朗节点
       - 🇱🇹 立陶宛节点
       - 🇳🇱 荷兰节点
-      - 🇷🇴 罗马尼亚节点
       - 🇷🇺 俄罗斯节点
       - 🇸🇨 塞舌尔节点
       - 🌍 其他地区
@@ -164,14 +163,6 @@ proxy-groups:
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
-  - name: 🇷🇴 罗马尼亚节点
-    type: url-test
-    use:
-      - ConfigForge
-    filter: '(?i)^\[RO\]'
-    url: https://cp.cloudflare.com/generate_204
-    interval: 300
-    tolerance: 50
   - name: 🇷🇺 俄罗斯节点
     type: url-test
     use:
@@ -192,7 +183,7 @@ proxy-groups:
     type: url-test
     use:
       - ConfigForge
-    filter: '(?i)^\[(AE|AT|AU|BR|BY|CA|CZ|ES|IN|IT|KR|KZ|NZ|PL|SE|UN|ZA)\]'
+    filter: '(?i)^\[(AE|AT|AU|BR|BY|CA|CY|CZ|ES|IN|IT|KR|KZ|NZ|PL|RO|SE|UN|ZA)\]'
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
