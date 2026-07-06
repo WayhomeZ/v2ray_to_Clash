@@ -23,8 +23,9 @@
 
 1. **订阅合并**：`scripts/convert.sh` 读取 `config/source.txt`，用 `curl` 爬取节点并拼接，自动转换为 Base64 格式。
 2. **Subconverter 转换**：启动本地 Python HTTP 服务器并拉起 `metacubex/subconverter` 容器，生成 Clash 基础配置。
-3. **YAML 净化（核心修改点）**：通过内嵌的 Python 代码修复各种 Subconverter 导出的格式 Bug，并对节点数据进行过滤。
-4. **发布发布**：`scripts/publish.sh` 将清理好的节点池拼装为 `config.yaml`（Proxy-Provider 模式），由 GitHub Actions 部署至 GitHub Pages。
+3. **YAML 净化（核心修改点）**：通过内嵌的 Python 代码修复各种 Subconverter 导出的格式 Bug，并对节点数据进行过滤；在写入最终文件前，对所有节点的 `ws-opts.path` 与 `alpn` 做最终清洗。
+4. **配置校验**：`scripts/validate.py` 在部署前检查生成产物，拦截仍存在的非法字段（如畸形 Path、非法 ALPN），校验失败时立即终止工作流。
+5. **发布部署**：`scripts/publish.sh` 将清理好的节点池拼装为 `config.yaml`（Proxy-Provider 模式），由 GitHub Actions 部署至 GitHub Pages。
 
 ---
 
@@ -130,6 +131,19 @@ Mihomo (Clash Meta) 内核的 YAML 解析器极其严格，任何单个节点的
 * **现象**：工作流运行在云端的最小化系统 `ubuntu-latest` 上，默认的 Python 环境不一定包含 `PyYAML`。
 * **开发约束**：
   * 任何在 `convert.sh` 中使用的 Python 第三方库，都必须在 `.github/workflows/update.yml` 中对应的转换步骤前进行预先安装（如使用 `sudo apt-get install -y python3-yaml`）。
+  * 新增校验脚本 `scripts/validate.py` 用于在提交部署前检测生成产物中的非法字段，工作流中必须在 `publish.sh` 之后、`git commit` 之前调用该脚本；本地修改后也应运行 `python3 scripts/validate.py` 做回归检查。
+
+### ⚠️ 约束 6：WebSocket Path 与 ALPN 字段清洗
+* **现象**：部分上游订阅源会下发 URL 编码或畸形的 `ws-opts.path`（如 `//assignment`、`/%2Fassignment`）以及非法的 `alpn`（如 `http%2F1.1`、`h3%2Ch2%2Chttp%2F1.1`、被截断的垃圾长串）。PyYAML 能正常加载，但 Mihomo 内核会拒绝这些值并导致整个配置导入失败。
+* **开发约束**：
+  * 在 `purify.py` 过滤完成后、写入文件前，必须调用 `sanitize_proxy_fields()` 对所有节点的 `ws-opts.path` 和 `alpn` 做最终清洗。
+  * `ws-opts.path` 必须 URL 解码、合并连续斜杠、确保以 `/` 开头；`alpn` 必须 URL 解码、按逗号拆分、仅保留 Mihomo 合法协议标识（`h2`、`h3`、`http/1.1`、`http/1.0`、`h2c`），非法时直接移除该字段。
+  * 禁止在清洗后回退到未处理的状态；新增节点字段校验逻辑时，应同步更新 `scripts/validate.py` 的校验规则。
+
+### ⚠️ 约束 7：Subconverter 与订阅源下载错误不可静默通过
+* **现象**：`curl -sL` 在 HTTP 非 200 时不会退出，可能把错误页面写入 `.yaml` 文件，导致后续净化和部署全部基于损坏数据。
+* **开发约束**：
+  * `scripts/convert.sh` 中对订阅源和 Subconverter 的 `curl` 调用必须检查 HTTP 状态码（`-f` 或 `-w "%{http_code}"`），非 200 时打印响应体并 `exit 1`，确保失败时工作流立即终止。
 
 ---
 

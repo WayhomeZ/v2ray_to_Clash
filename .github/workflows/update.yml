@@ -38,6 +38,9 @@ jobs:
       - name: Generate Dynamic Proxy Provider Config
         run: ./scripts/publish.sh
 
+      - name: Validate generated YAML files
+        run: python3 scripts/validate.py
+
       - name: Commit and Push changes
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"

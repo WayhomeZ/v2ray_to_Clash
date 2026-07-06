@@ -8,6 +8,10 @@ import ssl
 import yaml
 import maxminddb
 import json
+import urllib.parse
+
+# Valid ALPN protocol identifiers for Mihomo (TLS Application-Layer Protocol Negotiation)
+VALID_ALPN_PROTOCOLS = {'h2', 'h3', 'http/1.1', 'http/1.0', 'h2c'}
 
 COUNTRY_NAMES = {
     "HK": "香港", "TW": "台湾", "JP": "日本", "SG": "新加坡", "US": "美国",
@@ -145,6 +149,62 @@ def check_all_proxies_connectivity(proxies, max_workers=100):
             alive_proxies.append((p, ip))
             
     return alive_proxies
+
+def normalize_ws_path(path):
+    """Normalize WebSocket path: URL-decode, collapse slashes, ensure leading slash."""
+    if not isinstance(path, str):
+        return '/'
+    path = urllib.parse.unquote(path).strip()
+    if not path.startswith('/'):
+        path = '/' + path
+    # Collapse consecutive slashes while preserving the leading slash
+    path = re.sub(r'/+', '/', path)
+    return path if path else '/'
+
+
+def sanitize_alpn(alpn):
+    """Sanitize ALPN value(s): URL-decode, split comma-separated entries, keep only valid protocols."""
+    if alpn is None:
+        return None
+    if isinstance(alpn, str):
+        alpn = [alpn]
+    if not isinstance(alpn, list):
+        return None
+
+    cleaned = []
+    for item in alpn:
+        if not isinstance(item, str):
+            continue
+        item = urllib.parse.unquote(item)
+        for part in item.split(','):
+            part = part.strip()
+            if part in VALID_ALPN_PROTOCOLS:
+                cleaned.append(part)
+
+    # Remove duplicates while preserving order
+    seen = set()
+    unique = []
+    for val in cleaned:
+        if val not in seen:
+            seen.add(val)
+            unique.append(val)
+    return unique if unique else None
+
+
+def sanitize_proxy_fields(proxies):
+    """Apply field-level sanitization to each proxy node."""
+    for p in proxies:
+        ws_opts = p.get('ws-opts')
+        if isinstance(ws_opts, dict) and 'path' in ws_opts:
+            ws_opts['path'] = normalize_ws_path(ws_opts['path'])
+
+        if 'alpn' in p:
+            sanitized = sanitize_alpn(p['alpn'])
+            if sanitized is None:
+                p.pop('alpn', None)
+            else:
+                p['alpn'] = sanitized
+
 
 def purify_yaml(file_path, db_path):
     print(f"Purifying {file_path}...")
@@ -385,6 +445,10 @@ def purify_yaml(file_path, db_path):
     
     # Save the cleaned proxies
     config['proxies'] = l10_proxies
+
+    # Sanitize protocol-specific fields (URL-encoded paths, invalid ALPN values, etc.)
+    sanitize_proxy_fields(l10_proxies)
+
     valid_names_new = {p['name'] for p in l10_proxies}
     
     # Collect unique country codes from purified proxies with node counts

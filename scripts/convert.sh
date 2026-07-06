@@ -17,7 +17,10 @@ rm -f sub_tmp/merged.txt sub_tmp/merged_final.txt
 
 for u in "${URLS[@]}"; do
     echo "Fetching: $u"
-    curl -sL "$u" >> sub_tmp/merged.txt
+    if ! curl -sLf "$u" >> sub_tmp/merged.txt; then
+        echo "Error: Failed to fetch subscription URL: $u"
+        exit 1
+    fi
 done
 
 if grep -q "://" sub_tmp/merged.txt; then
@@ -46,11 +49,21 @@ LOCAL_URL="http://localhost:8080/merged_final.txt"
 ENCODED_URL=$(python3 -c "import urllib.parse; print(urllib.parse.quote('$LOCAL_URL'))")
 
 echo "Generating pure proxies list (Proxy Provider mode)..."
-curl -sL "http://localhost:25500/sub?target=clash&list=true&url=$ENCODED_URL" -o docs/proxies.yaml
+http_code=$(curl -sL -w "%{http_code}" -o docs/proxies.yaml "http://localhost:25500/sub?target=clash&list=true&url=$ENCODED_URL")
+if [ "$http_code" != "200" ]; then
+    echo "Error: Subconverter proxy-provider request failed with HTTP $http_code. Response body:"
+    cat docs/proxies.yaml
+    exit 1
+fi
 echo "docs/proxies.yaml generated."
 
 echo "Generating monolithic configuration..."
-curl -sL "http://localhost:25500/sub?target=clash&config=config/flclash.ini&url=$ENCODED_URL" -o docs/config_monolithic.yaml
+http_code=$(curl -sL -w "%{http_code}" -o docs/config_monolithic.yaml "http://localhost:25500/sub?target=clash&config=config/flclash.ini&url=$ENCODED_URL")
+if [ "$http_code" != "200" ]; then
+    echo "Error: Subconverter monolithic request failed with HTTP $http_code. Response body:"
+    cat docs/config_monolithic.yaml
+    exit 1
+fi
 echo "docs/config_monolithic.yaml generated."
 
 GEOIP_DB="config/GeoLite2-Country.mmdb"
