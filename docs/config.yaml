@@ -44,9 +44,9 @@ proxy-groups:
       - 🇫🇮 芬兰节点
       - 🇫🇷 法国节点
       - 🇬🇧 英国节点
-      - 🇮🇷 伊朗节点
       - 🇱🇹 立陶宛节点
       - 🇳🇱 荷兰节点
+      - 🇷🇴 罗马尼亚节点
       - 🇷🇺 俄罗斯节点
       - 🇸🇨 塞舌尔节点
       - 🌍 其他地区
@@ -130,14 +130,6 @@ proxy-groups:
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
-  - name: 🇮🇷 伊朗节点
-    type: url-test
-    use:
-      - ConfigForge
-    filter: '(?i)^\[IR\]'
-    url: https://cp.cloudflare.com/generate_204
-    interval: 300
-    tolerance: 50
   - name: 🇱🇹 立陶宛节点
     type: url-test
     use:
@@ -151,6 +143,14 @@ proxy-groups:
     use:
       - ConfigForge
     filter: '(?i)^\[NL\]'
+    url: https://cp.cloudflare.com/generate_204
+    interval: 300
+    tolerance: 50
+  - name: 🇷🇴 罗马尼亚节点
+    type: url-test
+    use:
+      - ConfigForge
+    filter: '(?i)^\[RO\]'
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
@@ -174,7 +174,7 @@ proxy-groups:
     type: url-test
     use:
       - ConfigForge
-    filter: '(?i)^\[(AE|AT|AU|BR|CA|CH|CY|CZ|ES|IN|IT|KR|KZ|NZ|PL|RO|SE|UN|ZA)\]'
+    filter: '(?i)^\[(AE|AT|AU|BR|BY|CA|CH|CY|CZ|ES|IN|IR|IT|KR|KZ|NZ|PL|SE|UN|ZA)\]'
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
