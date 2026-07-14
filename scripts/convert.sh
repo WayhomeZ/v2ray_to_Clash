@@ -21,7 +21,15 @@ for u in "${URLS[@]}"; do
         echo "Error: Failed to fetch subscription URL: $u"
         exit 1
     fi
+    echo "" >> sub_tmp/merged.txt
 done
+
+echo "Fetching additional nodes from vpn.freedom8964.com..."
+python3 scripts/fetch_freedom.py sub_tmp/freedom_nodes.txt || true
+if [ -s "sub_tmp/freedom_nodes.txt" ]; then
+    cat sub_tmp/freedom_nodes.txt >> sub_tmp/merged.txt
+    echo "" >> sub_tmp/merged.txt
+fi
 
 if grep -q "://" sub_tmp/merged.txt; then
     echo "Plaintext URIs detected! Base64 encoding..."
