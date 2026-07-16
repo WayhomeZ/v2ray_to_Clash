@@ -42,6 +42,7 @@ proxy-groups:
       - 🇺🇸 美国节点
       - 🇦🇺 澳大利亚节点
       - 🇩🇪 德国节点
+      - 🇫🇮 芬兰节点
       - 🇫🇷 法国节点
       - 🇬🇧 英国节点
       - 🇮🇪 爱尔兰节点
@@ -113,6 +114,14 @@ proxy-groups:
     use:
       - ConfigForge
     filter: '(?i)^\[DE\]'
+    url: https://cp.cloudflare.com/generate_204
+    interval: 300
+    tolerance: 50
+  - name: 🇫🇮 芬兰节点
+    type: url-test
+    use:
+      - ConfigForge
+    filter: '(?i)^\[FI\]'
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
@@ -192,7 +201,7 @@ proxy-groups:
     type: url-test
     use:
       - ConfigForge
-    filter: '(?i)^\[(AT|BE|CH|CZ|ES|FI|GE|IN|IR|IT|KZ|LT|LV|NO|NZ|PH|RO|TR|UN|ZA)\]'
+    filter: '(?i)^\[(AT|BE|CH|CZ|EE|ES|GE|IN|IR|KZ|LT|LV|NO|NZ|PH|RO|TR|UN|ZA)\]'
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
