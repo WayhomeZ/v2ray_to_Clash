@@ -1232,12 +1232,6 @@ proxies:
   type: ss
   cipher: chacha20-ietf-poly1305
   password: hbGrpfvNrJsUmKmPbR3iY2
-- name: '[DE] ️ ShatakVPN 559499'
-  server: "57.129.121.230"
-  port: 10443
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: uROuEqsL8IUMMVb4wDwnGU
 - name: '[FI] ️ ShatakVPN 758521'
   server: "31.76.80.205"
   port: 8388
@@ -1336,12 +1330,6 @@ proxies:
   type: ss
   cipher: chacha20-ietf-poly1305
   password: 7SEstdmLhf-aFK_G9eaYHKT_YpSov58B
-- name: '[GB] ️ ShatakVPN 840326'
-  server: "194.164.92.198"
-  port: 1234
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: zz0dHjDfoaSaZuRFLGH-hNfBALSEJUYD
 - name: '[ZA] ️ ShatakVPN 950928'
   server: "102.37.156.224"
   port: 443
@@ -1366,6 +1354,12 @@ proxies:
   type: ss
   cipher: chacha20-ietf-poly1305
   password: k1dBOmOB4oqi7Ump37a1bQ
+- name: '[GB] ️ ShatakVPN 304711'
+  server: "82.38.31.193"
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
 - name: '[GB] ️ ShatakVPN 714736'
   server: "82.38.31.198"
   port: 8080
@@ -1386,6 +1380,18 @@ proxies:
   password: k1dBOmOB4oqi7Ump37a1bQ
 - name: '[GB] ️ ShatakVPN 531385'
   server: "82.38.31.185"
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: '[GB] ️ ShatakVPN 743627'
+  server: "82.38.31.204"
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: '[GB] ️ ShatakVPN 871748'
+  server: "82.38.31.205"
   port: 8080
   type: ss
   cipher: chacha20-ietf-poly1305
@@ -4850,6 +4856,19 @@ proxies:
     headers:
       Host: nrfiqiut.vmimv9k58ynejo2errhz.workers.dev
   skip-cert-verify: false
+- name: '[IT] ️ ShatakVPN 955305'
+  server: "31.77.201.85"
+  port: 443
+  type: vless
+  tls: true
+  uuid: 16ad976d-b5df-4b4e-87b6-87cc64ac0a8b
+  servername: ag-03.rita-cloud.com
+  host: ag-03.rita-cloud.com
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: yLDI5Qjzn4AHlXVDEXNVcLKAdr_dFeJ3p4eAScGkQjA
+    short-id: 0b0aa9caed9d011e
+  client-fingerprint: random
 - name: '[AT] ️ ShatakVPN 531182'
   server: "152.53.0.209"
   port: 443
@@ -5065,6 +5084,18 @@ proxies:
     public-key: A1Qf_rMG4KDfLzfCK-M5R9qW_0uThfeSosQnv6LBL1M
     short-id: 8433cb66b6c3ab6d
   client-fingerprint: random
+- name: '[DE] ️ ShatakVPN 514403'
+  server: "23.26.37.119"
+  port: 8443
+  type: vless
+  tls: true
+  uuid: dcba77d7-bb59-4802-b32c-37fd7011fca4
+  servername: google.com
+  host: google.com
+  reality-opts:
+    public-key: upDCW94g-pSYQrmXvOrTVYlwBUrSKhYFF9QwrqObdVo
+    short-id: 3ca620a7ed5f3196
+  client-fingerprint: random
 - name: '[FI] ️ ShatakVPN 366474'
   server: "144.31.27.179"
   port: 443
@@ -5103,6 +5134,16 @@ proxies:
     path: /@Marisa_kristi
     headers:
       Host: 8n9qi6t-owl.gevc9s4n60cc3wzcmwhjyezydpmbchocxp.workers.dev
+- name: '[FR] ️ ShatakVPN 536277'
+  server: "31.56.146.93"
+  port: 8443
+  type: vless
+  tls: true
+  uuid: ff3e10a8-2a5c-4792-a14e-20fd11b1bed9
+  servername: tradingview.com
+  host: tradingview.com
+  path: /
+  flow: xtls-rprx-vision
 - name: '[GE] ️ ShatakVPN 612483'
   server: "2.27.26.197"
   port: 443
@@ -5145,21 +5186,6 @@ proxies:
   reality-opts:
     public-key: ibignrnL_bVupAb4hFM939eT22FtlzPvc1FZY_FDwnw
     short-id: 5e3ab3ab228625
-  client-fingerprint: random
-- name: '[RU] ️ ShatakVPN 205220'
-  server: "87.228.124.242"
-  port: 443
-  type: vless
-  tls: true
-  uuid: 147d6f41-b369-4e5f-86f0-1ca6f6483825
-  servername: ru.polyarhub.com
-  network: grpc
-  grpc-opts:
-    grpc-mode: gun
-    grpc-service-name: ''
-  reality-opts:
-    public-key: cByTcSybJYS5iSvLiepXqhSoMhBgWdeiX2PjxpqLvR4
-    short-id: 11e0631ac2dfc7fa
   client-fingerprint: random
 - name: '[RU] ️ ShatakVPN 437473'
   server: "92.53.64.241"
@@ -5377,66 +5403,6 @@ proxies:
   servername: speed.cloudflare.com
   host: speed.cloudflare.com
   flow: xtls-rprx-vision
-- name: '[SE] ️ ShatakVPN 704145'
-  server: "213.67.127.240"
-  port: 1000
-  type: vless
-  tls: true
-  uuid: 5ae768bf-2ea0-22d2-eade-6763e14dc745
-  servername: knox.cdn-apple.com
-  host: knox.cdn-apple.com
-  reality-opts:
-    public-key: ECxm-BdHYhxYK9MtN33NkkrFSdFZXp-OB-yhN8AleRY
-    short-id: a62d513cd709744a
-  client-fingerprint: random
-- name: '[SE] ️ ShatakVPN 940783'
-  server: "213.67.127.240"
-  port: 1001
-  type: vless
-  tls: true
-  uuid: 5ae768bf-2ea0-22d2-eade-6763e14dc745
-  servername: knox.cdn-apple.com
-  host: knox.cdn-apple.com
-  reality-opts:
-    public-key: ECxm-BdHYhxYK9MtN33NkkrFSdFZXp-OB-yhN8AleRY
-    short-id: a62d513cd709744a
-  client-fingerprint: random
-- name: '[SE] ️ ShatakVPN 443252'
-  server: "213.67.127.240"
-  port: 1003
-  type: vless
-  tls: true
-  uuid: 5ae768bf-2ea0-22d2-eade-6763e14dc745
-  servername: knox.cdn-apple.com
-  host: knox.cdn-apple.com
-  reality-opts:
-    public-key: ECxm-BdHYhxYK9MtN33NkkrFSdFZXp-OB-yhN8AleRY
-    short-id: a62d513cd709744a
-  client-fingerprint: random
-- name: '[SE] ️ ShatakVPN 226119'
-  server: "213.67.127.240"
-  port: 1004
-  type: vless
-  tls: true
-  uuid: 5ae768bf-2ea0-22d2-eade-6763e14dc745
-  servername: knox.cdn-apple.com
-  host: knox.cdn-apple.com
-  reality-opts:
-    public-key: ECxm-BdHYhxYK9MtN33NkkrFSdFZXp-OB-yhN8AleRY
-    short-id: a62d513cd709744a
-  client-fingerprint: random
-- name: '[SE] ️ ShatakVPN 302668'
-  server: "213.67.127.240"
-  port: 1006
-  type: vless
-  tls: true
-  uuid: 5ae768bf-2ea0-22d2-eade-6763e14dc745
-  servername: knox.cdn-apple.com
-  host: knox.cdn-apple.com
-  reality-opts:
-    public-key: ECxm-BdHYhxYK9MtN33NkkrFSdFZXp-OB-yhN8AleRY
-    short-id: a62d513cd709744a
-  client-fingerprint: random
 - name: '[RU] ️ ShatakVPN 316580'
   server: "212.193.153.93"
   port: 443
