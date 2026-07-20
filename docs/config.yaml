@@ -41,7 +41,6 @@ proxy-groups:
       - 🇸🇬 狮城节点
       - 🇺🇸 美国节点
       - 🇦🇺 澳大利亚节点
-      - 🇨🇭 瑞士节点
       - 🇩🇪 德国节点
       - 🇫🇮 芬兰节点
       - 🇫🇷 法国节点
@@ -105,14 +104,6 @@ proxy-groups:
     use:
       - ConfigForge
     filter: '(?i)^\[AU\]'
-    url: https://cp.cloudflare.com/generate_204
-    interval: 300
-    tolerance: 50
-  - name: 🇨🇭 瑞士节点
-    type: url-test
-    use:
-      - ConfigForge
-    filter: '(?i)^\[CH\]'
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
@@ -192,7 +183,7 @@ proxy-groups:
     type: url-test
     use:
       - ConfigForge
-    filter: '(?i)^\[(AT|BG|CZ|EE|ES|GE|IN|IR|IT|KR|KZ|LT|LV|NO|NZ|SE|UN|ZA)\]'
+    filter: '(?i)^\[(AE|AT|CH|CZ|EE|ES|GE|IN|IR|IT|KR|KZ|LT|NO|NZ|SE|UN|ZA)\]'
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
