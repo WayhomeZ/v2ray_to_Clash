@@ -552,12 +552,6 @@ proxies:
   type: ss
   cipher: chacha20-ietf-poly1305
   password: RSo52SbxW40r
-- name: '[RU] ️ ShatakVPN 503510'
-  server: "157.22.240.141"
-  port: 57925
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: FXpDf7WV6lfD6n9hpz7HF2
 - name: '[NL] ️ ShatakVPN 141406'
   server: "213.109.147.242"
   port: 62685
@@ -3051,19 +3045,6 @@ proxies:
     path: /yt
     headers:
       Host: 31-76-252-48.sslip.io
-- name: '[NL] ️ ShatakVPN 808488'
-  server: "138.124.52.85"
-  port: 443
-  type: vless
-  tls: true
-  uuid: 09a4bf7f-f997-4174-8bef-9fab75aa186e
-  servername: www.google.com
-  host: www.google.com
-  flow: xtls-rprx-vision
-  reality-opts:
-    public-key: K7v4Rsxa-9lBsD_IQrzXREfIME_bFmwELHQAE3Yp1ng
-    short-id: b9988c11
-  client-fingerprint: random
 - name: '[DE] ️ ShatakVPN 902006'
   server: "168.222.244.66"
   port: 10277
@@ -3331,18 +3312,20 @@ proxies:
   servername: qq.utiltools.ru
   host: qq.utiltools.ru
   flow: xtls-rprx-vision
-- name: '[SC] ️ ShatakVPN 908993'
-  server: "45.196.201.228"
+- name: '[RU] ️ ShatakVPN 162151'
+  server: "91.185.83.102"
   port: 443
   type: vless
   tls: true
-  uuid: f75814f6-8f81-4847-b792-168c41f2dc85
-  servername: storage.yandex.net
-  host: storage.yandex.net
-  flow: xtls-rprx-vision
+  uuid: a0663bdb-8109-4ccf-a8a6-0720f788f00b
+  servername: nixos.ubuntuhosting.host
+  network: grpc
+  grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: gun
   reality-opts:
-    public-key: zii4nGNapnFKL6SN8GzWNqFlElBvUCUFUThEP0kFH04
-    short-id: c6ef72e4635d15a5
+    public-key: cfP-aGpMV6o0n3Iwee_K8viWBvvr_qbOUTE-KkFnplg
+    short-id: 697feaa9
   client-fingerprint: random
 - name: '[US] ️ ShatakVPN 916200'
   server: "147.182.212.232"
@@ -3352,15 +3335,6 @@ proxies:
   uuid: 7b188eea-b08f-42c2-bac7-d3b0e74218b8
   servername: www.paypal.com
   host: www.paypal.com
-  flow: xtls-rprx-vision
-- name: '[US] ️ ShatakVPN 188022'
-  server: "137.184.218.169"
-  port: 36925
-  type: vless
-  tls: true
-  uuid: c9fd0fb1-8251-4106-b09a-f4b426736f67
-  servername: www.cloudflare.com
-  host: www.cloudflare.com
   flow: xtls-rprx-vision
 - name: '[US] ️ ShatakVPN 848297'
   server: "47.253.226.114"
@@ -4684,6 +4658,20 @@ proxies:
     headers:
       Host: vangoghhh.info
   skip-cert-verify: false
+- name: '[RU] ️ ShatakVPN 323499'
+  server: "195.209.90.4"
+  port: 443
+  type: vless
+  tls: true
+  uuid: 20e63d05-39d0-4890-9ee4-08e2001870b5
+  servername: s81381.cdn.ngenix.net
+  alpn:
+  - http/1.1
+  network: ws
+  ws-opts:
+    path: /v1/data/sync/
+    headers:
+      Host: s81381.cdn.ngenix.net
 - name: '[NL] ️ ShatakVPN 993087'
   server: "82.23.163.53"
   port: 443
@@ -5060,21 +5048,20 @@ proxies:
     grpc-mode: gun
     grpc-service-name: grpc
   skip-cert-verify: false
-- name: '[RU] ️ ShatakVPN 615689'
-  server: "5.188.140.216"
-  port: 2053
+- name: '[RU] ️ ShatakVPN 177274'
+  server: "195.209.86.193"
+  port: 443
   type: vless
   tls: true
-  uuid: b8a4fa04-8535-11f1-9ca5-1e6febe3e1df
-  servername: hh.ru
-  network: grpc
-  grpc-opts:
-    grpc-mode: gun
-    grpc-service-name: grpc-direct
-  reality-opts:
-    public-key: WUY8Lb4LfUUKLzZK3oSlRAdoy-Iu0w3Ait1-jtxbW1M
-    short-id: 7824dfd19eab1acc
-  client-fingerprint: random
+  uuid: b37d4719-2e78-47ad-ab0b-2dddca174c51
+  servername: s81381.cdn.ngenix.net
+  alpn:
+  - http/1.1
+  network: ws
+  ws-opts:
+    path: /v1/data/sync/
+    headers:
+      Host: s81381.cdn.ngenix.net
 - name: '[NO] ️ ShatakVPN 677790'
   server: "195.16.73.202"
   port: 443
@@ -5101,21 +5088,6 @@ proxies:
     public-key: 7wLv5M4GZGhqMAGVj9zdHyW-RrSRdrYAu1Aaqa8N1nY
     short-id: 9d84de9d9f7b85e9
   client-fingerprint: random
-- name: '[RU] ️ ShatakVPN 763792'
-  server: "194.55.239.250"
-  port: 443
-  type: vless
-  tls: true
-  uuid: c060c5d8-e456-4ea1-8918-ae05749f5e93
-  servername: yastatic.ru
-  network: grpc
-  grpc-opts:
-    grpc-mode: gun
-    grpc-service-name: grpc
-  reality-opts:
-    public-key: 3yWaaf1TBj82g8QIzmvegzMto2XFcsK6MHdeddBrE0Q
-    short-id: fe8d18da
-  client-fingerprint: random
 - name: '[UN] ️ ShatakVPN 882896'
   server: "104.16.158.255"
   port: 443
@@ -5139,21 +5111,6 @@ proxies:
   reality-opts:
     public-key: fjPED4_A_EQrL8PAuBUi9ChoNbY2OC4mUl7r8zaLoxo
     short-id: 05fdaa8a05be46a9
-  client-fingerprint: random
-- name: '[RU] ️ ShatakVPN 480705'
-  server: "194.55.239.250"
-  port: 443
-  type: vless
-  tls: true
-  uuid: da03dec8-0e02-4986-806d-364b64cec8f0
-  servername: yastatic.ru
-  network: grpc
-  grpc-opts:
-    grpc-mode: multi
-    grpc-service-name: grpc
-  reality-opts:
-    public-key: 3yWaaf1TBj82g8QIzmvegzMto2XFcsK6MHdeddBrE0Q
-    short-id: fffc6099
   client-fingerprint: random
 - name: '[TR] ️ ShatakVPN 634916'
   server: "64.49.15.67"
@@ -5289,19 +5246,6 @@ proxies:
     path: /melov2ray/melov2ray/melov2ray/melov2ray/melov2ray
     headers:
       Host: speedtestcustom.com
-- name: '[SC] ️ ShatakVPN 120439'
-  server: "45.196.201.45"
-  port: 443
-  type: vless
-  tls: true
-  uuid: f75814f6-8f81-4847-b792-168c41f2dc85
-  servername: storage.yandex.net
-  host: storage.yandex.net
-  flow: xtls-rprx-vision
-  reality-opts:
-    public-key: zii4nGNapnFKL6SN8GzWNqFlElBvUCUFUThEP0kFH04
-    short-id: c6ef72e4635d15a5
-  client-fingerprint: random
 - name: '[DE] ️ ShatakVPN 422312'
   server: "91.107.145.13"
   port: 443
@@ -6441,18 +6385,6 @@ proxies:
   type: trojan
   password: ON38567014
   sni: dynamic-grubworm.rooster465.autos
-- name: '[HK] ️ ShatakVPN 684154'
-  server: "203.218.68.110"
-  port: 19128
-  type: trojan
-  password: OccIqeORGQwiNkwS
-  sni: yazhou10.dynu.net
-- name: '[HK] ️ ShatakVPN 823429'
-  server: "1.64.123.128"
-  port: 19128
-  type: trojan
-  password: OccIqeORGQwiNkwS
-  sni: yazhou10.dynu.net
 - name: '[DE] ️ ShatakVPN 858550'
   server: "18.195.11.206"
   port: 443
