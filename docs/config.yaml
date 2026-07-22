@@ -43,7 +43,6 @@ proxy-groups:
       - 🇦🇺 澳大利亚节点
       - 🇩🇪 德国节点
       - 🇫🇷 法国节点
-      - 🇬🇧 英国节点
       - 🇮🇪 爱尔兰节点
       - 🇰🇷 韩国节点
       - 🇳🇱 荷兰节点
@@ -123,14 +122,6 @@ proxy-groups:
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
-  - name: 🇬🇧 英国节点
-    type: url-test
-    use:
-      - ConfigForge
-    filter: '(?i)^\[GB\]'
-    url: https://cp.cloudflare.com/generate_204
-    interval: 300
-    tolerance: 50
   - name: 🇮🇪 爱尔兰节点
     type: url-test
     use:
@@ -183,7 +174,7 @@ proxy-groups:
     type: url-test
     use:
       - ConfigForge
-    filter: '(?i)^\[(AT|BG|BY|CH|ES|FI|IN|IR|IT|KZ|LT|LV|NO|NZ|TR|UN|ZA)\]'
+    filter: '(?i)^\[(AT|BG|BY|CH|ES|FI|GB|IN|IR|IT|KZ|LT|NO|NZ|UN|ZA)\]'
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
