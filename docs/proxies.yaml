@@ -1012,12 +1012,6 @@ proxies:
   type: ss
   cipher: chacha20-ietf-poly1305
   password: XF0klw7870vXn3uQIxe19Q
-- name: '[IN] ️ ShatakVPN 386002'
-  server: "103.111.114.82"
-  port: 28061
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: WOir3lXBhMHDcLFPQdEZXPu37_pTQDCXfm
 - name: '[AU] ️ ShatakVPN 512826'
   server: "104.156.233.234"
   port: 27116
@@ -1044,18 +1038,6 @@ proxies:
   password: k1dBOmOB4oqi7Ump37a1bQ
 - name: '[GB] ️ ShatakVPN 623097'
   server: "82.38.31.182"
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-- name: '[GB] ️ ShatakVPN 203839'
-  server: "82.38.31.192"
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-- name: '[GB] ️ ShatakVPN 974313'
-  server: "82.38.31.193"
   port: 8080
   type: ss
   cipher: chacha20-ietf-poly1305
@@ -1352,6 +1334,13 @@ proxies:
   ports: 443
   password: 68b4b16e-2759-47a4-8a69-33118edf5ce6
   sni: nederland.gamestocke.ru
+- name: '[NL] ️ ShatakVPN 625715'
+  server: "144.31.224.81"
+  port: 443
+  type: hysteria2
+  ports: 443
+  password: 042a1881-44e4-4781-bd40-bf75164faf4f
+  sni: nland1.noesissite.ru
 - name: '[DE] ️ ShatakVPN 969547'
   server: "178.215.238.30"
   port: 443
@@ -4188,6 +4177,18 @@ proxies:
     public-key: OncWhxWwzrKOFH21JT9WxcenacQuc7ZmuQy_rZFJ8xg
     short-id: c6e19c434dc87df7
   client-fingerprint: random
+- name: '[DE] ️ ShatakVPN 555456'
+  server: "178.105.111.169"
+  port: 443
+  type: vless
+  tls: true
+  uuid: 38df5518-26c5-449b-98d9-a4f456f5f689
+  servername: login.yahoo.com
+  host: login.yahoo.com
+  reality-opts:
+    public-key: OncWhxWwzrKOFH21JT9WxcenacQuc7ZmuQy_rZFJ8xg
+    short-id: c6e19c434dc87df7
+  client-fingerprint: random
 - name: '[DE] ️ ShatakVPN 280639'
   server: "178.104.119.103"
   port: 443
@@ -4323,6 +4324,15 @@ proxies:
     public-key: OncWhxWwzrKOFH21JT9WxcenacQuc7ZmuQy_rZFJ8xg
     short-id: c6e19c434dc87df7
   client-fingerprint: random
+- name: '[RU] ️ ShatakVPN 737582'
+  server: "45.131.212.6"
+  port: 443
+  type: vless
+  tls: true
+  uuid: 2a77a470-315c-493d-b690-59b814a804cb
+  servername: abuse.sellflow.org
+  host: abuse.sellflow.org
+  flow: xtls-rprx-vision
 - name: '[FR] ️ ShatakVPN 736442'
   server: "83.150.217.197"
   port: 443
@@ -4503,32 +4513,31 @@ proxies:
     headers:
       Host: nrfiqiut.vmimv9k58ynejo2errhz.workers.dev
   skip-cert-verify: false
-- name: '[RU] ️ ShatakVPN 364782'
-  server: "104.171.131.174"
+- name: '[NL] ️ ShatakVPN 788216'
+  server: "130.49.185.196"
   port: 443
   type: vless
   tls: true
-  uuid: 9faf2a1c-c074-4770-81f7-0563d8839e95
-  servername: zop01k8wp7.medved.app
-  alpn:
-  - h2
-  - http/1.1
-  host: zop01k8wp7.medved.app
+  uuid: e3c56988-5261-400f-b21b-6af5fa6efae1
+  servername: site.rumedia-cdn.com
+  host: site.rumedia-cdn.com
   flow: xtls-rprx-vision
-- name: '[RU] ️ ShatakVPN 288284'
-  server: "5.189.223.90"
-  port: 9891
+  reality-opts:
+    public-key: 4ndg8TcyXMWmnEvthjh9mIWJ9mc85jzy_G9D4D5xGxM
+    short-id: 808a7e8a2e32c697
+  client-fingerprint: random
+- name: '[SE] ️ ShatakVPN 844183'
+  server: "130.17.1.19"
+  port: 443
   type: vless
   tls: true
-  uuid: 884d811f-577b-421e-aabb-608660b0ecfa
-  servername: dl.google.com
-  network: grpc
-  grpc-opts:
-    grpc-mode: gun
-    grpc-service-name: grpc-tunnel
+  uuid: 06d44c57-8e1a-41f4-b9c4-65d35869e078
+  servername: swe06.myxasecure.space
+  host: swe06.myxasecure.space
+  flow: xtls-rprx-vision
   reality-opts:
-    public-key: Dfgu8Ey0M8Hz4gXGZAwQ3H9jLt2HByVsjAOTWiuKDB0
-    short-id: aa
+    public-key: OCLtjVdRxsou3429LRfjkDYgiAPs24TSgSeFZpChCEw
+    short-id: d67ec5a8fc40ebea
   client-fingerprint: random
 - name: '[FI] ️ ShatakVPN 752381'
   server: "144.31.27.179"
@@ -4552,6 +4561,30 @@ proxies:
   servername: www.icloud.com
   host: www.icloud.com
   flow: xtls-rprx-vision
+- name: '[RU] ️ ShatakVPN 850868'
+  server: "94.139.251.191"
+  port: 443
+  type: vless
+  tls: true
+  uuid: 64b6f905-94d5-4745-8f92-cafa107b7c16
+  servername: apple.com
+  host: apple.com
+  flow: xtls-rprx-vision
+- name: '[RU] ️ ShatakVPN 530468'
+  server: "45.151.62.156"
+  port: 443
+  type: vless
+  tls: true
+  uuid: 218fd696-e3a2-4c33-b397-a5f13a82969e
+  servername: dogs.abvphelp.cc
+  network: grpc
+  grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: grpc
+  reality-opts:
+    public-key: aBs0x09cXtjTpsrGb21cJsEmDsaCaC1RPeutNu404V0
+    short-id: 6fa13cdb
+  client-fingerprint: random
 - name: '[RU] ️ ShatakVPN 822078'
   server: "85.208.85.227"
   port: 9879
@@ -4598,14 +4631,14 @@ proxies:
   servername: www.cloudflare.com
   host: www.cloudflare.com
   flow: xtls-rprx-vision
-- name: '[US] ️ ShatakVPN 108851'
-  server: "47.253.226.114"
-  port: 443
+- name: '[US] ️ ShatakVPN 265199'
+  server: "159.89.87.21"
+  port: 28190
   type: vless
   tls: true
-  uuid: 055a1ce8-2a16-4a0d-a2c2-22826c9b2413
-  servername: www.cloudflare.com
-  host: www.cloudflare.com
+  uuid: 14c80e0e-f7ce-4991-94fc-99a1db4a9b1e
+  servername: aws.amazon.com
+  host: aws.amazon.com
   flow: xtls-rprx-vision
 - name: '[RU] ️ ShatakVPN 649417'
   server: "5.188.115.69"
@@ -4641,6 +4674,20 @@ proxies:
   type: vless
   tls: true
   uuid: a792d449-8461-4107-a6a4-235654ec8041
+  servername: amogus.razkur.dev
+  alpn:
+  - http/1.1
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: amogus.razkur.dev
+- name: '[RU] ️ ShatakVPN 500742'
+  server: "5.188.115.69"
+  port: 443
+  type: vless
+  tls: true
+  uuid: aacdfb76-4d73-42b2-aef2-59f15b852df7
   servername: amogus.razkur.dev
   alpn:
   - http/1.1
@@ -6274,6 +6321,11 @@ proxies:
   type: trojan
   password: ba07a8af-5544-48ac-ab62-3b6c00a44fa6
   sni: hk.catxstar.com
+- name: '[DE] ️ ShatakVPN 343665'
+  server: "91.107.139.186"
+  port: 30879
+  type: trojan
+  password: h1j3H7aFfh1kKPjusgOBfj2kWDelatQDAMWl3ayMioM%3D
 - name: '[US] ️ ShatakVPN 270863'
   server: "157.254.38.210"
   port: 20085
@@ -6316,12 +6368,6 @@ proxies:
   type: trojan
   password: FC60532879
   skip-cert-verify: true
-- name: '[PL] ️ ShatakVPN 143320'
-  server: "62.112.222.151"
-  port: 443
-  type: trojan
-  password: CF68213490
-  sni: emerging-weevil.rooster465.autos
 - name: '[SG] ️ ShatakVPN 543260'
   server: "81.28.13.211"
   port: 443
@@ -6341,12 +6387,6 @@ proxies:
   type: trojan
   password: IQ68037294
   sni: firm-warthog.rooster465.autos
-- name: '[PL] ️ ShatakVPN 883499'
-  server: "62.112.222.145"
-  port: 443
-  type: trojan
-  password: IQ68037294
-  sni: patient-gannet.rooster465.autos
 - name: '[SG] ️ ShatakVPN 542614'
   server: "45.135.228.211"
   port: 443
@@ -6380,18 +6420,6 @@ proxies:
   password: IQ68037294
   sni: adjusted-labrador.rooster465.autos
   skip-cert-verify: true
-- name: '[PL] ️ ShatakVPN 545837'
-  server: "62.112.222.27"
-  port: 443
-  type: trojan
-  password: IQ68037294
-  sni: optimal-urchin.rooster465.autos
-- name: '[PL] ️ ShatakVPN 751113'
-  server: "62.112.222.60"
-  port: 443
-  type: trojan
-  password: IQ68037294
-  sni: dear-ferret.rooster465.autos
 - name: '[KR] ️ ShatakVPN 790455'
   server: "109.61.127.28"
   port: 443
@@ -6412,11 +6440,6 @@ proxies:
   skip-cert-verify: false
 - name: '[SG] ️ ShatakVPN 502977'
   server: "91.243.81.129"
-  port: 443
-  type: trojan
-  password: IQ68037294
-- name: '[NL] ️ ShatakVPN 779138'
-  server: "79.133.126.108"
   port: 443
   type: trojan
   password: IQ68037294
@@ -6534,12 +6557,6 @@ proxies:
   type: trojan
   password: JT80563429
   skip-cert-verify: true
-- name: '[PL] ️ ShatakVPN 934361'
-  server: "62.112.222.212"
-  port: 443
-  type: trojan
-  password: KV63147582
-  sni: more-trout.rooster465.autos
 - name: '[KR] ️ ShatakVPN 370300'
   server: "82.117.226.76"
   port: 443
@@ -6565,19 +6582,6 @@ proxies:
   type: trojan
   password: JA96378052
   skip-cert-verify: true
-- name: '[PL] ️ ShatakVPN 847385'
-  server: "62.112.222.46"
-  port: 443
-  type: trojan
-  password: KV63147582
-  sni: legible-possum.rooster465.autos
-- name: '[NL] ️ ShatakVPN 914998'
-  server: "89.39.70.233"
-  port: 443
-  type: trojan
-  password: KV63147582
-  sni: game-firefly.rooster465.autos
-  skip-cert-verify: false
 - name: '[AU] ️ ShatakVPN 325695'
   server: "87.121.33.158"
   port: 443
@@ -6597,12 +6601,6 @@ proxies:
   type: trojan
   password: NQ26071394
   sni: lucky-marmot.rooster465.autos
-- name: '[NL] ️ ShatakVPN 992828'
-  server: "79.133.126.190"
-  port: 443
-  type: trojan
-  password: NQ26071394
-  sni: renewed-phoenix.rooster465.autos
 - name: '[FR] ️ ShatakVPN 756320'
   server: "13.38.35.46"
   port: 443
@@ -6629,11 +6627,6 @@ proxies:
   type: trojan
   password: PD07395842
   sni: united-bedbug.rooster465.autos
-- name: '[NL] ️ ShatakVPN 239611'
-  server: "193.169.239.198"
-  port: 443
-  type: trojan
-  password: PD07395842
 - name: '[FR] ️ ShatakVPN 800026'
   server: "13.39.195.215"
   port: 443
@@ -6656,12 +6649,6 @@ proxies:
   port: 443
   type: trojan
   password: WG39087154
-- name: '[NL] ️ ShatakVPN 428287'
-  server: "193.169.239.76"
-  port: 443
-  type: trojan
-  password: XG59623478
-  sni: renewed-chigger.rooster465.autos
 - name: '[SG] ️ ShatakVPN 665532'
   server: "91.243.81.211"
   port: 443
@@ -6781,12 +6768,6 @@ proxies:
   type: trojan
   password: FC60532879
   sni: moral-dolphin.rooster465.autos
-- name: '[NL] ️ ShatakVPN 781338'
-  server: "193.169.239.198"
-  port: 443
-  type: trojan
-  password: FC60532879
-  sni: present-warthog.rooster465.autos
 - name: '[FR] ️ ShatakVPN 935690'
   server: "35.180.10.212"
   port: 443
@@ -6853,30 +6834,6 @@ proxies:
   type: trojan
   password: FC60532879
   sni: immune-earwig.rooster465.autos
-- name: '[PL] ️ ShatakVPN 475307'
-  server: "62.112.222.27"
-  port: 443
-  type: trojan
-  password: FC60532879
-  sni: optimal-urchin.rooster465.autos
-- name: '[PL] ️ ShatakVPN 542866'
-  server: "62.112.222.46"
-  port: 443
-  type: trojan
-  password: FC60532879
-  sni: legible-possum.rooster465.autos
-- name: '[PL] ️ ShatakVPN 926803'
-  server: "62.112.222.60"
-  port: 443
-  type: trojan
-  password: FC60532879
-  sni: dear-ferret.rooster465.autos
-- name: '[NL] ️ ShatakVPN 362080'
-  server: "79.133.126.108"
-  port: 443
-  type: trojan
-  password: FC60532879
-  sni: cheerful-swan.rooster465.autos
 - name: '[SG] ️ ShatakVPN 707926'
   server: "81.28.13.103"
   port: 443
@@ -6979,12 +6936,6 @@ proxies:
   type: trojan
   password: FC60532879
   sni: flowing-gobbler.rooster465.autos
-- name: '[NL] ️ ShatakVPN 331528'
-  server: "89.39.70.233"
-  port: 443
-  type: trojan
-  password: FC60532879
-  sni: game-firefly.rooster465.autos
 - name: '[HK] ️ ShatakVPN 791431'
   server: "91.199.84.224"
   port: 443
@@ -7255,12 +7206,6 @@ proxies:
   type: trojan
   password: IQ68037294
   sni: one-quail.rooster465.autos
-- name: '[NL] ️ ShatakVPN 999193'
-  server: "193.169.239.198"
-  port: 443
-  type: trojan
-  password: IQ68037294
-  sni: present-warthog.rooster465.autos
 - name: '[FR] ️ ShatakVPN 746263'
   server: "35.181.65.111"
   port: 443
@@ -7309,18 +7254,6 @@ proxies:
   type: trojan
   password: IQ68037294
   sni: helpful-possum.rooster465.autos
-- name: '[PL] ️ ShatakVPN 111792'
-  server: "62.112.222.151"
-  port: 443
-  type: trojan
-  password: IQ68037294
-  sni: emerging-weevil.rooster465.autos
-- name: '[PL] ️ ShatakVPN 299303'
-  server: "62.112.222.212"
-  port: 443
-  type: trojan
-  password: IQ68037294
-  sni: more-trout.rooster465.autos
 - name: '[SG] ️ ShatakVPN 937261'
   server: "81.28.13.225"
   port: 443
@@ -7536,12 +7469,6 @@ proxies:
   type: trojan
   password: JT80563429
   sni: champion-alien.rooster465.autos
-- name: '[NL] ️ ShatakVPN 651841'
-  server: "79.133.126.108"
-  port: 443
-  type: trojan
-  password: JT80563429
-  sni: cheerful-swan.rooster465.autos
 - name: '[AU] ️ ShatakVPN 820166'
   server: "87.121.33.19"
   port: 443
@@ -7608,12 +7535,6 @@ proxies:
   type: trojan
   password: JT80563429
   sni: electric-rhino.rooster465.autos
-- name: '[PL] ️ ShatakVPN 681494'
-  server: "62.112.222.151"
-  port: 443
-  type: trojan
-  password: JT80563429
-  sni: emerging-weevil.rooster465.autos
 - name: '[KR] ️ ShatakVPN 862127'
   server: "82.117.226.162"
   port: 443
@@ -7752,12 +7673,6 @@ proxies:
   type: trojan
   password: JT80563429
   sni: moral-dolphin.rooster465.autos
-- name: '[PL] ️ ShatakVPN 398669'
-  server: "62.112.222.212"
-  port: 443
-  type: trojan
-  password: JT80563429
-  sni: more-trout.rooster465.autos
 - name: '[SG] ️ ShatakVPN 537509'
   server: "81.28.13.246"
   port: 443
@@ -7794,18 +7709,6 @@ proxies:
   type: trojan
   password: JT80563429
   sni: one-quail.rooster465.autos
-- name: '[PL] ️ ShatakVPN 185214'
-  server: "62.112.222.27"
-  port: 443
-  type: trojan
-  password: JT80563429
-  sni: optimal-urchin.rooster465.autos
-- name: '[PL] ️ ShatakVPN 781682'
-  server: "62.112.222.145"
-  port: 443
-  type: trojan
-  password: JT80563429
-  sni: patient-gannet.rooster465.autos
 - name: '[SG] ️ ShatakVPN 342080'
   server: "45.135.228.28"
   port: 443
@@ -7824,12 +7727,6 @@ proxies:
   type: trojan
   password: JT80563429
   sni: prepared-turkey.rooster465.autos
-- name: '[NL] ️ ShatakVPN 170465'
-  server: "193.169.239.198"
-  port: 443
-  type: trojan
-  password: JT80563429
-  sni: present-warthog.rooster465.autos
 - name: '[FR] ️ ShatakVPN 263971'
   server: "13.37.127.48"
   port: 443
@@ -7848,12 +7745,6 @@ proxies:
   type: trojan
   password: JT80563429
   sni: quick-tiger.rooster465.autos
-- name: '[NL] ️ ShatakVPN 333112'
-  server: "79.133.126.190"
-  port: 443
-  type: trojan
-  password: JT80563429
-  sni: renewed-phoenix.rooster465.autos
 - name: '[SG] ️ ShatakVPN 785769'
   server: "81.28.13.126"
   port: 443
@@ -7962,12 +7853,6 @@ proxies:
   type: trojan
   password: NQ26071394
   sni: wanted-marmoset.rooster465.autos
-- name: '[PL] ️ ShatakVPN 126559'
-  server: "62.112.222.212"
-  port: 443
-  type: trojan
-  password: OD90375861
-  sni: more-trout.rooster465.autos
 - name: '[AU] ️ ShatakVPN 152641'
   server: "87.121.33.158"
   port: 443
@@ -8016,18 +7901,6 @@ proxies:
   type: trojan
   password: PD07395842
   sni: ready-kangaroo.rooster465.autos
-- name: '[PL] ️ ShatakVPN 717435'
-  server: "62.112.222.151"
-  port: 443
-  type: trojan
-  password: PD07395842
-  sni: emerging-weevil.rooster465.autos
-- name: '[PL] ️ ShatakVPN 168587'
-  server: "62.112.222.46"
-  port: 443
-  type: trojan
-  password: PD07395842
-  sni: legible-possum.rooster465.autos
 - name: '[AU] ️ ShatakVPN 845447'
   server: "87.121.33.48"
   port: 443
@@ -8099,12 +7972,6 @@ proxies:
   type: trojan
   password: WG39087154
   sni: casual-stallion.rooster465.autos
-- name: '[NL] ️ ShatakVPN 253918'
-  server: "79.133.126.108"
-  port: 443
-  type: trojan
-  password: WG39087154
-  sni: cheerful-swan.rooster465.autos
 - name: '[AU] ️ ShatakVPN 434267'
   server: "87.121.33.19"
   port: 443
@@ -8165,12 +8032,6 @@ proxies:
   type: trojan
   password: WG39087154
   sni: electric-rhino.rooster465.autos
-- name: '[PL] ️ ShatakVPN 200559'
-  server: "62.112.222.151"
-  port: 443
-  type: trojan
-  password: WG39087154
-  sni: emerging-weevil.rooster465.autos
 - name: '[SG] ️ ShatakVPN 539242'
   server: "45.135.228.211"
   port: 443
@@ -8321,12 +8182,6 @@ proxies:
   type: trojan
   password: WG39087154
   sni: internal-sunbird.rooster465.autos
-- name: '[PL] ️ ShatakVPN 842702'
-  server: "62.112.222.46"
-  port: 443
-  type: trojan
-  password: WG39087154
-  sni: legible-possum.rooster465.autos
 - name: '[SG] ️ ShatakVPN 768127'
   server: "91.243.81.165"
   port: 443
@@ -8381,24 +8236,12 @@ proxies:
   type: trojan
   password: WG39087154
   sni: open-caribou.rooster465.autos
-- name: '[PL] ️ ShatakVPN 117727'
-  server: "62.112.222.27"
-  port: 443
-  type: trojan
-  password: WG39087154
-  sni: optimal-urchin.rooster465.autos
 - name: '[KR] ️ ShatakVPN 794772'
   server: "109.61.127.72"
   port: 443
   type: trojan
   password: WG39087154
   sni: outgoing-cockatoo.rooster465.autos
-- name: '[PL] ️ ShatakVPN 881277'
-  server: "62.112.222.145"
-  port: 443
-  type: trojan
-  password: WG39087154
-  sni: patient-gannet.rooster465.autos
 - name: '[SG] ️ ShatakVPN 909253'
   server: "81.28.13.68"
   port: 443
@@ -8429,12 +8272,6 @@ proxies:
   type: trojan
   password: WG39087154
   sni: prepared-turkey.rooster465.autos
-- name: '[NL] ️ ShatakVPN 343322'
-  server: "193.169.239.198"
-  port: 443
-  type: trojan
-  password: WG39087154
-  sni: present-warthog.rooster465.autos
 - name: '[HK] ️ ShatakVPN 864900'
   server: "91.199.84.224"
   port: 443
@@ -8459,18 +8296,6 @@ proxies:
   type: trojan
   password: WG39087154
   sni: ready-kangaroo.rooster465.autos
-- name: '[NL] ️ ShatakVPN 776204'
-  server: "193.169.239.76"
-  port: 443
-  type: trojan
-  password: WG39087154
-  sni: renewed-chigger.rooster465.autos
-- name: '[NL] ️ ShatakVPN 741515'
-  server: "79.133.126.190"
-  port: 443
-  type: trojan
-  password: WG39087154
-  sni: renewed-phoenix.rooster465.autos
 - name: '[KR] ️ ShatakVPN 977097'
   server: "82.117.226.45"
   port: 443
