@@ -706,6 +706,12 @@ proxies:
   type: ss
   cipher: 2022-blake3-aes-256-gcm
   password: Qy0sbkElH54n+7CzLYK2kxmYzXhlW5ue5pL/EbinJrs=:2Q4nSpOBVHnUlNkXNHZBq7rLd8nwGlWb4Xd5XF/Job4=
+- name: '[TW] ️ ShatakVPN 513716'
+  server: "36.224.147.65"
+  port: 50099
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
 - name: '[GB] ️ ShatakVPN 560732'
   server: "194.164.92.198"
   port: 1234
@@ -2754,15 +2760,6 @@ proxies:
   servername: www.paypal.com
   host: www.paypal.com
   flow: xtls-rprx-vision
-- name: '[US] ️ ShatakVPN 312611'
-  server: "152.70.127.19"
-  port: 443
-  type: vless
-  tls: true
-  uuid: de515b65-ad6f-4dfa-b3a2-405a7eef71be
-  servername: usamd2.95318.cf
-  host: usamd2.95318.cf
-  flow: xtls-rprx-vision
 - name: '[US] ️ ShatakVPN 618209'
   server: "23.138.12.138"
   port: 26604
@@ -3020,16 +3017,6 @@ proxies:
     path: /
     headers:
       Host: josni.hoyes.cloudns.ch
-- name: '[CH] ️ ShatakVPN 707464'
-  server: "138.124.244.77"
-  port: 8443
-  type: vless
-  tls: true
-  uuid: 8787dd0a-095a-414e-804f-a7d16a1ae166
-  servername: fi1.hys.braidx.tech
-  host: fi1.hys.braidx.tech
-  flow: xtls-rprx-vision
-  skip-cert-verify: false
 - name: '[UN] ️ ShatakVPN 184826'
   server: "172.67.151.164"
   port: 443
@@ -3123,17 +3110,6 @@ proxies:
   servername: p.keshevoz.ru
   host: p.keshevoz.ru
   flow: xtls-rprx-vision
-- name: '[ES] ️ ShatakVPN 218196'
-  server: "170.168.97.5"
-  port: 8443
-  type: vless
-  tls: true
-  uuid: c6f220ed-41f2-21ba-438c-80f05ebbf92a
-  servername: download.nvidia.com
-  network: grpc
-  grpc-opts:
-    grpc-mode: gun
-    grpc-service-name: TunService
 - name: '[US] ️ ShatakVPN 572476'
   server: "137.184.218.169"
   port: 36925
@@ -3352,6 +3328,17 @@ proxies:
     short-id: 87806cfd2dcfcd
   client-fingerprint: random
   skip-cert-verify: true
+- name: '[DE] ️ ShatakVPN 581668'
+  server: "31.76.11.46"
+  port: 443
+  type: vless
+  tls: true
+  uuid: 2a6b708e-6799-473e-85e9-d4b116c5eedc
+  network: ws
+  ws-opts:
+    path: /52872/BNzG4FvIAr
+    headers:
+      Host: 31.76.11.46.cdn-one.org
 - name: '[FI] ️ ShatakVPN 591599'
   server: "83.143.112.140"
   port: 443
@@ -3451,19 +3438,6 @@ proxies:
     path: /mashdi
     headers:
       Host: OhPwIlJo8.RoBoRoCkS.Ir
-- name: '[HK] ️ ShatakVPN 218125'
-  server: "47.86.249.58"
-  port: 41528
-  type: vless
-  tls: true
-  uuid: 97672a88-ec39-4234-a102-1df6f9236f36
-  servername: www.apple.com
-  host: www.apple.com
-  reality-opts:
-    public-key: vSXM6NtiXtPcwqZpXCTpKLBOPewzcEfr9-p18aiywio
-    short-id: b4
-  client-fingerprint: random
-  skip-cert-verify: true
 - name: '[UN] ️ ShatakVPN 700822'
   server: "172.67.150.239"
   port: 443
@@ -4066,13 +4040,6 @@ proxies:
   password: ND91608427
   sni: eager-louse.rooster465.autos
   skip-cert-verify: false
-- name: '[HK] ️ ShatakVPN 684287'
-  server: "185.244.208.13"
-  port: 443
-  type: trojan
-  password: ND91608427
-  sni: ace-starling.rooster465.autos
-  skip-cert-verify: true
 - name: '[FR] ️ ShatakVPN 269354'
   server: "51.44.160.58"
   port: 443
@@ -4133,18 +4100,6 @@ proxies:
   type: trojan
   password: ND91608427
   sni: healthy-louse.rooster465.autos
-- name: '[HK] ️ ShatakVPN 716090'
-  server: "91.199.84.120"
-  port: 443
-  type: trojan
-  password: ND91608427
-  sni: dynamic-grubworm.rooster465.autos
-- name: '[HK] ️ ShatakVPN 999701'
-  server: "185.244.208.210"
-  port: 443
-  type: trojan
-  password: ND91608427
-  sni: upright-hamster.rooster465.autos
 - name: '[TW] ️ ShatakVPN 731343'
   server: "211.20.156.191"
   port: 28157
