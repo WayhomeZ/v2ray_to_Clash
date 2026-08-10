@@ -502,13 +502,6 @@ proxies:
   type: ss
   cipher: chacha20-ietf-poly1305
   password: RFK38Cg7APneSB5cWDcpbm
-- name: '[SE] ️ ShatakVPN 368351'
-  server: "87.121.105.108"
-  port: 443
-  type: hysteria2
-  ports: 443
-  password: 71cada65-d23e-418c-88e4-a06188d14689
-  sni: swe-one.quiet-rogue.site
 - name: '[FR] ️ ShatakVPN 590933'
   server: "173.212.251.231"
   port: 51058
@@ -533,6 +526,12 @@ proxies:
   type: ss
   cipher: chacha20-ietf-poly1305
   password: jiUTzfdPo7fW
+- name: '[US] ️ ShatakVPN 735455'
+  server: "70.39.198.35"
+  port: 54166
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: EvLfWGe0AKvK
 - name: '[GB] ️ ShatakVPN 562075'
   server: "194.164.92.198"
   port: 1234
@@ -2231,6 +2230,19 @@ proxies:
     path: /
     headers:
       Host: ssl.fastly.com
+- name: '[ME] ️ ShatakVPN 351787'
+  server: "92.42.96.240"
+  port: 443
+  type: vless
+  tls: true
+  uuid: 4038f946-bd95-5505-a111-196c05d6d92f
+  servername: mAhaNrEaliteAm.MaHkHan.iR
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: mAhaNrEaliteAm.MaHkHan.iR
+  skip-cert-verify: false
 - name: '[FR] ️ ShatakVPN 272256'
   server: "35.181.171.182"
   port: 40133
@@ -2278,20 +2290,15 @@ proxies:
     public-key: NSlhQMA6VBgHPp7RsErk3hEdKuWPO0eeLdxgssfwbmY
     short-id: d55a6f43c645adb4
   client-fingerprint: random
-- name: '[FR] ️ ShatakVPN 246985'
-  server: "78.17.208.22"
+- name: '[BE] ️ ShatakVPN 314938'
+  server: "109.69.218.208"
   port: 443
   type: vless
   tls: true
-  uuid: c04bf2df-2b7f-44da-a893-3792d3910fd8
-  servername: fr05.skorostnet.space
-  host: fr05.skorostnet.space
-  path: /
+  uuid: 2a12bb81-f3a3-41bb-99ab-36febf676b4a
+  servername: kind-wolf.cdn.cachefleet.com
+  host: kind-wolf.cdn.cachefleet.com
   flow: xtls-rprx-vision
-  reality-opts:
-    public-key: aBNWkd8CVkuimbtzgsDNsIUIENI-PQuKkpUInLncz2o
-    short-id: fdda9806fe5d8584
-  client-fingerprint: random
 - name: '[BE] ️ ShatakVPN 350425'
   server: "109.69.218.215"
   port: 443
@@ -2309,18 +2316,6 @@ proxies:
   uuid: 5dc56757-458e-4df2-9e71-2a14ce47e8af
   servername: ddc-chr.astralweb.tech
   host: ddc-chr.astralweb.tech
-- name: '[DE] ️ ShatakVPN 773879'
-  server: "95.181.160.240"
-  port: 8433
-  type: vless
-  tls: true
-  uuid: 876e81f0-6961-43b4-bd64-7dc602e823ca
-  servername: wjwkhoaftdgrt8qus.mp8pmwdgwf3sdapasouszjobjr57nrxxgtx9n.workers.dev
-  network: ws
-  ws-opts:
-    path: /@Marisa_kristi
-    headers:
-      Host: wjwkhoaftdgrt8qus.mp8pmwdgwf3sdapasouszjobjr57nrxxgtx9n.workers.dev
 - name: '[AT] ️ ShatakVPN 969149'
   server: "152.53.173.94"
   port: 443
@@ -2618,6 +2613,15 @@ proxies:
   servername: sellflow.org
   host: sellflow.org
   flow: xtls-rprx-vision
+- name: '[RU] ️ ShatakVPN 251017'
+  server: "147.45.47.52"
+  port: 443
+  type: vless
+  tls: true
+  uuid: 8fdf6dde-a1ca-456d-9b18-86b74d5768e6
+  servername: sellflow.org
+  host: sellflow.org
+  flow: xtls-rprx-vision
 - name: '[RU] ️ ShatakVPN 465228'
   server: "195.19.164.84"
   port: 443
@@ -2645,15 +2649,6 @@ proxies:
   servername: sellflow.org
   host: sellflow.org
   flow: xtls-rprx-vision
-- name: '[RU] ️ ShatakVPN 599030'
-  server: "147.45.47.47"
-  port: 443
-  type: vless
-  tls: true
-  uuid: 50e636af-b554-4526-94ad-d0f4b34adecc
-  servername: sellflow.org
-  host: sellflow.org
-  flow: xtls-rprx-vision
 - name: '[RU] ️ ShatakVPN 699847'
   server: "5.129.215.87"
   port: 40443
@@ -2669,19 +2664,6 @@ proxies:
   client-fingerprint: random
 - name: '[DE] ️ ShatakVPN 212465'
   server: "169.40.42.173"
-  port: 443
-  type: vless
-  tls: true
-  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
-  servername: yahoo.com
-  host: yahoo.com
-  flow: xtls-rprx-vision
-  reality-opts:
-    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
-    short-id: c39cc7310a
-  client-fingerprint: random
-- name: '[DE] ️ ShatakVPN 627420'
-  server: "169.40.42.184"
   port: 443
   type: vless
   tls: true
@@ -2714,6 +2696,17 @@ proxies:
   uuid: 7b188eea-b08f-42c2-bac7-d3b0e74218b8
   servername: www.paypal.com
   host: www.paypal.com
+  flow: xtls-rprx-vision
+- name: '[US] ️ ShatakVPN 159923'
+  server: "137.184.218.169"
+  port: 36925
+  type: vless
+  tls: true
+  uuid: c9fd0fb1-8251-4106-b09a-f4b426736f67
+  servername: www.cloudflare.com
+  alpn:
+  - http/1.1
+  host: www.cloudflare.com
   flow: xtls-rprx-vision
 - name: '[US] ️ ShatakVPN 492392'
   server: "159.195.14.140"
@@ -2750,19 +2743,6 @@ proxies:
   reality-opts:
     public-key: NSlhQMA6VBgHPp7RsErk3hEdKuWPO0eeLdxgssfwbmY
     short-id: 27ad6099b30f7619
-  client-fingerprint: random
-- name: '[CA] ️ ShatakVPN 594504'
-  server: "130.107.73.148"
-  port: 41373
-  type: vless
-  tls: true
-  uuid: a71c8954-66a8-4321-bedb-2336230d81ce
-  servername: google.com
-  host: google.com
-  flow: xtls-rprx-vision
-  reality-opts:
-    public-key: m0GsZOAwvAJEaqh9aH6qfOmBKo0KW0jY_tJEC6KaDEU
-    short-id: 0e
   client-fingerprint: random
 - name: '[SG] ️ ShatakVPN 751803'
   server: "91.192.81.214"
@@ -3036,6 +3016,24 @@ proxies:
     path: /eyJqdW5rIjoieE1zSFhYR2hkcHZGUHI3cSIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=
     headers:
       Host: maSterserVeR1-VSH.KaLlEH.WORkERs.DEV
+- name: '[FR] ️ ShatakVPN 756506'
+  server: "141.227.170.192"
+  port: 8443
+  type: vless
+  tls: true
+  uuid: 8fdf6dde-a1ca-456d-9b18-86b74d5768e6
+  servername: sellflow.org
+  host: sellflow.org
+  flow: xtls-rprx-vision
+- name: '[FR] ️ ShatakVPN 167675'
+  server: "141.227.170.192"
+  port: 443
+  type: vless
+  tls: true
+  uuid: 8fdf6dde-a1ca-456d-9b18-86b74d5768e6
+  servername: fi.sellflow.org
+  host: fi.sellflow.org
+  flow: xtls-rprx-vision
 - name: '[RU] ️ ShatakVPN 832029'
   server: "147.45.47.44"
   port: 443
@@ -3121,19 +3119,6 @@ proxies:
   servername: dartsearch-cn.net
   host: dartsearch-cn.net
   flow: xtls-rprx-vision
-- name: '[SG] ️ ShatakVPN 522652'
-  server: "54.254.145.25"
-  port: 6768
-  type: vless
-  tls: true
-  uuid: edd5f4a0-19dd-4017-8d67-03482fd6472a
-  servername: 5iv93opy8jus9z.bjo5si35c9i9ud4242fado49188obkoiermjuxj7zgxu.workers.dev
-  network: ws
-  ws-opts:
-    path: /@Marisa_kristi
-    headers:
-      Host: 5iv93opy8jus9z.bjo5si35c9i9ud4242fado49188obkoiermjuxj7zgxu.workers.dev
-  skip-cert-verify: false
 - name: '[UN] ️ ShatakVPN 165853'
   server: "104.17.147.22"
   port: 443
