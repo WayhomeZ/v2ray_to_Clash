@@ -239,6 +239,12 @@ proxies:
   type: ss
   cipher: chacha20-ietf-poly1305
   password: U9YAoqBgg5VyGBc6vQv1sN
+- name: '[FR] ️ ShatakVPN 428835'
+  server: "54.36.174.134"
+  port: 443
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: ytw2awn
 - name: '[FI] ️ ShatakVPN 845759'
   server: "31.76.30.79"
   port: 10808
@@ -350,6 +356,12 @@ proxies:
   type: ss
   cipher: chacha20-ietf-poly1305
   password: ytw2awn
+- name: '[FR] ️ ShatakVPN 984178'
+  server: "51.255.13.232"
+  port: 8388
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: BqnqToih0PbU
 - name: '[US] ️ ShatakVPN 247810'
   server: "217.28.129.81"
   port: 42982
@@ -527,6 +539,14 @@ proxies:
     path: /assignment
     headers:
       Host: www.ignitelimit.com
+- name: '[DE] ️ ShatakVPN 864292'
+  server: "178.83.45.29"
+  port: 38998
+  type: vmess
+  uuid: 48422300-458f-4dbb-b0f5-96f45450ab9f
+  alterId: 0
+  cipher: auto
+  tls: false
 - name: '[RU] ️ ShatakVPN 771886'
   server: "91.196.32.163"
   port: 443
@@ -1938,21 +1958,42 @@ proxies:
   grpc-opts:
     grpc-mode: gun
     grpc-service-name: grpc
-- name: '[RU] ️ ShatakVPN 204229'
-  server: "188.225.33.206"
-  port: 8443
-  type: vless
-  tls: true
-  uuid: c124a209-d949-4951-8234-e2d918b3e6c0
-  servername: max.ru
-  host: max.ru
-  flow: xtls-rprx-vision
-- name: '[RU] ️ ShatakVPN 779576'
+- name: '[RU] ️ ShatakVPN 978760'
   server: "95.163.232.183"
   port: 443
   type: vless
   tls: true
-  uuid: e855d18e-ad52-4c53-8cea-27bf4ea0dfc8
+  uuid: 69b889ee-78cc-4278-9eb4-f70660399c8c
+  servername: 5post-gate.x5.ru
+  network: grpc
+  grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: 5post.gate.v1
+  reality-opts:
+    public-key: V6FabatADtcX7aO9KMjGCadJC4LuQ_5nRViab-z-nFQ
+    short-id: abcd
+  client-fingerprint: random
+- name: '[RU] ️ ShatakVPN 741102'
+  server: "95.163.232.183"
+  port: 443
+  type: vless
+  tls: true
+  uuid: 9aa0fbff-fcad-4144-86a7-f4b255aa4e5c
+  servername: 5post-gate.x5.ru
+  network: grpc
+  grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: 5post.gate.v1
+  reality-opts:
+    public-key: V6FabatADtcX7aO9KMjGCadJC4LuQ_5nRViab-z-nFQ
+    short-id: abcd
+  client-fingerprint: random
+- name: '[RU] ️ ShatakVPN 114618'
+  server: "95.163.232.183"
+  port: 443
+  type: vless
+  tls: true
+  uuid: b6c90055-b358-46ca-a327-9aeadd7a7398
   servername: 5post-gate.x5.ru
   network: grpc
   grpc-opts:
@@ -1968,21 +2009,6 @@ proxies:
   type: vless
   tls: true
   uuid: fb3c8c93-2404-42f3-9f4c-ecab4317f590
-  servername: 5post-gate.x5.ru
-  network: grpc
-  grpc-opts:
-    grpc-mode: gun
-    grpc-service-name: 5post.gate.v1
-  reality-opts:
-    public-key: V6FabatADtcX7aO9KMjGCadJC4LuQ_5nRViab-z-nFQ
-    short-id: abcd
-  client-fingerprint: random
-- name: '[RU] ️ ShatakVPN 252870'
-  server: "95.163.232.183"
-  port: 443
-  type: vless
-  tls: true
-  uuid: fe72ece2-75af-4c98-aee6-e78b2814eeac
   servername: 5post-gate.x5.ru
   network: grpc
   grpc-opts:
@@ -2163,6 +2189,15 @@ proxies:
     public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
     short-id: c39cc7310a
   client-fingerprint: random
+- name: '[US] ️ ShatakVPN 835829'
+  server: "47.253.226.114"
+  port: 443
+  type: vless
+  tls: true
+  uuid: 055a1ce8-2a16-4a0d-a2c2-22826c9b2413
+  servername: www.cloudflare.com
+  host: www.cloudflare.com
+  flow: xtls-rprx-vision
 - name: '[US] ️ ShatakVPN 210572'
   server: "137.184.218.169"
   port: 36925
@@ -2862,6 +2897,15 @@ proxies:
     path: /api/v2/vms/stream/genka
     headers:
       Host: benzin.benz.ink
+- name: '[US] ️ ShatakVPN 530342'
+  server: "47.251.25.74"
+  port: 443
+  type: vless
+  tls: true
+  uuid: 18805ff3-b420-45de-af18-93be14024ae8
+  servername: www.amazon.com
+  host: www.amazon.com
+  flow: xtls-rprx-vision
 - name: '[RU] ️ ShatakVPN 584659'
   server: "176.108.252.108"
   port: 9880
@@ -3284,6 +3328,11 @@ proxies:
   type: trojan
   password: ND91608427
   sni: fancy-skink.rooster465.autos
+- name: '[IE] ️ ShatakVPN 730476'
+  server: "34.251.228.118"
+  port: 443
+  type: trojan
+  password: UO36402987
 - name: '[IE] ️ ShatakVPN 818187'
   server: "34.251.228.118"
   port: 443
