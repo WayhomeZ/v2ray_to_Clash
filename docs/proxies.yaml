@@ -152,6 +152,12 @@ proxies:
   password: dongtaiwang.com
   sni: www.microsoft.com
   skip-cert-verify: true
+- name: '[NL] ️ ShatakVPN 518481'
+  server: "108.181.58.239"
+  port: 8388
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: CJmTCCx7Ltud
 - name: '[IN] ️ ShatakVPN 634403'
   server: "179.61.227.102"
   port: 8443
@@ -159,6 +165,14 @@ proxies:
   ports: 8443
   password: 95e8532b-cc69-42d4-9553-e3c23292b15b
   sni: iq5ny.pleiades.codes
+  skip-cert-verify: true
+- name: '[DE] ️ ShatakVPN 636520'
+  server: "5.83.129.11"
+  port: 443
+  type: hysteria2
+  ports: 443
+  password: umnDU7jgFYUjpVjVM2sW9HL0rRYLJNgzVwRu2HzWEhyZKkRx
+  sni: germany1.h2corp.local
   skip-cert-verify: true
 - name: '[DE] ️ ShatakVPN 344227'
   server: "185.226.172.8"
@@ -234,6 +248,12 @@ proxies:
   type: ss
   cipher: chacha20-ietf-poly1305
   password: U9YAoqBgg5VyGBc6vQv1sN
+- name: '[FR] ️ ShatakVPN 727614'
+  server: "54.36.174.134"
+  port: 443
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: ytw2awn
 - name: '[PL] ️ ShatakVPN 347051'
   server: "92.118.205.211"
   port: 5600
@@ -293,12 +313,12 @@ proxies:
   type: ss
   cipher: chacha20-ietf-poly1305
   password: qB2Cv9VIlujj
-- name: '[NL] ️ ShatakVPN 729977'
-  server: "92.112.126.90"
-  port: 443
+- name: '[IT] ️ ShatakVPN 639814'
+  server: "194.87.47.204"
+  port: 10901
   type: ss
-  cipher: chacha20-ietf-poly1305
-  password: 9tqhMdIrTkgQ46PvhyAtMH
+  cipher: aes-256-gcm
+  password: d1fa2f4b98a38bc8
 - name: '[NL] ️ ShatakVPN 402787'
   server: "92.112.126.90"
   port: 443
@@ -643,6 +663,14 @@ proxies:
   alterId: 0
   cipher: auto
   tls: false
+- name: '[NL] ️ ShatakVPN 954151'
+  server: "144.31.234.58"
+  port: 443
+  type: hysteria2
+  ports: 443
+  password: 042a1881-44e4-4781-bd40-bf75164faf4f
+  sni: nl1.noesissite.ru
+  skip-cert-verify: true
 - name: '[NL] ️ ShatakVPN 807247'
   server: "177.3.212.103"
   port: 443
@@ -2124,15 +2152,6 @@ proxies:
     path: /
     headers:
       Host: forfreeuse.rtqa.ru
-- name: '[RU] ️ ShatakVPN 900682'
-  server: "193.233.255.32"
-  port: 443
-  type: vless
-  tls: true
-  uuid: 5c22dd50-f75d-4cf5-ba53-721f91d8bfe1
-  servername: fr.sellflow.org
-  host: fr.sellflow.org
-  flow: xtls-rprx-vision
 - name: '[NL] ️ ShatakVPN 456823'
   server: "185.125.100.120"
   port: 8443
@@ -2142,18 +2161,6 @@ proxies:
   servername: max.ru
   host: max.ru
   flow: xtls-rprx-vision
-- name: '[PL] ️ ShatakVPN 755331'
-  server: "31.133.0.240"
-  port: 2053
-  type: vless
-  tls: true
-  uuid: c7e9c591-2764-423a-afca-efbd010fd396
-  servername: forfreeuse.rtqa.ru
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: forfreeuse.rtqa.ru
 - name: '[TR] ️ ShatakVPN 493369'
   server: "45.92.219.96"
   port: 1758
@@ -2223,18 +2230,6 @@ proxies:
   grpc-opts:
     grpc-mode: gun
     grpc-service-name: grpc-tunnel
-- name: '[FR] ️ ShatakVPN 430728'
-  server: "169.58.143.21"
-  port: 443
-  type: vless
-  tls: true
-  uuid: 25f3beef-a4b6-40bc-aa74-17a0f89f683c
-  servername: finite-node.rtxconfigz.com
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: finite-node.rtxconfigz.com
 - name: '[RU] ️ ShatakVPN 405940'
   server: "159.194.226.13"
   port: 443
@@ -2244,21 +2239,6 @@ proxies:
   servername: vk.ru
   host: vk.ru
   flow: xtls-rprx-vision
-- name: '[RU] ️ ShatakVPN 471435'
-  server: "79.174.92.185"
-  port: 443
-  type: vless
-  tls: true
-  uuid: a98f627f-99ff-44fc-89fc-b5aed8db49f9
-  servername: max.ru
-  network: grpc
-  grpc-opts:
-    grpc-mode: gun
-    grpc-service-name: ''
-  reality-opts:
-    public-key: PAP10NLpy_4J_vf1CEtDuLJtce3pLSNhHLbuuAUXqBU
-    short-id: a1b2c3d4
-  client-fingerprint: random
 - name: '[RU] ️ ShatakVPN 240886'
   server: "95.163.232.98"
   port: 443
@@ -2273,6 +2253,21 @@ proxies:
   reality-opts:
     public-key: ZgSVwP_wlM4-oG8E03W3cMqK_VrS8oHXF4wzyBkISWo
     short-id: a1b2c3d4
+  client-fingerprint: random
+- name: '[RU] ️ ShatakVPN 557562'
+  server: "185.141.227.153"
+  port: 9001
+  type: vless
+  tls: true
+  uuid: 2c634977-584e-4e1f-b501-1b70c77a6743
+  servername: api-maps.yandex.ru
+  network: grpc
+  grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: grpc-reality
+  reality-opts:
+    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+    short-id: 6ba85179e30d4fc2
   client-fingerprint: random
 - name: '[US] ️ ShatakVPN 945119'
   server: "128.241.25.215"
@@ -2336,12 +2331,12 @@ proxies:
   servername: ako.pagate.top
   host: ako.pagate.top
   flow: xtls-rprx-vision
-- name: '[RU] ️ ShatakVPN 841327'
+- name: '[RU] ️ ShatakVPN 555879'
   server: "79.174.83.75"
   port: 443
   type: vless
   tls: true
-  uuid: bc178dce-ec30-4d16-ac03-520a842c4ea1
+  uuid: 654de067-5cd7-4a66-af08-c487f4f7fcd6
   servername: 5post-gate.x5.ru
   network: grpc
   grpc-opts:
@@ -2351,15 +2346,6 @@ proxies:
     public-key: V6FabatADtcX7aO9KMjGCadJC4LuQ_5nRViab-z-nFQ
     short-id: abcd
   client-fingerprint: random
-- name: '[US] ️ ShatakVPN 811736'
-  server: "47.253.226.114"
-  port: 443
-  type: vless
-  tls: true
-  uuid: 055a1ce8-2a16-4a0d-a2c2-22826c9b2413
-  servername: www.cloudflare.com
-  host: www.cloudflare.com
-  flow: xtls-rprx-vision
 - name: '[UN] ️ ShatakVPN 467685'
   server: "188.114.97.3"
   port: 2053
@@ -2923,6 +2909,20 @@ proxies:
     path: /api/v2/vms/stream/genka
     headers:
       Host: benzin.benz.ink
+- name: '[RU] ️ ShatakVPN 387139'
+  server: "95.129.236.252"
+  port: 443
+  type: vless
+  tls: true
+  uuid: 414de325-4008-4c9c-ab06-a069e201e07e
+  servername: benzin.benz.ink
+  alpn:
+  - http/1.1
+  network: ws
+  ws-opts:
+    path: /api/v2/vms/stream/genka
+    headers:
+      Host: benzin.benz.ink
 - name: '[US] ️ ShatakVPN 595042'
   server: "204.48.20.223"
   port: 30906
@@ -2961,6 +2961,20 @@ proxies:
     path: /RoBeRt
     headers:
       Host: milan.adaspoloandco.com
+- name: '[RU] ️ ShatakVPN 145216'
+  server: "95.129.236.252"
+  port: 443
+  type: vless
+  tls: true
+  uuid: 7d914f20-895a-40c5-8c60-080cf5d68591
+  servername: benzin.benz.ink
+  alpn:
+  - http/1.1
+  network: ws
+  ws-opts:
+    path: /api/v2/vms/stream/genka
+    headers:
+      Host: benzin.benz.ink
 - name: '[RU] ️ ShatakVPN 828977'
   server: "95.129.236.252"
   port: 443
@@ -4516,6 +4530,12 @@ proxies:
   password: ND91608427
   sni: definite-malamute.rooster465.autos
   skip-cert-verify: true
+- name: '[SG] ️ ShatakVPN 817184'
+  server: "172.236.133.188"
+  port: 52
+  type: trojan
+  password: fVZMat1g9H
+  sni: 172.236.133.188
 - name: '[JP] ️ ShatakVPN 910803'
   server: "54.64.255.224"
   port: 443
