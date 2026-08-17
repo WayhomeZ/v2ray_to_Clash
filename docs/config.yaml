@@ -40,6 +40,15 @@ proxy-groups:
       - 🇯🇵 日本节点
       - 🇸🇬 狮城节点
       - 🇺🇸 美国节点
+      - 🇦🇺 澳大利亚节点
+      - 🇩🇪 德国节点
+      - 🇫🇷 法国节点
+      - 🇬🇧 英国节点
+      - 🇮🇪 爱尔兰节点
+      - 🇰🇷 韩国节点
+      - 🇳🇱 荷兰节点
+      - 🇵🇱 波兰节点
+      - 🇷🇺 俄罗斯节点
       - 🌍 其他地区
       - 🔯 故障转移
       - 🎯 全球直连
@@ -89,11 +98,83 @@ proxy-groups:
     interval: 300
     tolerance: 50
 
+  - name: 🇦🇺 澳大利亚节点
+    type: url-test
+    use:
+      - ConfigForge
+    filter: '(?i)^\[AU\]'
+    url: https://cp.cloudflare.com/generate_204
+    interval: 300
+    tolerance: 50
+  - name: 🇩🇪 德国节点
+    type: url-test
+    use:
+      - ConfigForge
+    filter: '(?i)^\[DE\]'
+    url: https://cp.cloudflare.com/generate_204
+    interval: 300
+    tolerance: 50
+  - name: 🇫🇷 法国节点
+    type: url-test
+    use:
+      - ConfigForge
+    filter: '(?i)^\[FR\]'
+    url: https://cp.cloudflare.com/generate_204
+    interval: 300
+    tolerance: 50
+  - name: 🇬🇧 英国节点
+    type: url-test
+    use:
+      - ConfigForge
+    filter: '(?i)^\[GB\]'
+    url: https://cp.cloudflare.com/generate_204
+    interval: 300
+    tolerance: 50
+  - name: 🇮🇪 爱尔兰节点
+    type: url-test
+    use:
+      - ConfigForge
+    filter: '(?i)^\[IE\]'
+    url: https://cp.cloudflare.com/generate_204
+    interval: 300
+    tolerance: 50
+  - name: 🇰🇷 韩国节点
+    type: url-test
+    use:
+      - ConfigForge
+    filter: '(?i)^\[KR\]'
+    url: https://cp.cloudflare.com/generate_204
+    interval: 300
+    tolerance: 50
+  - name: 🇳🇱 荷兰节点
+    type: url-test
+    use:
+      - ConfigForge
+    filter: '(?i)^\[NL\]'
+    url: https://cp.cloudflare.com/generate_204
+    interval: 300
+    tolerance: 50
+  - name: 🇵🇱 波兰节点
+    type: url-test
+    use:
+      - ConfigForge
+    filter: '(?i)^\[PL\]'
+    url: https://cp.cloudflare.com/generate_204
+    interval: 300
+    tolerance: 50
+  - name: 🇷🇺 俄罗斯节点
+    type: url-test
+    use:
+      - ConfigForge
+    filter: '(?i)^\[RU\]'
+    url: https://cp.cloudflare.com/generate_204
+    interval: 300
+    tolerance: 50
   - name: 🌍 其他地区
     type: url-test
     use:
       - ConfigForge
-    filter: '(?i)^\[(UN)\]'
+    filter: '(?i)^\[(BG|CA|EE|FI|IN|IR|KZ|LT|NZ|RO|SC|TR|UN|ZA)\]'
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
