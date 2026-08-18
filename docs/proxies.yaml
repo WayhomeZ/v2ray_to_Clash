@@ -489,6 +489,12 @@ proxies:
   type: ss
   cipher: chacha20-ietf-poly1305
   password: EvLfWGe0AKvK
+- name: '[US] ️ ShatakVPN 647746'
+  server: "23.185.200.135"
+  port: 57841
+  type: ss
+  cipher: aes-128-gcm
+  password: xo6k84l7b00n2hJp
 - name: '[JP] ️ ShatakVPN 507238'
   server: "176.97.73.215"
   port: 8388
@@ -525,6 +531,12 @@ proxies:
   type: ss
   cipher: chacha20-ietf-poly1305
   password: zRZNBszYyWo5
+- name: '[NL] ️ ShatakVPN 225121'
+  server: "108.181.58.239"
+  port: 8388
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: CJmTCCx7Ltud
 - name: '[NL] ️ ShatakVPN 711892'
   server: "193.29.139.168"
   port: 8080
@@ -784,14 +796,6 @@ proxies:
     path: /assignment
     headers:
       Host: www.calmlunch.com
-- name: '[DE] ️ ShatakVPN 400734'
-  server: "82.198.246.97"
-  port: 180
-  type: vmess
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  cipher: auto
-  tls: false
 - name: '[NL] ️ ShatakVPN 134061'
   server: "177.3.212.103"
   port: 443
@@ -1998,19 +2002,6 @@ proxies:
   servername: info.lagzero.ru
   host: info.lagzero.ru
   flow: xtls-rprx-vision
-- name: '[IT] ️ ShatakVPN 325196'
-  server: "204.216.216.23"
-  port: 1114
-  type: vless
-  tls: true
-  uuid: 6ba2eac6-0ec9-44ca-a42b-a8e23aafb530
-  servername: yahoo.com
-  host: yahoo.com
-  flow: xtls-rprx-vision
-  reality-opts:
-    public-key: WfkCF0eEuIoO0MyJsKOddU89QrTzCZ4y2dzCJbH99CQ
-    short-id: 79a1e14b
-  client-fingerprint: random
 - name: '[NL] ️ ShatakVPN 436665'
   server: "177.3.212.127"
   port: 8443
@@ -2176,20 +2167,50 @@ proxies:
   servername: www.cloudflare.com
   host: www.cloudflare.com
   flow: xtls-rprx-vision
-- name: '[RU] ️ ShatakVPN 647898'
-  server: "185.141.227.153"
-  port: 9001
+- name: '[RU] ️ ShatakVPN 109774'
+  server: "79.174.83.75"
+  port: 443
   type: vless
   tls: true
-  uuid: 2c634977-584e-4e1f-b501-1b70c77a6743
-  servername: api-maps.yandex.ru
+  uuid: 21a54130-9d2a-4277-99ab-22c5a45d9c64
+  servername: 5post-gate.x5.ru
   network: grpc
   grpc-opts:
     grpc-mode: gun
-    grpc-service-name: grpc-reality
+    grpc-service-name: 5post.gate.v1
   reality-opts:
-    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
-    short-id: 6ba85179e30d4fc2
+    public-key: V6FabatADtcX7aO9KMjGCadJC4LuQ_5nRViab-z-nFQ
+    short-id: abcd
+  client-fingerprint: random
+- name: '[RU] ️ ShatakVPN 330374'
+  server: "79.174.83.75"
+  port: 443
+  type: vless
+  tls: true
+  uuid: b3ec32c6-ff34-4f73-aca1-cf9bba239b00
+  servername: 5post-gate.x5.ru
+  network: grpc
+  grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: 5post.gate.v1
+  reality-opts:
+    public-key: V6FabatADtcX7aO9KMjGCadJC4LuQ_5nRViab-z-nFQ
+    short-id: abcd
+  client-fingerprint: random
+- name: '[RU] ️ ShatakVPN 228872'
+  server: "79.174.83.75"
+  port: 443
+  type: vless
+  tls: true
+  uuid: c0dee231-dc87-4f4f-8313-1ffaf2fb31bf
+  servername: 5post-gate.x5.ru
+  network: grpc
+  grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: 5post.gate.v1
+  reality-opts:
+    public-key: V6FabatADtcX7aO9KMjGCadJC4LuQ_5nRViab-z-nFQ
+    short-id: abcd
   client-fingerprint: random
 - name: '[US] ️ ShatakVPN 752105'
   server: "128.241.25.215"
@@ -2570,6 +2591,15 @@ proxies:
     headers:
       Host: ssl.fastly.com
   skip-cert-verify: true
+- name: '[DE] ️ ShatakVPN 490197'
+  server: "77.110.99.144"
+  port: 443
+  type: vless
+  tls: true
+  uuid: c1943f8a-11c6-402d-a439-dc0be226d916
+  servername: yahoo.com
+  host: yahoo.com
+  flow: xtls-rprx-vision
 - name: '[UN] ️ ShatakVPN 718245'
   server: "104.21.67.171"
   port: 443
@@ -3408,20 +3438,6 @@ proxies:
   type: trojan
   password: HaZLUMP__fVySm7WzxFcnk7Nm8-f1CCK
   sni: ru-5b7331.atlanta-games.com
-  skip-cert-verify: false
-- name: '[NL] ️ ShatakVPN 221316'
-  server: "31.76.49.185"
-  port: 443
-  type: trojan
-  password: SEYnpOitNLndBhDtkZyeAShl
-  sni: nl-vk.tkbvpcompany.site
-  skip-cert-verify: false
-- name: '[DE] ️ ShatakVPN 339745'
-  server: "87.121.218.169"
-  port: 443
-  type: trojan
-  password: bptHV5U91mWneB61rRKhCQ8f
-  sni: 87.121.218.169
   skip-cert-verify: false
 - name: '[US] ️ ShatakVPN 780794'
   server: "54.185.164.73"
