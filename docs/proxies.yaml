@@ -298,6 +298,14 @@ proxies:
   ports: 443
   password: YutbgyXL1mGaSlBXDoEucWvYbrDCINgUcQ6R6_At5Pjr2xCc
   skip-cert-verify: true
+- name: '[GB] ️ ShatakVPN 815442'
+  server: "66.163.117.58"
+  port: 22324
+  type: vmess
+  uuid: 04621bae-ab36-11ec-b909-0242ac120002
+  alterId: 0
+  cipher: auto
+  tls: false
 - name: '[FR] ️ ShatakVPN 176341'
   server: "54.36.174.134"
   port: 443
@@ -316,6 +324,12 @@ proxies:
   type: ss
   cipher: aes-256-gcm
   password: Y6R9pAtvxxzmGC
+- name: '[IT] ️ ShatakVPN 826506'
+  server: "194.87.47.204"
+  port: 10901
+  type: ss
+  cipher: aes-256-gcm
+  password: d1fa2f4b98a38bc8
 - name: '[FI] ️ ShatakVPN 405822'
   server: "31.76.30.79"
   port: 10808
@@ -380,6 +394,18 @@ proxies:
   type: ss
   cipher: chacha20-ietf-poly1305
   password: wwzVn2ZnHfqYa6l8EWh3eY
+- name: '[NL] ️ ShatakVPN 744623'
+  server: "92.112.126.90"
+  port: 443
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: RFK38Cg7APneSB5cWDcpbm
+- name: '[CA] ️ ShatakVPN 387282'
+  server: "15.235.75.71"
+  port: 8388
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: FD3rCuOsxOay
 - name: '[US] ️ ShatakVPN 914320'
   server: "23.150.248.20"
   port: 8388
@@ -509,6 +535,12 @@ proxies:
   password: k1dBOmOB4oqi7Ump37a1bQ
 - name: '[GB] ️ ShatakVPN 513777'
   server: "82.38.31.198"
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: '[GB] ️ ShatakVPN 199393'
+  server: "82.38.31.201"
   port: 8080
   type: ss
   cipher: chacha20-ietf-poly1305
@@ -1624,6 +1656,17 @@ proxies:
   servername: info.lagzero.ru
   host: info.lagzero.ru
   flow: xtls-rprx-vision
+- name: '[NL] ️ ShatakVPN 965014'
+  server: "177.3.212.127"
+  port: 8443
+  type: vless
+  tls: true
+  uuid: 14da77da-4fb3-4e49-ac4f-7881ea19b267
+  servername: neth6.lckdwn.ru
+  alpn:
+  - h2
+  - http/1.1
+  host: neth6.lckdwn.ru
 - name: '[FR] ️ ShatakVPN 773984'
   server: "45.144.28.39"
   port: 2053
@@ -1676,6 +1719,20 @@ proxies:
     public-key: 4sT8gYkbYI1RUPlO-SFVpJENKfGgMWoYQpflbcfspkI
     short-id: 4844fb0c077b20b7
   client-fingerprint: random
+- name: '[FI] ️ ShatakVPN 467134'
+  server: "62.238.60.118"
+  port: 2096
+  type: vless
+  tls: true
+  uuid: 16569657-116c-46ed-8920-758ab8abaac4
+  servername: yahoo.com
+  host: yahoo.com
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: jqDgERbgQ5DVnJvw4p_j8XnM4GXUSXvPEn2t0TOtMms
+    short-id: 50797b67f581e453
+  client-fingerprint: random
+  skip-cert-verify: true
 - name: '[DE] ️ ShatakVPN 814656'
   server: "89.167.41.101"
   port: 1234
@@ -1739,6 +1796,19 @@ proxies:
   servername: sellflow.org
   host: sellflow.org
   flow: xtls-rprx-vision
+- name: '[LV] ️ ShatakVPN 311120'
+  server: "89.36.161.222"
+  port: 2053
+  type: vless
+  tls: true
+  uuid: 70e20b2e-3b1f-4c25-9a3d-9240570391bb
+  servername: vk.ru
+  host: vk.ru
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: cGVu5j95KoeHBkWXveyTKolORbdvZm9g1T6yyo64ZBg
+    short-id: d26f4703cdd30f4e
+  client-fingerprint: random
 - name: '[NL] ️ ShatakVPN 457019'
   server: "152.70.58.201"
   port: 443
@@ -2091,19 +2161,6 @@ proxies:
     path: /eyJqdW5rIjoiQU5JNXVpeHVlZG9va0puIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==
     headers:
       Host: BPb-E234adb8.xjGcjHVjkV.WorKERs.DEV
-- name: '[RU] ️ ShatakVPN 162402'
-  server: "45.146.131.154"
-  port: 8452
-  type: vless
-  tls: true
-  uuid: 9d01e9f2-1569-48cd-beb3-36f706f5ad5b
-  servername: www.cloudflare.com
-  host: www.cloudflare.com
-  flow: xtls-rprx-vision
-  reality-opts:
-    public-key: neW65LaKi88zH-X9gRQPhl5YqQLz9E4IrVnOpS4BnkU
-    short-id: 45b10e93bc618c2c
-  client-fingerprint: random
 - name: '[GB] ️ ShatakVPN 384270'
   server: "91.193.58.125"
   port: 2053
@@ -3605,6 +3662,12 @@ proxies:
   type: trojan
   password: 6ec301428255a78a1d826988d86cc87e
   sni: www.nintendogames.net
+- name: '[HK] ️ ShatakVPN 299216'
+  server: "119.246.1.143"
+  port: 443
+  type: trojan
+  password: BxceQaOe
+  skip-cert-verify: true
 - name: '[JP] ️ ShatakVPN 752127'
   server: "13.113.89.229"
   port: 443
