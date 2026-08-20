@@ -160,12 +160,6 @@ proxies:
   password: dongtaiwang.com
   sni: www.microsoft.com
   skip-cert-verify: true
-- name: '[FR] ️ ShatakVPN 766826'
-  server: "38.180.92.242"
-  port: 32245
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: pFNN9jKe8jwD
 - name: '[NL] ️ ShatakVPN 403545'
   server: "108.181.58.239"
   port: 8388
@@ -381,6 +375,14 @@ proxies:
   type: ss
   cipher: chacha20-ietf-poly1305
   password: TFElG2FVqyqG
+- name: '[US] ️ ShatakVPN 959334'
+  server: "54.213.89.22"
+  port: 443
+  type: hysteria2
+  ports: 443
+  password: qQe1z5kU8kN6SlKnDt9Ru3Qp
+  sni: vpn-us-002.fastervpn.world
+  skip-cert-verify: true
 - name: '[JP] ️ ShatakVPN 376738'
   server: "84.247.155.196"
   port: 80
@@ -2047,6 +2049,17 @@ proxies:
   servername: 193.124.46.65
   host: 193.124.46.65
   flow: xtls-rprx-vision
+- name: '[RU] ️ ShatakVPN 408047'
+  server: "185.91.52.83"
+  port: 443
+  type: vless
+  tls: true
+  uuid: 6a798544-d17a-4039-abde-a25dc939441a
+  servername: slnd.tdvin.com
+  network: grpc
+  grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: mygrpc
 - name: '[PL] ️ ShatakVPN 113776'
   server: "54.38.138.175"
   port: 443
@@ -2059,6 +2072,19 @@ proxies:
   reality-opts:
     public-key: LrDYMSt1pt2h6n-7YnHpcUAb_IG7QsQ0rfXz8RqkfCY
     short-id: 9e0fac51cc19d2
+  client-fingerprint: random
+- name: '[LV] ️ ShatakVPN 825055'
+  server: "89.36.161.222"
+  port: 2053
+  type: vless
+  tls: true
+  uuid: 70e20b2e-3b1f-4c25-9a3d-9240570391bb
+  servername: vk.ru
+  host: vk.ru
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: cGVu5j95KoeHBkWXveyTKolORbdvZm9g1T6yyo64ZBg
+    short-id: d26f4703cdd30f4e
   client-fingerprint: random
 - name: '[RU] ️ ShatakVPN 406657'
   server: "212.233.99.132"
@@ -2098,18 +2124,6 @@ proxies:
   grpc-opts:
     grpc-mode: gun
     grpc-service-name: grpc-reality
-- name: '[RU] ️ ShatakVPN 889127'
-  server: "81.94.148.66"
-  port: 443
-  type: vless
-  tls: true
-  uuid: 55e855d9-39a6-4f8e-938e-1507ab445ca0
-  servername: exit-nl-2.rog-self.co.uk
-  network: ws
-  ws-opts:
-    path: /ws/
-    headers:
-      Host: exit-nl-2.rog-self.co.uk
 - name: '[RU] ️ ShatakVPN 997136'
   server: "188.225.33.206"
   port: 8443
@@ -2140,19 +2154,6 @@ proxies:
     path: /@Marisa_kristi
     headers:
       Host: c6dbx99g6stb418qeo.t3jmlj0r152zji4htdkm9.workers.dev
-- name: '[RU] ️ ShatakVPN 865515'
-  server: "45.146.131.154"
-  port: 8452
-  type: vless
-  tls: true
-  uuid: 9d01e9f2-1569-48cd-beb3-36f706f5ad5b
-  servername: www.cloudflare.com
-  host: www.cloudflare.com
-  flow: xtls-rprx-vision
-  reality-opts:
-    public-key: neW65LaKi88zH-X9gRQPhl5YqQLz9E4IrVnOpS4BnkU
-    short-id: 45b10e93bc618c2c
-  client-fingerprint: random
 - name: '[FR] ️ ShatakVPN 204567'
   server: "169.58.143.21"
   port: 443
@@ -2187,21 +2188,6 @@ proxies:
   servername: www.paypal.com
   host: www.paypal.com
   flow: xtls-rprx-vision
-- name: '[RU] ️ ShatakVPN 492225'
-  server: "185.141.227.153"
-  port: 9002
-  type: vless
-  tls: true
-  uuid: 2c634977-584e-4e1f-b501-1b70c77a6743
-  servername: api-maps.yandex.ru
-  network: grpc
-  grpc-opts:
-    grpc-mode: gun
-    grpc-service-name: grpc-reality
-  reality-opts:
-    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
-    short-id: 6ba85179e30d4fc2
-  client-fingerprint: random
 - name: '[CA] ️ ShatakVPN 804117'
   server: "130.107.73.148"
   port: 41373
@@ -2229,6 +2215,17 @@ proxies:
     short-id: b91a73752053b039
   client-fingerprint: random
   skip-cert-verify: true
+- name: '[RU] ️ ShatakVPN 507344'
+  server: "78.159.245.75"
+  port: 9002
+  type: vless
+  tls: true
+  uuid: 2c634977-584e-4e1f-b501-1b70c77a6743
+  servername: api-maps.yandex.ru
+  network: grpc
+  grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: grpc-reality
 - name: '[JP] ️ ShatakVPN 835732'
   server: "170.205.39.165"
   port: 8443
@@ -2627,15 +2624,6 @@ proxies:
     public-key: 6RshLCSAs31qGRa_tWi63KClbh2Kzj9ooXpdaPJKbjs
     short-id: a6bbc4aecf5d961f
   client-fingerprint: random
-- name: '[DE] ️ ShatakVPN 511742'
-  server: "77.110.99.144"
-  port: 443
-  type: vless
-  tls: true
-  uuid: c1943f8a-11c6-402d-a439-dc0be226d916
-  servername: yahoo.com
-  host: yahoo.com
-  flow: xtls-rprx-vision
 - name: '[DE] ️ ShatakVPN 419630'
   server: "57.129.47.4"
   port: 2053
@@ -2910,18 +2898,6 @@ proxies:
   reality-opts:
     public-key: JfuItzJ81sJehx1PbxyliWSJvuBMKoa9ahNgPO3R7R4
     short-id: c226283c4de5b1ad
-  client-fingerprint: random
-- name: '[US] ️ ShatakVPN 804809'
-  server: "204.48.20.223"
-  port: 30906
-  type: vless
-  tls: true
-  uuid: 43a13764-23dd-4e01-8b79-cde8a16e13ce
-  servername: www.cloudflare.com
-  host: www.cloudflare.com
-  reality-opts:
-    public-key: HnQ_s7eu3XUu6upzLoe0jj5ZgsYvM7KXuMG41IwN4R0
-    short-id: 17a94dc584e3
   client-fingerprint: random
 - name: '[UN] ️ ShatakVPN 104815'
   server: "172.67.219.21"
@@ -3451,13 +3427,6 @@ proxies:
   type: trojan
   password: EQ30679154
   sni: funny-hen.rooster465.autos
-- name: '[DE] ️ ShatakVPN 589618'
-  server: "87.121.218.169"
-  port: 443
-  type: trojan
-  password: bptHV5U91mWneB61rRKhCQ8f
-  sni: 87.121.218.169
-  skip-cert-verify: false
 - name: '[US] ️ ShatakVPN 695462'
   server: "35.88.210.26"
   port: 443
@@ -4040,6 +4009,12 @@ proxies:
   type: trojan
   password: fg20mtCFHy
   sni: hyctx.southbyte.xyz
+- name: '[HK] ️ ShatakVPN 689715'
+  server: "119.246.1.143"
+  port: 443
+  type: trojan
+  password: BxceQaOe
+  skip-cert-verify: true
 - name: '[JP] ️ ShatakVPN 193784'
   server: "52.195.7.13"
   port: 443
@@ -5816,7 +5791,6 @@ proxy-groups:
   - '[FR] ️ ShatakVPN 133347'
   - '[FR] ️ ShatakVPN 491724'
   - '[DE] ️ ShatakVPN 885295'
-  - '[FR] ️ ShatakVPN 766826'
   - '[DE] ️ ShatakVPN 646679'
   - '[NL] ️ ShatakVPN 403545'
   - '[FR] ️ ShatakVPN 830644'
@@ -5874,26 +5848,24 @@ proxy-groups:
   - '[IE] ️ ShatakVPN 553175'
   - '[FR] ️ ShatakVPN 127321'
   - '[TR] ️ ShatakVPN 558830'
+  - '[RU] ️ ShatakVPN 408047'
   - '[PL] ️ ShatakVPN 113776'
+  - '[LV] ️ ShatakVPN 825055'
   - '[RU] ️ ShatakVPN 406657'
   - '[FI] ️ ShatakVPN 246217'
   - '[RU] ️ ShatakVPN 759457'
   - '[PL] ️ ShatakVPN 955302'
-  - '[RU] ️ ShatakVPN 889127'
   - '[RU] ️ ShatakVPN 997136'
   - '[LT] ️ ShatakVPN 985545'
   - '[FI] ️ ShatakVPN 123013'
   - '[NL] ️ ShatakVPN 897221'
   - '[IE] ️ ShatakVPN 211903'
   - '[IE] ️ ShatakVPN 748075'
-  - '[RU] ️ ShatakVPN 865515'
   - '[FR] ️ ShatakVPN 204567'
   - '[DE] ️ ShatakVPN 476166'
   - '[US] ️ ShatakVPN 457843'
-  - '[DE] ️ ShatakVPN 589618'
   - '[IR] ️ ShatakVPN 675660'
   - '[US] ️ ShatakVPN 796541'
-  - '[RU] ️ ShatakVPN 492225'
   - '[CA] ️ ShatakVPN 804117'
   - '[CA] ️ ShatakVPN 304439'
   - '[CA] ️ ShatakVPN 338156'
@@ -5901,12 +5873,14 @@ proxy-groups:
   - '[NL] ️ ShatakVPN 499326'
   - '[NL] ️ ShatakVPN 812325'
   - '[NL] ️ ShatakVPN 239974'
+  - '[RU] ️ ShatakVPN 507344'
   - '[US] ️ ShatakVPN 301367'
   - '[US] ️ ShatakVPN 776665'
   - '[IN] ️ ShatakVPN 260561'
   - '[US] ️ ShatakVPN 709111'
   - '[DE] ️ ShatakVPN 426323'
   - '[SG] ️ ShatakVPN 985040'
+  - '[US] ️ ShatakVPN 959334'
   - '[US] ️ ShatakVPN 695462'
   - '[US] ️ ShatakVPN 705972'
   - '[US] ️ ShatakVPN 745522'
@@ -6000,6 +5974,7 @@ proxy-groups:
   - '[SG] ️ ShatakVPN 684616'
   - '[HK] ️ ShatakVPN 715397'
   - '[HK] ️ ShatakVPN 766588'
+  - '[HK] ️ ShatakVPN 689715'
   - '[JP] ️ ShatakVPN 193784'
   - '[JP] ️ ShatakVPN 940927'
   - '[JP] ️ ShatakVPN 650064'
@@ -6276,7 +6251,6 @@ proxy-groups:
   - '[US] ️ ShatakVPN 753591'
   - '[FR] ️ ShatakVPN 602250'
   - '[DE] ️ ShatakVPN 181354'
-  - '[DE] ️ ShatakVPN 511742'
   - '[DE] ️ ShatakVPN 419630'
   - '[UN] ️ ShatakVPN 272636'
   - '[US] ️ ShatakVPN 793727'
@@ -6355,7 +6329,6 @@ proxy-groups:
   - '[RU] ️ ShatakVPN 515014'
   - '[SC] ️ ShatakVPN 739581'
   - '[JP] ️ ShatakVPN 408841'
-  - '[US] ️ ShatakVPN 804809'
   - '[UN] ️ ShatakVPN 104815'
   - '[RU] ️ ShatakVPN 193085'
   - '[UN] ️ ShatakVPN 244101'
@@ -6503,7 +6476,6 @@ proxy-groups:
   - '[FR] ️ ShatakVPN 133347'
   - '[FR] ️ ShatakVPN 491724'
   - '[DE] ️ ShatakVPN 885295'
-  - '[FR] ️ ShatakVPN 766826'
   - '[DE] ️ ShatakVPN 646679'
   - '[NL] ️ ShatakVPN 403545'
   - '[FR] ️ ShatakVPN 830644'
@@ -6561,26 +6533,24 @@ proxy-groups:
   - '[IE] ️ ShatakVPN 553175'
   - '[FR] ️ ShatakVPN 127321'
   - '[TR] ️ ShatakVPN 558830'
+  - '[RU] ️ ShatakVPN 408047'
   - '[PL] ️ ShatakVPN 113776'
+  - '[LV] ️ ShatakVPN 825055'
   - '[RU] ️ ShatakVPN 406657'
   - '[FI] ️ ShatakVPN 246217'
   - '[RU] ️ ShatakVPN 759457'
   - '[PL] ️ ShatakVPN 955302'
-  - '[RU] ️ ShatakVPN 889127'
   - '[RU] ️ ShatakVPN 997136'
   - '[LT] ️ ShatakVPN 985545'
   - '[FI] ️ ShatakVPN 123013'
   - '[NL] ️ ShatakVPN 897221'
   - '[IE] ️ ShatakVPN 211903'
   - '[IE] ️ ShatakVPN 748075'
-  - '[RU] ️ ShatakVPN 865515'
   - '[FR] ️ ShatakVPN 204567'
   - '[DE] ️ ShatakVPN 476166'
   - '[US] ️ ShatakVPN 457843'
-  - '[DE] ️ ShatakVPN 589618'
   - '[IR] ️ ShatakVPN 675660'
   - '[US] ️ ShatakVPN 796541'
-  - '[RU] ️ ShatakVPN 492225'
   - '[CA] ️ ShatakVPN 804117'
   - '[CA] ️ ShatakVPN 304439'
   - '[CA] ️ ShatakVPN 338156'
@@ -6588,12 +6558,14 @@ proxy-groups:
   - '[NL] ️ ShatakVPN 499326'
   - '[NL] ️ ShatakVPN 812325'
   - '[NL] ️ ShatakVPN 239974'
+  - '[RU] ️ ShatakVPN 507344'
   - '[US] ️ ShatakVPN 301367'
   - '[US] ️ ShatakVPN 776665'
   - '[IN] ️ ShatakVPN 260561'
   - '[US] ️ ShatakVPN 709111'
   - '[DE] ️ ShatakVPN 426323'
   - '[SG] ️ ShatakVPN 985040'
+  - '[US] ️ ShatakVPN 959334'
   - '[US] ️ ShatakVPN 695462'
   - '[US] ️ ShatakVPN 705972'
   - '[US] ️ ShatakVPN 745522'
@@ -6687,6 +6659,7 @@ proxy-groups:
   - '[SG] ️ ShatakVPN 684616'
   - '[HK] ️ ShatakVPN 715397'
   - '[HK] ️ ShatakVPN 766588'
+  - '[HK] ️ ShatakVPN 689715'
   - '[JP] ️ ShatakVPN 193784'
   - '[JP] ️ ShatakVPN 940927'
   - '[JP] ️ ShatakVPN 650064'
@@ -6963,7 +6936,6 @@ proxy-groups:
   - '[US] ️ ShatakVPN 753591'
   - '[FR] ️ ShatakVPN 602250'
   - '[DE] ️ ShatakVPN 181354'
-  - '[DE] ️ ShatakVPN 511742'
   - '[DE] ️ ShatakVPN 419630'
   - '[UN] ️ ShatakVPN 272636'
   - '[US] ️ ShatakVPN 793727'
@@ -7042,7 +7014,6 @@ proxy-groups:
   - '[RU] ️ ShatakVPN 515014'
   - '[SC] ️ ShatakVPN 739581'
   - '[JP] ️ ShatakVPN 408841'
-  - '[US] ️ ShatakVPN 804809'
   - '[UN] ️ ShatakVPN 104815'
   - '[RU] ️ ShatakVPN 193085'
   - '[UN] ️ ShatakVPN 244101'
@@ -7191,7 +7162,6 @@ proxy-groups:
   - '[FR] ️ ShatakVPN 133347'
   - '[FR] ️ ShatakVPN 491724'
   - '[DE] ️ ShatakVPN 885295'
-  - '[FR] ️ ShatakVPN 766826'
   - '[DE] ️ ShatakVPN 646679'
   - '[NL] ️ ShatakVPN 403545'
   - '[FR] ️ ShatakVPN 830644'
@@ -7249,26 +7219,24 @@ proxy-groups:
   - '[IE] ️ ShatakVPN 553175'
   - '[FR] ️ ShatakVPN 127321'
   - '[TR] ️ ShatakVPN 558830'
+  - '[RU] ️ ShatakVPN 408047'
   - '[PL] ️ ShatakVPN 113776'
+  - '[LV] ️ ShatakVPN 825055'
   - '[RU] ️ ShatakVPN 406657'
   - '[FI] ️ ShatakVPN 246217'
   - '[RU] ️ ShatakVPN 759457'
   - '[PL] ️ ShatakVPN 955302'
-  - '[RU] ️ ShatakVPN 889127'
   - '[RU] ️ ShatakVPN 997136'
   - '[LT] ️ ShatakVPN 985545'
   - '[FI] ️ ShatakVPN 123013'
   - '[NL] ️ ShatakVPN 897221'
   - '[IE] ️ ShatakVPN 211903'
   - '[IE] ️ ShatakVPN 748075'
-  - '[RU] ️ ShatakVPN 865515'
   - '[FR] ️ ShatakVPN 204567'
   - '[DE] ️ ShatakVPN 476166'
   - '[US] ️ ShatakVPN 457843'
-  - '[DE] ️ ShatakVPN 589618'
   - '[IR] ️ ShatakVPN 675660'
   - '[US] ️ ShatakVPN 796541'
-  - '[RU] ️ ShatakVPN 492225'
   - '[CA] ️ ShatakVPN 804117'
   - '[CA] ️ ShatakVPN 304439'
   - '[CA] ️ ShatakVPN 338156'
@@ -7276,12 +7244,14 @@ proxy-groups:
   - '[NL] ️ ShatakVPN 499326'
   - '[NL] ️ ShatakVPN 812325'
   - '[NL] ️ ShatakVPN 239974'
+  - '[RU] ️ ShatakVPN 507344'
   - '[US] ️ ShatakVPN 301367'
   - '[US] ️ ShatakVPN 776665'
   - '[IN] ️ ShatakVPN 260561'
   - '[US] ️ ShatakVPN 709111'
   - '[DE] ️ ShatakVPN 426323'
   - '[SG] ️ ShatakVPN 985040'
+  - '[US] ️ ShatakVPN 959334'
   - '[US] ️ ShatakVPN 695462'
   - '[US] ️ ShatakVPN 705972'
   - '[US] ️ ShatakVPN 745522'
@@ -7375,6 +7345,7 @@ proxy-groups:
   - '[SG] ️ ShatakVPN 684616'
   - '[HK] ️ ShatakVPN 715397'
   - '[HK] ️ ShatakVPN 766588'
+  - '[HK] ️ ShatakVPN 689715'
   - '[JP] ️ ShatakVPN 193784'
   - '[JP] ️ ShatakVPN 940927'
   - '[JP] ️ ShatakVPN 650064'
@@ -7651,7 +7622,6 @@ proxy-groups:
   - '[US] ️ ShatakVPN 753591'
   - '[FR] ️ ShatakVPN 602250'
   - '[DE] ️ ShatakVPN 181354'
-  - '[DE] ️ ShatakVPN 511742'
   - '[DE] ️ ShatakVPN 419630'
   - '[UN] ️ ShatakVPN 272636'
   - '[US] ️ ShatakVPN 793727'
@@ -7730,7 +7700,6 @@ proxy-groups:
   - '[RU] ️ ShatakVPN 515014'
   - '[SC] ️ ShatakVPN 739581'
   - '[JP] ️ ShatakVPN 408841'
-  - '[US] ️ ShatakVPN 804809'
   - '[UN] ️ ShatakVPN 104815'
   - '[RU] ️ ShatakVPN 193085'
   - '[UN] ️ ShatakVPN 244101'
@@ -7891,7 +7860,6 @@ proxy-groups:
   - '[FR] ️ ShatakVPN 133347'
   - '[FR] ️ ShatakVPN 491724'
   - '[DE] ️ ShatakVPN 885295'
-  - '[FR] ️ ShatakVPN 766826'
   - '[DE] ️ ShatakVPN 646679'
   - '[NL] ️ ShatakVPN 403545'
   - '[FR] ️ ShatakVPN 830644'
@@ -7949,26 +7917,24 @@ proxy-groups:
   - '[IE] ️ ShatakVPN 553175'
   - '[FR] ️ ShatakVPN 127321'
   - '[TR] ️ ShatakVPN 558830'
+  - '[RU] ️ ShatakVPN 408047'
   - '[PL] ️ ShatakVPN 113776'
+  - '[LV] ️ ShatakVPN 825055'
   - '[RU] ️ ShatakVPN 406657'
   - '[FI] ️ ShatakVPN 246217'
   - '[RU] ️ ShatakVPN 759457'
   - '[PL] ️ ShatakVPN 955302'
-  - '[RU] ️ ShatakVPN 889127'
   - '[RU] ️ ShatakVPN 997136'
   - '[LT] ️ ShatakVPN 985545'
   - '[FI] ️ ShatakVPN 123013'
   - '[NL] ️ ShatakVPN 897221'
   - '[IE] ️ ShatakVPN 211903'
   - '[IE] ️ ShatakVPN 748075'
-  - '[RU] ️ ShatakVPN 865515'
   - '[FR] ️ ShatakVPN 204567'
   - '[DE] ️ ShatakVPN 476166'
   - '[US] ️ ShatakVPN 457843'
-  - '[DE] ️ ShatakVPN 589618'
   - '[IR] ️ ShatakVPN 675660'
   - '[US] ️ ShatakVPN 796541'
-  - '[RU] ️ ShatakVPN 492225'
   - '[CA] ️ ShatakVPN 804117'
   - '[CA] ️ ShatakVPN 304439'
   - '[CA] ️ ShatakVPN 338156'
@@ -7976,12 +7942,14 @@ proxy-groups:
   - '[NL] ️ ShatakVPN 499326'
   - '[NL] ️ ShatakVPN 812325'
   - '[NL] ️ ShatakVPN 239974'
+  - '[RU] ️ ShatakVPN 507344'
   - '[US] ️ ShatakVPN 301367'
   - '[US] ️ ShatakVPN 776665'
   - '[IN] ️ ShatakVPN 260561'
   - '[US] ️ ShatakVPN 709111'
   - '[DE] ️ ShatakVPN 426323'
   - '[SG] ️ ShatakVPN 985040'
+  - '[US] ️ ShatakVPN 959334'
   - '[US] ️ ShatakVPN 695462'
   - '[US] ️ ShatakVPN 705972'
   - '[US] ️ ShatakVPN 745522'
@@ -8075,6 +8043,7 @@ proxy-groups:
   - '[SG] ️ ShatakVPN 684616'
   - '[HK] ️ ShatakVPN 715397'
   - '[HK] ️ ShatakVPN 766588'
+  - '[HK] ️ ShatakVPN 689715'
   - '[JP] ️ ShatakVPN 193784'
   - '[JP] ️ ShatakVPN 940927'
   - '[JP] ️ ShatakVPN 650064'
@@ -8351,7 +8320,6 @@ proxy-groups:
   - '[US] ️ ShatakVPN 753591'
   - '[FR] ️ ShatakVPN 602250'
   - '[DE] ️ ShatakVPN 181354'
-  - '[DE] ️ ShatakVPN 511742'
   - '[DE] ️ ShatakVPN 419630'
   - '[UN] ️ ShatakVPN 272636'
   - '[US] ️ ShatakVPN 793727'
@@ -8430,7 +8398,6 @@ proxy-groups:
   - '[RU] ️ ShatakVPN 515014'
   - '[SC] ️ ShatakVPN 739581'
   - '[JP] ️ ShatakVPN 408841'
-  - '[US] ️ ShatakVPN 804809'
   - '[UN] ️ ShatakVPN 104815'
   - '[RU] ️ ShatakVPN 193085'
   - '[UN] ️ ShatakVPN 244101'
@@ -8583,7 +8550,6 @@ proxy-groups:
   - '[FR] ️ ShatakVPN 133347'
   - '[FR] ️ ShatakVPN 491724'
   - '[DE] ️ ShatakVPN 885295'
-  - '[FR] ️ ShatakVPN 766826'
   - '[DE] ️ ShatakVPN 646679'
   - '[NL] ️ ShatakVPN 403545'
   - '[FR] ️ ShatakVPN 830644'
@@ -8641,26 +8607,24 @@ proxy-groups:
   - '[IE] ️ ShatakVPN 553175'
   - '[FR] ️ ShatakVPN 127321'
   - '[TR] ️ ShatakVPN 558830'
+  - '[RU] ️ ShatakVPN 408047'
   - '[PL] ️ ShatakVPN 113776'
+  - '[LV] ️ ShatakVPN 825055'
   - '[RU] ️ ShatakVPN 406657'
   - '[FI] ️ ShatakVPN 246217'
   - '[RU] ️ ShatakVPN 759457'
   - '[PL] ️ ShatakVPN 955302'
-  - '[RU] ️ ShatakVPN 889127'
   - '[RU] ️ ShatakVPN 997136'
   - '[LT] ️ ShatakVPN 985545'
   - '[FI] ️ ShatakVPN 123013'
   - '[NL] ️ ShatakVPN 897221'
   - '[IE] ️ ShatakVPN 211903'
   - '[IE] ️ ShatakVPN 748075'
-  - '[RU] ️ ShatakVPN 865515'
   - '[FR] ️ ShatakVPN 204567'
   - '[DE] ️ ShatakVPN 476166'
   - '[US] ️ ShatakVPN 457843'
-  - '[DE] ️ ShatakVPN 589618'
   - '[IR] ️ ShatakVPN 675660'
   - '[US] ️ ShatakVPN 796541'
-  - '[RU] ️ ShatakVPN 492225'
   - '[CA] ️ ShatakVPN 804117'
   - '[CA] ️ ShatakVPN 304439'
   - '[CA] ️ ShatakVPN 338156'
@@ -8668,12 +8632,14 @@ proxy-groups:
   - '[NL] ️ ShatakVPN 499326'
   - '[NL] ️ ShatakVPN 812325'
   - '[NL] ️ ShatakVPN 239974'
+  - '[RU] ️ ShatakVPN 507344'
   - '[US] ️ ShatakVPN 301367'
   - '[US] ️ ShatakVPN 776665'
   - '[IN] ️ ShatakVPN 260561'
   - '[US] ️ ShatakVPN 709111'
   - '[DE] ️ ShatakVPN 426323'
   - '[SG] ️ ShatakVPN 985040'
+  - '[US] ️ ShatakVPN 959334'
   - '[US] ️ ShatakVPN 695462'
   - '[US] ️ ShatakVPN 705972'
   - '[US] ️ ShatakVPN 745522'
@@ -8767,6 +8733,7 @@ proxy-groups:
   - '[SG] ️ ShatakVPN 684616'
   - '[HK] ️ ShatakVPN 715397'
   - '[HK] ️ ShatakVPN 766588'
+  - '[HK] ️ ShatakVPN 689715'
   - '[JP] ️ ShatakVPN 193784'
   - '[JP] ️ ShatakVPN 940927'
   - '[JP] ️ ShatakVPN 650064'
@@ -9043,7 +9010,6 @@ proxy-groups:
   - '[US] ️ ShatakVPN 753591'
   - '[FR] ️ ShatakVPN 602250'
   - '[DE] ️ ShatakVPN 181354'
-  - '[DE] ️ ShatakVPN 511742'
   - '[DE] ️ ShatakVPN 419630'
   - '[UN] ️ ShatakVPN 272636'
   - '[US] ️ ShatakVPN 793727'
@@ -9122,7 +9088,6 @@ proxy-groups:
   - '[RU] ️ ShatakVPN 515014'
   - '[SC] ️ ShatakVPN 739581'
   - '[JP] ️ ShatakVPN 408841'
-  - '[US] ️ ShatakVPN 804809'
   - '[UN] ️ ShatakVPN 104815'
   - '[RU] ️ ShatakVPN 193085'
   - '[UN] ️ ShatakVPN 244101'
@@ -9270,7 +9235,6 @@ proxy-groups:
   - '[FR] ️ ShatakVPN 133347'
   - '[FR] ️ ShatakVPN 491724'
   - '[DE] ️ ShatakVPN 885295'
-  - '[FR] ️ ShatakVPN 766826'
   - '[DE] ️ ShatakVPN 646679'
   - '[NL] ️ ShatakVPN 403545'
   - '[FR] ️ ShatakVPN 830644'
@@ -9328,26 +9292,24 @@ proxy-groups:
   - '[IE] ️ ShatakVPN 553175'
   - '[FR] ️ ShatakVPN 127321'
   - '[TR] ️ ShatakVPN 558830'
+  - '[RU] ️ ShatakVPN 408047'
   - '[PL] ️ ShatakVPN 113776'
+  - '[LV] ️ ShatakVPN 825055'
   - '[RU] ️ ShatakVPN 406657'
   - '[FI] ️ ShatakVPN 246217'
   - '[RU] ️ ShatakVPN 759457'
   - '[PL] ️ ShatakVPN 955302'
-  - '[RU] ️ ShatakVPN 889127'
   - '[RU] ️ ShatakVPN 997136'
   - '[LT] ️ ShatakVPN 985545'
   - '[FI] ️ ShatakVPN 123013'
   - '[NL] ️ ShatakVPN 897221'
   - '[IE] ️ ShatakVPN 211903'
   - '[IE] ️ ShatakVPN 748075'
-  - '[RU] ️ ShatakVPN 865515'
   - '[FR] ️ ShatakVPN 204567'
   - '[DE] ️ ShatakVPN 476166'
   - '[US] ️ ShatakVPN 457843'
-  - '[DE] ️ ShatakVPN 589618'
   - '[IR] ️ ShatakVPN 675660'
   - '[US] ️ ShatakVPN 796541'
-  - '[RU] ️ ShatakVPN 492225'
   - '[CA] ️ ShatakVPN 804117'
   - '[CA] ️ ShatakVPN 304439'
   - '[CA] ️ ShatakVPN 338156'
@@ -9355,12 +9317,14 @@ proxy-groups:
   - '[NL] ️ ShatakVPN 499326'
   - '[NL] ️ ShatakVPN 812325'
   - '[NL] ️ ShatakVPN 239974'
+  - '[RU] ️ ShatakVPN 507344'
   - '[US] ️ ShatakVPN 301367'
   - '[US] ️ ShatakVPN 776665'
   - '[IN] ️ ShatakVPN 260561'
   - '[US] ️ ShatakVPN 709111'
   - '[DE] ️ ShatakVPN 426323'
   - '[SG] ️ ShatakVPN 985040'
+  - '[US] ️ ShatakVPN 959334'
   - '[US] ️ ShatakVPN 695462'
   - '[US] ️ ShatakVPN 705972'
   - '[US] ️ ShatakVPN 745522'
@@ -9454,6 +9418,7 @@ proxy-groups:
   - '[SG] ️ ShatakVPN 684616'
   - '[HK] ️ ShatakVPN 715397'
   - '[HK] ️ ShatakVPN 766588'
+  - '[HK] ️ ShatakVPN 689715'
   - '[JP] ️ ShatakVPN 193784'
   - '[JP] ️ ShatakVPN 940927'
   - '[JP] ️ ShatakVPN 650064'
@@ -9730,7 +9695,6 @@ proxy-groups:
   - '[US] ️ ShatakVPN 753591'
   - '[FR] ️ ShatakVPN 602250'
   - '[DE] ️ ShatakVPN 181354'
-  - '[DE] ️ ShatakVPN 511742'
   - '[DE] ️ ShatakVPN 419630'
   - '[UN] ️ ShatakVPN 272636'
   - '[US] ️ ShatakVPN 793727'
@@ -9809,7 +9773,6 @@ proxy-groups:
   - '[RU] ️ ShatakVPN 515014'
   - '[SC] ️ ShatakVPN 739581'
   - '[JP] ️ ShatakVPN 408841'
-  - '[US] ️ ShatakVPN 804809'
   - '[UN] ️ ShatakVPN 104815'
   - '[RU] ️ ShatakVPN 193085'
   - '[UN] ️ ShatakVPN 244101'
@@ -9958,7 +9921,6 @@ proxy-groups:
   - '[FR] ️ ShatakVPN 133347'
   - '[FR] ️ ShatakVPN 491724'
   - '[DE] ️ ShatakVPN 885295'
-  - '[FR] ️ ShatakVPN 766826'
   - '[DE] ️ ShatakVPN 646679'
   - '[NL] ️ ShatakVPN 403545'
   - '[FR] ️ ShatakVPN 830644'
@@ -10016,26 +9978,24 @@ proxy-groups:
   - '[IE] ️ ShatakVPN 553175'
   - '[FR] ️ ShatakVPN 127321'
   - '[TR] ️ ShatakVPN 558830'
+  - '[RU] ️ ShatakVPN 408047'
   - '[PL] ️ ShatakVPN 113776'
+  - '[LV] ️ ShatakVPN 825055'
   - '[RU] ️ ShatakVPN 406657'
   - '[FI] ️ ShatakVPN 246217'
   - '[RU] ️ ShatakVPN 759457'
   - '[PL] ️ ShatakVPN 955302'
-  - '[RU] ️ ShatakVPN 889127'
   - '[RU] ️ ShatakVPN 997136'
   - '[LT] ️ ShatakVPN 985545'
   - '[FI] ️ ShatakVPN 123013'
   - '[NL] ️ ShatakVPN 897221'
   - '[IE] ️ ShatakVPN 211903'
   - '[IE] ️ ShatakVPN 748075'
-  - '[RU] ️ ShatakVPN 865515'
   - '[FR] ️ ShatakVPN 204567'
   - '[DE] ️ ShatakVPN 476166'
   - '[US] ️ ShatakVPN 457843'
-  - '[DE] ️ ShatakVPN 589618'
   - '[IR] ️ ShatakVPN 675660'
   - '[US] ️ ShatakVPN 796541'
-  - '[RU] ️ ShatakVPN 492225'
   - '[CA] ️ ShatakVPN 804117'
   - '[CA] ️ ShatakVPN 304439'
   - '[CA] ️ ShatakVPN 338156'
@@ -10043,12 +10003,14 @@ proxy-groups:
   - '[NL] ️ ShatakVPN 499326'
   - '[NL] ️ ShatakVPN 812325'
   - '[NL] ️ ShatakVPN 239974'
+  - '[RU] ️ ShatakVPN 507344'
   - '[US] ️ ShatakVPN 301367'
   - '[US] ️ ShatakVPN 776665'
   - '[IN] ️ ShatakVPN 260561'
   - '[US] ️ ShatakVPN 709111'
   - '[DE] ️ ShatakVPN 426323'
   - '[SG] ️ ShatakVPN 985040'
+  - '[US] ️ ShatakVPN 959334'
   - '[US] ️ ShatakVPN 695462'
   - '[US] ️ ShatakVPN 705972'
   - '[US] ️ ShatakVPN 745522'
@@ -10142,6 +10104,7 @@ proxy-groups:
   - '[SG] ️ ShatakVPN 684616'
   - '[HK] ️ ShatakVPN 715397'
   - '[HK] ️ ShatakVPN 766588'
+  - '[HK] ️ ShatakVPN 689715'
   - '[JP] ️ ShatakVPN 193784'
   - '[JP] ️ ShatakVPN 940927'
   - '[JP] ️ ShatakVPN 650064'
@@ -10418,7 +10381,6 @@ proxy-groups:
   - '[US] ️ ShatakVPN 753591'
   - '[FR] ️ ShatakVPN 602250'
   - '[DE] ️ ShatakVPN 181354'
-  - '[DE] ️ ShatakVPN 511742'
   - '[DE] ️ ShatakVPN 419630'
   - '[UN] ️ ShatakVPN 272636'
   - '[US] ️ ShatakVPN 793727'
@@ -10497,7 +10459,6 @@ proxy-groups:
   - '[RU] ️ ShatakVPN 515014'
   - '[SC] ️ ShatakVPN 739581'
   - '[JP] ️ ShatakVPN 408841'
-  - '[US] ️ ShatakVPN 804809'
   - '[UN] ️ ShatakVPN 104815'
   - '[RU] ️ ShatakVPN 193085'
   - '[UN] ️ ShatakVPN 244101'
@@ -10655,7 +10616,6 @@ proxy-groups:
   - '[FR] ️ ShatakVPN 133347'
   - '[FR] ️ ShatakVPN 491724'
   - '[DE] ️ ShatakVPN 885295'
-  - '[FR] ️ ShatakVPN 766826'
   - '[DE] ️ ShatakVPN 646679'
   - '[NL] ️ ShatakVPN 403545'
   - '[FR] ️ ShatakVPN 830644'
@@ -10713,26 +10673,24 @@ proxy-groups:
   - '[IE] ️ ShatakVPN 553175'
   - '[FR] ️ ShatakVPN 127321'
   - '[TR] ️ ShatakVPN 558830'
+  - '[RU] ️ ShatakVPN 408047'
   - '[PL] ️ ShatakVPN 113776'
+  - '[LV] ️ ShatakVPN 825055'
   - '[RU] ️ ShatakVPN 406657'
   - '[FI] ️ ShatakVPN 246217'
   - '[RU] ️ ShatakVPN 759457'
   - '[PL] ️ ShatakVPN 955302'
-  - '[RU] ️ ShatakVPN 889127'
   - '[RU] ️ ShatakVPN 997136'
   - '[LT] ️ ShatakVPN 985545'
   - '[FI] ️ ShatakVPN 123013'
   - '[NL] ️ ShatakVPN 897221'
   - '[IE] ️ ShatakVPN 211903'
   - '[IE] ️ ShatakVPN 748075'
-  - '[RU] ️ ShatakVPN 865515'
   - '[FR] ️ ShatakVPN 204567'
   - '[DE] ️ ShatakVPN 476166'
   - '[US] ️ ShatakVPN 457843'
-  - '[DE] ️ ShatakVPN 589618'
   - '[IR] ️ ShatakVPN 675660'
   - '[US] ️ ShatakVPN 796541'
-  - '[RU] ️ ShatakVPN 492225'
   - '[CA] ️ ShatakVPN 804117'
   - '[CA] ️ ShatakVPN 304439'
   - '[CA] ️ ShatakVPN 338156'
@@ -10740,12 +10698,14 @@ proxy-groups:
   - '[NL] ️ ShatakVPN 499326'
   - '[NL] ️ ShatakVPN 812325'
   - '[NL] ️ ShatakVPN 239974'
+  - '[RU] ️ ShatakVPN 507344'
   - '[US] ️ ShatakVPN 301367'
   - '[US] ️ ShatakVPN 776665'
   - '[IN] ️ ShatakVPN 260561'
   - '[US] ️ ShatakVPN 709111'
   - '[DE] ️ ShatakVPN 426323'
   - '[SG] ️ ShatakVPN 985040'
+  - '[US] ️ ShatakVPN 959334'
   - '[US] ️ ShatakVPN 695462'
   - '[US] ️ ShatakVPN 705972'
   - '[US] ️ ShatakVPN 745522'
@@ -10839,6 +10799,7 @@ proxy-groups:
   - '[SG] ️ ShatakVPN 684616'
   - '[HK] ️ ShatakVPN 715397'
   - '[HK] ️ ShatakVPN 766588'
+  - '[HK] ️ ShatakVPN 689715'
   - '[JP] ️ ShatakVPN 193784'
   - '[JP] ️ ShatakVPN 940927'
   - '[JP] ️ ShatakVPN 650064'
@@ -11115,7 +11076,6 @@ proxy-groups:
   - '[US] ️ ShatakVPN 753591'
   - '[FR] ️ ShatakVPN 602250'
   - '[DE] ️ ShatakVPN 181354'
-  - '[DE] ️ ShatakVPN 511742'
   - '[DE] ️ ShatakVPN 419630'
   - '[UN] ️ ShatakVPN 272636'
   - '[US] ️ ShatakVPN 793727'
@@ -11194,7 +11154,6 @@ proxy-groups:
   - '[RU] ️ ShatakVPN 515014'
   - '[SC] ️ ShatakVPN 739581'
   - '[JP] ️ ShatakVPN 408841'
-  - '[US] ️ ShatakVPN 804809'
   - '[UN] ️ ShatakVPN 104815'
   - '[RU] ️ ShatakVPN 193085'
   - '[UN] ️ ShatakVPN 244101'
