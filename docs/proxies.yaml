@@ -384,14 +384,6 @@ proxies:
   type: ss
   cipher: chacha20-ietf-poly1305
   password: FD3rCuOsxOay
-- name: '[US] ️ ShatakVPN 147358'
-  server: "150.241.102.127"
-  port: 443
-  type: hysteria2
-  ports: 443
-  password: 042a1881-44e4-4781-bd40-bf75164faf4f
-  sni: 150.241.102.127
-  skip-cert-verify: true
 - name: '[CA] ️ ShatakVPN 954540'
   server: "108.181.118.10"
   port: 8388
@@ -1498,19 +1490,17 @@ proxies:
     path: /@Marisa_kristi
     headers:
       Host: d-l28t5-65-b.pbe40wmcujaw726h7cpqernzmawz4stwtrnqve0n1s5reht.workers.dev
-- name: '[DE] ️ ShatakVPN 251858'
-  server: "57.129.47.4"
-  port: 2053
+- name: '[DE] ️ ShatakVPN 242373'
+  server: "185.140.12.160"
+  port: 2083
   type: vless
   tls: true
-  uuid: c7e9c591-2764-423a-afca-efbd010fd396
-  servername: forfreeuse.rtqa.ru
-  network: ws
-  ws-opts:
-    path: /?TELEGRAM-MARAMBASHI_MARAMBASHI?ed=512
-    headers:
-      Host: forfreeuse.rtqa.ru
-  skip-cert-verify: false
+  uuid: 70e20b2e-3b1f-4c25-9a3d-9240570391bb
+  servername: derman.neobo-tooth.ru
+  network: grpc
+  grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: grpc
 - name: '[NL] ️ ShatakVPN 301856'
   server: "213.165.39.193"
   port: 443
@@ -1525,6 +1515,27 @@ proxies:
     public-key: TlpXTLz1Y-v8B6q9MX55U6eypjfL0LCSNE5zQP4yRHw
     short-id: bbc68cec8bb8d2e3
   client-fingerprint: random
+- name: '[DE] ️ ShatakVPN 177226'
+  server: "77.110.99.144"
+  port: 443
+  type: vless
+  tls: true
+  uuid: c1943f8a-11c6-402d-a439-dc0be226d916
+  servername: yahoo.com
+  host: yahoo.com
+  flow: xtls-rprx-vision
+- name: '[DE] ️ ShatakVPN 439840'
+  server: "81.95.4.189"
+  port: 443
+  type: vless
+  tls: true
+  uuid: b585dc5e-55bf-4a8b-913a-27c9ccac05c3
+  servername: bab-6.site
+  network: ws
+  ws-opts:
+    path: /vws/
+    headers:
+      Host: bab-6.site
 - name: '[UA] ️ ShatakVPN 243280'
   server: "91.196.162.113"
   port: 443
@@ -1630,6 +1641,15 @@ proxies:
     public-key: dRLd_E_GYCkCcwxLN5EcRQYsREKqisb26_ZSehxUpWY
     short-id: 1eb8ea8dae937ae0
   client-fingerprint: random
+- name: '[GB] ️ ShatakVPN 748819'
+  server: "213.193.255.206"
+  port: 443
+  type: vless
+  tls: true
+  uuid: be3960db-f339-0065-be7b-c1a130601141
+  servername: gb.cdn.cachefleet.com
+  host: gb.cdn.cachefleet.com
+  flow: xtls-rprx-vision
 - name: '[RU] ️ ShatakVPN 619099'
   server: "185.91.52.83"
   port: 443
@@ -1752,18 +1772,17 @@ proxies:
     path: /
     headers:
       Host: gb1.wba-pn.ru
-- name: '[RU] ️ ShatakVPN 109131'
-  server: "186.246.12.85"
-  port: 2053
+- name: '[RU] ️ ShatakVPN 493342'
+  server: "185.141.227.150"
+  port: 9002
   type: vless
   tls: true
-  uuid: f62a1751-c1e4-4612-90e7-bd5781c1aede
-  servername: bz2.wba-pn.ru
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: bz2.wba-pn.ru
+  uuid: 2c634977-584e-4e1f-b501-1b70c77a6743
+  servername: api-maps.yandex.ru
+  network: grpc
+  grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: grpc-reality
 - name: '[FI] ️ ShatakVPN 238900'
   server: "193.29.225.249"
   port: 4443
@@ -1776,6 +1795,18 @@ proxies:
     path: /@Marisa_kristi
     headers:
       Host: c6dbx99g6stb418qeo.t3jmlj0r152zji4htdkm9.workers.dev
+- name: '[GB] ️ ShatakVPN 655567'
+  server: "129.121.95.159"
+  port: 443
+  type: vless
+  tls: true
+  uuid: f6190ff2-864c-46cf-ac16-93908c069b75
+  servername: 129.121.95.159
+  network: ws
+  ws-opts:
+    path: /connect
+    headers:
+      Host: 129.121.95.159
 - name: '[US] ️ ShatakVPN 262720'
   server: "137.184.218.169"
   port: 36925
@@ -1873,6 +1904,26 @@ proxies:
     headers:
       Host: rubifen.adaspoloandco.com
   skip-cert-verify: false
+- name: '[NL] ️ ShatakVPN 373277'
+  server: "177.3.212.127"
+  port: 8443
+  type: vless
+  tls: true
+  uuid: 14da77da-4fb3-4e49-ac4f-7881ea19b267
+  servername: neth6.lckdwn.ru
+  alpn:
+  - h2
+  - http/1.1
+  host: neth6.lckdwn.ru
+- name: '[US] ️ ShatakVPN 422051'
+  server: "159.89.87.21"
+  port: 28190
+  type: vless
+  tls: true
+  uuid: 14c80e0e-f7ce-4991-94fc-99a1db4a9b1e
+  servername: aws.amazon.com
+  host: aws.amazon.com
+  flow: xtls-rprx-vision
 - name: '[NL] ️ ShatakVPN 865197'
   server: "79.137.205.35"
   port: 8444
@@ -1997,6 +2048,18 @@ proxies:
     path: /ws-vlees
     headers:
       Host: holandlesy-q1fju1ye.brinexa.ir
+  skip-cert-verify: false
+- name: '[CA] ️ ShatakVPN 506919'
+  server: "184.107.106.68"
+  port: 443
+  type: vless
+  tls: true
+  uuid: 716426fa-bcb7-4eb9-b460-36399ebf740d
+  servername: lizca2.footballfantasyforum.com
+  alpn:
+  - h2
+  - http/1.1
+  host: lizca2.footballfantasyforum.com
   skip-cert-verify: false
 - name: '[UN] ️ ShatakVPN 119704'
   server: "172.64.144.66"
@@ -2691,6 +2754,19 @@ proxies:
     headers:
       Host: rubifen.adaspoloandco.com
   skip-cert-verify: false
+- name: '[DE] ️ ShatakVPN 587768'
+  server: "169.40.42.212"
+  port: 443
+  type: vless
+  tls: true
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  servername: yahoo.com
+  host: yahoo.com
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
+    short-id: c39cc7310a
+  client-fingerprint: random
 - name: '[RU] ️ ShatakVPN 581700'
   server: "185.178.208.176"
   port: 443
@@ -2967,12 +3043,6 @@ proxies:
   type: trojan
   password: EQ30679154
   sni: usable-dogfish.rooster465.autos
-- name: '[RU] ️ ShatakVPN 749450'
-  server: "45.90.216.147"
-  port: 8443
-  type: trojan
-  password: 5e19b3c8-c1dc-4163-95e2-895319c15d6c
-  sni: cloud.mail.ru
 - name: '[IE] ️ ShatakVPN 775894'
   server: "34.251.228.118"
   port: 443
