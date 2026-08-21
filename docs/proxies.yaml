@@ -415,12 +415,6 @@ proxies:
   type: ss
   cipher: aes-256-gcm
   password: goRz8CTFE6zPZXIA
-- name: '[SG] ️ ShatakVPN 349547'
-  server: "194.233.94.119"
-  port: 80
-  type: ss
-  cipher: aes-256-gcm
-  password: 5QCeIKUZUEp4mR9Z
 - name: '[US] ️ ShatakVPN 645962'
   server: "217.28.129.81"
   port: 42982
@@ -1610,18 +1604,6 @@ proxies:
     path: /vws/
     headers:
       Host: bab-6.site
-- name: '[CZ] ️ ShatakVPN 524672'
-  server: "195.133.94.188"
-  port: 2053
-  type: vless
-  tls: true
-  uuid: c7e9c591-2764-423a-afca-efbd010fd396
-  servername: forfreeuse.rtqa.ru
-  network: ws
-  ws-opts:
-    path: /?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed
-    headers:
-      Host: forfreeuse.rtqa.ru
 - name: '[AE] ️ ShatakVPN 622744'
   server: "185.112.249.201"
   port: 8443
@@ -1965,15 +1947,6 @@ proxies:
     public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
     short-id: c39cc7310a
   client-fingerprint: random
-- name: '[US] ️ ShatakVPN 132349'
-  server: "159.89.87.21"
-  port: 28190
-  type: vless
-  tls: true
-  uuid: 14c80e0e-f7ce-4991-94fc-99a1db4a9b1e
-  servername: aws.amazon.com
-  host: aws.amazon.com
-  flow: xtls-rprx-vision
 - name: '[US] ️ ShatakVPN 387399'
   server: "137.184.218.169"
   port: 36925
@@ -1983,6 +1956,28 @@ proxies:
   servername: www.cloudflare.com
   host: www.cloudflare.com
   flow: xtls-rprx-vision
+- name: '[RU] ️ ShatakVPN 402882'
+  server: "78.159.245.75"
+  port: 9001
+  type: vless
+  tls: true
+  uuid: 2c634977-584e-4e1f-b501-1b70c77a6743
+  servername: api-maps.yandex.ru
+  network: grpc
+  grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: grpc-reality
+- name: '[RU] ️ ShatakVPN 464216'
+  server: "78.159.245.75"
+  port: 9002
+  type: vless
+  tls: true
+  uuid: 2c634977-584e-4e1f-b501-1b70c77a6743
+  servername: api-maps.yandex.ru
+  network: grpc
+  grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: grpc-reality
 - name: '[RU] ️ ShatakVPN 616555'
   server: "176.109.85.70"
   port: 443
@@ -2814,21 +2809,6 @@ proxies:
     path: /stream/PANEL_ZEUS/bdfc484fe288/loc-0
     headers:
       Host: klz9ipeuubas.9uz3s8e2u0zs.workers.dev
-- name: '[RU] ️ ShatakVPN 831588'
-  server: "91.240.87.170"
-  port: 8444
-  type: vless
-  tls: true
-  uuid: 8054a79c-b602-48b6-9d54-702d713a2185
-  servername: max.ru
-  network: grpc
-  grpc-opts:
-    grpc-mode: gun
-    grpc-service-name: grpc
-  reality-opts:
-    public-key: JjxjQ0bCB8UZDC4Tjs3FhWJciPB6jBd0846Ew31hSQk
-    short-id: a1b2c3d4
-  client-fingerprint: random
 - name: '[FI] ️ ShatakVPN 757484'
   server: "84.22.150.39"
   port: 7443
