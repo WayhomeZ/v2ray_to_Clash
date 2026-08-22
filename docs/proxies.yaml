@@ -381,6 +381,12 @@ proxies:
   password: sOiWCQ2AdIV0OWNuqQVyWp4JZnRxdyLROSjX
   sni: cabinet.wwwinternetvideo.click
   skip-cert-verify: true
+- name: '[CA] ️ ShatakVPN 565783'
+  server: "142.4.216.225"
+  port: 443
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: ytw2awn
 - name: '[NL] ️ ShatakVPN 545345'
   server: "92.112.126.90"
   port: 443
@@ -443,12 +449,6 @@ proxies:
   type: ss
   cipher: chacha20-ietf-poly1305
   password: G5p6ww4o67HB
-- name: '[CA] ️ ShatakVPN 676189'
-  server: "15.235.75.71"
-  port: 8388
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: FD3rCuOsxOay
 - name: '[UN] ️ ShatakVPN 629329'
   server: "104.18.152.225"
   port: 443
@@ -1676,6 +1676,15 @@ proxies:
     path: /
     headers:
       Host: be2.wba-pn.ru
+- name: '[DE] ️ ShatakVPN 257439'
+  server: "77.110.99.144"
+  port: 443
+  type: vless
+  tls: true
+  uuid: c1943f8a-11c6-402d-a439-dc0be226d916
+  servername: yahoo.com
+  host: yahoo.com
+  flow: xtls-rprx-vision
 - name: '[FR] ️ ShatakVPN 502571'
   server: "45.144.28.39"
   port: 2053
@@ -1770,18 +1779,6 @@ proxies:
     public-key: TlpXTLz1Y-v8B6q9MX55U6eypjfL0LCSNE5zQP4yRHw
     short-id: bbc68cec8bb8d2e3
   client-fingerprint: random
-- name: '[DE] ️ ShatakVPN 620367'
-  server: "77.110.100.63"
-  port: 2053
-  type: vless
-  tls: true
-  uuid: c7e9c591-2764-423a-afca-efbd010fd396
-  servername: forfreeuse.rtqa.ru
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: forfreeuse.rtqa.ru
 - name: '[AE] ️ ShatakVPN 401703'
   server: "185.112.249.201"
   port: 8443
@@ -1939,6 +1936,18 @@ proxies:
     public-key: Dfgu8Ey0M8Hz4gXGZAwQ3H9jLt2HByVsjAOTWiuKDB0
     short-id: aa
   client-fingerprint: random
+- name: '[DE] ️ ShatakVPN 670280'
+  server: "194.154.30.154"
+  port: 443
+  type: vless
+  tls: true
+  uuid: c7e9c591-2764-423a-afca-efbd010fd396
+  servername: forfreeuse.rtqa.ru
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: forfreeuse.rtqa.ru
 - name: '[US] ️ ShatakVPN 783421'
   server: "137.184.218.169"
   port: 36925
@@ -2334,6 +2343,18 @@ proxies:
     path: /
     headers:
       Host: forfreeuse.rtqa.ru
+- name: '[CZ] ️ ShatakVPN 480758'
+  server: "195.133.94.188"
+  port: 2053
+  type: vless
+  tls: true
+  uuid: c7e9c591-2764-423a-afca-efbd010fd396
+  servername: forfreeuse.rtqa.ru
+  network: ws
+  ws-opts:
+    path: /?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed
+    headers:
+      Host: forfreeuse.rtqa.ru
 - name: '[FR] ️ ShatakVPN 852074'
   server: "84.247.171.77"
   port: 2053
@@ -2577,6 +2598,17 @@ proxies:
     path: /
     headers:
       Host: it2ws.wba-pn.ru
+- name: '[RU] ️ ShatakVPN 605162'
+  server: "78.159.245.75"
+  port: 9001
+  type: vless
+  tls: true
+  uuid: 2c634977-584e-4e1f-b501-1b70c77a6743
+  servername: api-maps.yandex.ru
+  network: grpc
+  grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: grpc-reality
 - name: '[NL] ️ ShatakVPN 776636'
   server: "85.155.226.140"
   port: 443
