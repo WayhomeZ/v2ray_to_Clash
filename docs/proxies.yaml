@@ -5,12 +5,12 @@ proxies:
   type: ss
   cipher: 2022-blake3-chacha20-poly1305
   password: m2uw0zJCvMeApdVNQ2W+3mYHHsMk1YTubdnEnSRkj20=
-- name: '[DE] ️ ShatakVPN 418751'
-  server: "130.61.148.92"
+- name: '[DE] ️ ShatakVPN 112607'
+  server: "89.168.91.118"
   port: 59924
   type: ss
   cipher: 2022-blake3-chacha20-poly1305
-  password: iMCyLh/KjHKyfw2Y9uT9AK5zu6o04oI6AtshYHbgpVY=
+  password: gBLY0eMuDeNVYDjFCkB2N5DDyCf9GaiqWe7zAGNlHew=
 - name: '[CA] ️ ShatakVPN 219401'
   server: "142.4.216.225"
   port: 443
@@ -29,12 +29,6 @@ proxies:
   type: ss
   cipher: chacha20-ietf-poly1305
   password: yTEXWB6XBHyv9SfQJzCSRWCnRYutFdUXg1wbcbutxPwZE6Uxcurka3GkoatgEdX483XZSHeJp3jXcTShLCRM8rPgMF3vYNfS
-- name: '[NL] ️ ShatakVPN 550987'
-  server: "92.112.126.90"
-  port: 443
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: wwzVn2ZnHfqYa6l8EWh3eY
 - name: '[FR] ️ ShatakVPN 470945'
   server: "54.36.174.134"
   port: 443
@@ -89,12 +83,6 @@ proxies:
   type: ss
   cipher: chacha20-ietf-poly1305
   password: G5p6ww4o67HB
-- name: '[CA] ️ ShatakVPN 732178'
-  server: "15.235.75.71"
-  port: 8388
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: FD3rCuOsxOay
 - name: '[US] ️ ShatakVPN 241733'
   server: "154.53.63.33"
   port: 80
@@ -1516,6 +1504,15 @@ proxies:
     path: /
     headers:
       Host: forfreeuse.rtqa.ru
+- name: '[RU] ️ ShatakVPN 144266'
+  server: "188.225.33.206"
+  port: 8443
+  type: vless
+  tls: true
+  uuid: c124a209-d949-4951-8234-e2d918b3e6c0
+  servername: max.ru
+  host: max.ru
+  flow: xtls-rprx-vision
 - name: '[GB] ️ ShatakVPN 271195'
   server: "143.110.163.137"
   port: 2053
@@ -1576,6 +1573,18 @@ proxies:
   network: ws
   ws-opts:
     path: /
+    headers:
+      Host: forfreeuse.rtqa.ru
+- name: '[CZ] ️ ShatakVPN 658874'
+  server: "195.133.94.188"
+  port: 2053
+  type: vless
+  tls: true
+  uuid: c7e9c591-2764-423a-afca-efbd010fd396
+  servername: forfreeuse.rtqa.ru
+  network: ws
+  ws-opts:
+    path: /?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed
     headers:
       Host: forfreeuse.rtqa.ru
 - name: '[NL] ️ ShatakVPN 558546'
@@ -1641,18 +1650,6 @@ proxies:
     headers:
       Host: forfreeuse.rtqa.ru
   skip-cert-verify: true
-- name: '[DE] ️ ShatakVPN 944328'
-  server: "194.154.30.154"
-  port: 443
-  type: vless
-  tls: true
-  uuid: c7e9c591-2764-423a-afca-efbd010fd396
-  servername: forfreeuse.rtqa.ru
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: forfreeuse.rtqa.ru
 - name: '[AE] ️ ShatakVPN 584525'
   server: "217.60.63.206"
   port: 2053
@@ -1690,6 +1687,27 @@ proxies:
     headers:
       Host: forfreeuse.rtqa.ru
   skip-cert-verify: true
+- name: '[DE] ️ ShatakVPN 867793'
+  server: "77.110.99.144"
+  port: 443
+  type: vless
+  tls: true
+  uuid: c1943f8a-11c6-402d-a439-dc0be226d916
+  servername: yahoo.com
+  host: yahoo.com
+  flow: xtls-rprx-vision
+- name: '[DE] ️ ShatakVPN 574307'
+  server: "77.110.100.63"
+  port: 2053
+  type: vless
+  tls: true
+  uuid: c7e9c591-2764-423a-afca-efbd010fd396
+  servername: forfreeuse.rtqa.ru
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: forfreeuse.rtqa.ru
 - name: '[US] ️ ShatakVPN 415440'
   server: "137.184.218.169"
   port: 36925
@@ -2176,6 +2194,14 @@ proxies:
     path: /lMnsZUN4/
     headers:
       Host: v2ray1.dozapp.xyz
+- name: '[GB] ️ ShatakVPN 879978'
+  server: "51.38.71.147"
+  port: 2053
+  type: vmess
+  uuid: 72f2cbe4-2874-45b7-b6aa-b93077c10c72
+  alterId: 0
+  cipher: auto
+  tls: true
 - name: '[RU] ️ ShatakVPN 196461'
   server: "95.129.236.252"
   port: 443
@@ -2267,6 +2293,43 @@ proxies:
     path: /eyJqdW5rIjoiY0Y0cENQUmxsNyIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=
     headers:
       Host: fans.liverpool.qzz.io
+- name: '[RU] ️ ShatakVPN 236896'
+  server: "185.141.227.150"
+  port: 9002
+  type: vless
+  tls: true
+  uuid: 2c634977-584e-4e1f-b501-1b70c77a6743
+  servername: api-maps.yandex.ru
+  network: grpc
+  grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: grpc-reality
+- name: '[RU] ️ ShatakVPN 400377'
+  server: "185.141.227.153"
+  port: 9001
+  type: vless
+  tls: true
+  uuid: 2c634977-584e-4e1f-b501-1b70c77a6743
+  servername: api-maps.yandex.ru
+  network: grpc
+  grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: grpc-reality
+  reality-opts:
+    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+    short-id: 6ba85179e30d4fc2
+  client-fingerprint: random
+- name: '[RU] ️ ShatakVPN 482194'
+  server: "78.159.245.75"
+  port: 9002
+  type: vless
+  tls: true
+  uuid: 2c634977-584e-4e1f-b501-1b70c77a6743
+  servername: api-maps.yandex.ru
+  network: grpc
+  grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: grpc-reality
 - name: '[DE] ️ ShatakVPN 558499'
   server: "172.236.210.140"
   port: 8443
@@ -2336,20 +2399,6 @@ proxies:
     path: /eyJqdW5rIjoiQkFLTnhqM2tZTSIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=
     headers:
       Host: ez-5FAAFb.EsmAoi.wORKeRs.DEv
-- name: '[NL] ️ ShatakVPN 509724'
-  server: "213.165.39.193"
-  port: 443
-  type: vless
-  tls: true
-  uuid: 564082ff-cf3c-48db-9e10-8ad2312847b4
-  servername: node4.mxvpn.dev
-  host: node4.mxvpn.dev
-  path: /
-  flow: xtls-rprx-vision
-  reality-opts:
-    public-key: TlpXTLz1Y-v8B6q9MX55U6eypjfL0LCSNE5zQP4yRHw
-    short-id: bbc68cec8bb8d2e3
-  client-fingerprint: random
 - name: '[RU] ️ ShatakVPN 275632'
   server: "95.129.236.252"
   port: 443
@@ -2673,17 +2722,6 @@ proxies:
     path: /api/v2/vms/stream/genka
     headers:
       Host: benzin.benz.ink
-- name: '[RU] ️ ShatakVPN 689445'
-  server: "186.246.12.85"
-  port: 2053
-  type: vless
-  tls: true
-  uuid: f62a1751-c1e4-4612-90e7-bd5781c1aede
-  servername: bz2.wba-pn.ru
-  network: ws
-  ws-opts:
-    headers:
-      Host: bz2.wba-pn.ru
 - name: '[US] ️ ShatakVPN 804631'
   server: "35.88.120.18"
   port: 443
@@ -3431,12 +3469,6 @@ proxies:
   type: trojan
   password: PQ05174892
   sni: mature-lamprey.rooster465.autos
-- name: '[JP] ️ ShatakVPN 198590'
-  server: "54.199.28.234"
-  port: 443
-  type: trojan
-  password: PQ05174892
-  sni: robust-toucan.rooster465.autos
 - name: '[US] ️ ShatakVPN 118955'
   server: "54.213.46.211"
   port: 443
