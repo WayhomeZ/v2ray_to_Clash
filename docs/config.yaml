@@ -47,6 +47,7 @@ proxy-groups:
       - 🇳🇱 荷兰节点
       - 🇵🇱 波兰节点
       - 🇷🇺 俄罗斯节点
+      - 🇹🇷 土耳其节点
       - 🌍 其他地区
       - 🔯 故障转移
       - 🎯 全球直连
@@ -152,11 +153,19 @@ proxy-groups:
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
+  - name: 🇹🇷 土耳其节点
+    type: url-test
+    use:
+      - ConfigForge
+    filter: '(?i)^\[TR\]'
+    url: https://cp.cloudflare.com/generate_204
+    interval: 300
+    tolerance: 50
   - name: 🌍 其他地区
     type: url-test
     use:
       - ConfigForge
-    filter: '(?i)^\[(AE|BR|CA|EE|FI|HR|IN|IR|KZ|LU|LV|SC|TR|UN)\]'
+    filter: '(?i)^\[(AE|BE|BR|CA|EE|FI|HR|IN|IR|KZ|LU|LV|SC|UN)\]'
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
