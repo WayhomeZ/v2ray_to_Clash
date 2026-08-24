@@ -358,6 +358,14 @@ proxies:
   password: sOiWCQ2AdIV0OWNuqQVyWp4JZnRxdyLROSjX
   sni: cabinet.wwwinternetvideo.click
   skip-cert-verify: true
+- name: '[TR] ️ ShatakVPN 454528'
+  server: "194.135.34.207"
+  port: 443
+  type: hysteria2
+  ports: 443
+  password: 1ba59989-225e-4f1c-ab62-9bd7366009cb
+  sni: 194.135.34.207
+  skip-cert-verify: true
 - name: '[US] ️ ShatakVPN 441118'
   server: "159.223.157.129"
   port: 8443
@@ -1411,18 +1419,6 @@ proxies:
   servername: swdist.apple.com
   host: swdist.apple.com
   flow: xtls-rprx-vision
-- name: '[DE] ️ ShatakVPN 974349'
-  server: "185.125.103.62"
-  port: 8082
-  type: vless
-  tls: true
-  uuid: 7909e164-d482-4620-a370-07e6fda6676b
-  servername: wjwkhoaftdgrt8qus.mp8pmwdgwf3sdapasouszjobjr57nrxxgtx9n.workers.dev
-  network: ws
-  ws-opts:
-    path: /@Marisa_kristi
-    headers:
-      Host: wjwkhoaftdgrt8qus.mp8pmwdgwf3sdapasouszjobjr57nrxxgtx9n.workers.dev
 - name: '[NL] ️ ShatakVPN 343757'
   server: "217.60.24.57"
   port: 8443
@@ -1499,14 +1495,6 @@ proxies:
     path: /
     headers:
       Host: it2ws.wba-pn.ru
-- name: '[NL] ️ ShatakVPN 448871'
-  server: "213.165.40.175"
-  port: 2083
-  type: vless
-  tls: true
-  uuid: 7efc901f-7862-40e8-902b-4bfad8f8ca88
-  servername: 213.165.40.175.sslip.io
-  host: 213.165.40.175.sslip.io
 - name: '[NL] ️ ShatakVPN 990801'
   server: "194.93.61.66"
   port: 443
@@ -1648,21 +1636,6 @@ proxies:
   grpc-opts:
     grpc-mode: gun
     grpc-service-name: ns
-- name: '[RU] ️ ShatakVPN 586688'
-  server: "2.26.104.206"
-  port: 8443
-  type: vless
-  tls: true
-  uuid: 1b7dcb6a-4915-4741-92bf-bc1e7b531140
-  servername: russianum1.tcpshield.fun
-  network: grpc
-  grpc-opts:
-    grpc-mode: gun
-    grpc-service-name: Windows.Update
-  reality-opts:
-    public-key: nNoxOT_HzUZkKbHiK34iSfF89wlXAXBdlkquGVqGUDk
-    short-id: f4e0550a
-  client-fingerprint: random
 - name: '[US] ️ ShatakVPN 837186'
   server: "31.76.84.62"
   port: 443
@@ -1747,8 +1720,8 @@ proxies:
     public-key: IZz9Lj4tnHzNj9AkGlcOQxQXMJe0EGZLtIyX1a_yNAg
     short-id: 01d72fe094c8f6ef
   client-fingerprint: random
-- name: '[RU] ️ ShatakVPN 172518'
-  server: "78.159.245.75"
+- name: '[RU] ️ ShatakVPN 126057'
+  server: "185.141.227.153"
   port: 9001
   type: vless
   tls: true
@@ -1758,9 +1731,13 @@ proxies:
   grpc-opts:
     grpc-mode: gun
     grpc-service-name: grpc-reality
-- name: '[RU] ️ ShatakVPN 126057'
+  reality-opts:
+    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+    short-id: 6ba85179e30d4fc2
+  client-fingerprint: random
+- name: '[RU] ️ ShatakVPN 589908'
   server: "185.141.227.153"
-  port: 9001
+  port: 9002
   type: vless
   tls: true
   uuid: 2c634977-584e-4e1f-b501-1b70c77a6743
@@ -2161,6 +2138,21 @@ proxies:
     path: /eyJqdW5rIjoidDJpVVJEQndqZyIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbIjkxLjE4Ni4yMTkuODIiXX0=?ed=2560
     headers:
       Host: FAncY-RAIn-136e.THisISaLee.WoRkeRS.DeV
+  skip-cert-verify: false
+- name: '[UN] ️ ShatakVPN 451398'
+  server: "188.114.97.3"
+  port: 443
+  type: vless
+  tls: true
+  uuid: d7d8af23-36cd-4c66-a42a-4469c177210f
+  servername: FanCy-raIn-136E.tHisIsaLEe.wOrKeRS.deV
+  alpn:
+  - http/1.1
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoidmJOWHUwYnBOS00zT04iLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6WyI5MS4xODYuMjE5LjgyIl19?ed=2560
+    headers:
+      Host: FanCy-raIn-136E.tHisIsaLEe.wOrKeRS.deV
   skip-cert-verify: false
 - name: '[UN] ️ ShatakVPN 423061'
   server: "188.114.97.6"
