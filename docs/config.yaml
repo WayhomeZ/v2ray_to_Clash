@@ -45,6 +45,7 @@ proxy-groups:
       - 🇫🇷 法国节点
       - 🇬🇧 英国节点
       - 🇳🇱 荷兰节点
+      - 🇵🇱 波兰节点
       - 🇷🇺 俄罗斯节点
       - 🌍 其他地区
       - 🔯 故障转移
@@ -135,6 +136,14 @@ proxy-groups:
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
+  - name: 🇵🇱 波兰节点
+    type: url-test
+    use:
+      - ConfigForge
+    filter: '(?i)^\[PL\]'
+    url: https://cp.cloudflare.com/generate_204
+    interval: 300
+    tolerance: 50
   - name: 🇷🇺 俄罗斯节点
     type: url-test
     use:
@@ -147,7 +156,7 @@ proxy-groups:
     type: url-test
     use:
       - ConfigForge
-    filter: '(?i)^\[(AE|AU|BG|CH|CZ|ES|FI|IE|IN|IT|KR|LT|LV|MY|NO|PL|RS|SC|SE|UN)\]'
+    filter: '(?i)^\[(AE|AU|BG|CH|CZ|FI|IE|IN|IT|KR|LT|LV|MY|NO|RS|SC|SE|TH|UN)\]'
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
