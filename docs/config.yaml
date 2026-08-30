@@ -40,27 +40,13 @@ proxy-groups:
       - 🇯🇵 日本节点
       - 🇸🇬 狮城节点
       - 🇺🇸 美国节点
-      - 🇦🇪 阿联酋节点
-      - 🇦🇷 阿根廷节点
-      - 🇦🇺 澳大利亚节点
-      - 🇧🇬 保加利亚节点
-      - 🇨🇦 加拿大节点
-      - 🇨🇭 瑞士节点
-      - 🇨🇳 CN节点
       - 🇩🇪 德国节点
-      - 🇪🇪 爱沙尼亚节点
       - 🇫🇮 芬兰节点
       - 🇫🇷 法国节点
       - 🇬🇧 英国节点
-      - 🇮🇪 爱尔兰节点
-      - 🇮🇳 印度节点
-      - 🇰🇷 韩国节点
       - 🇳🇱 荷兰节点
-      - 🇳🇴 挪威节点
       - 🇵🇱 波兰节点
       - 🇷🇺 俄罗斯节点
-      - 🇸🇨 塞舌尔节点
-      - 🇸🇪 瑞典节点
       - 🌍 其他地区
       - 🔯 故障转移
       - 🎯 全球直连
@@ -110,75 +96,11 @@ proxy-groups:
     interval: 300
     tolerance: 50
 
-  - name: 🇦🇪 阿联酋节点
-    type: url-test
-    use:
-      - ConfigForge
-    filter: '(?i)^\[AE\]'
-    url: https://cp.cloudflare.com/generate_204
-    interval: 300
-    tolerance: 50
-  - name: 🇦🇷 阿根廷节点
-    type: url-test
-    use:
-      - ConfigForge
-    filter: '(?i)^\[AR\]'
-    url: https://cp.cloudflare.com/generate_204
-    interval: 300
-    tolerance: 50
-  - name: 🇦🇺 澳大利亚节点
-    type: url-test
-    use:
-      - ConfigForge
-    filter: '(?i)^\[AU\]'
-    url: https://cp.cloudflare.com/generate_204
-    interval: 300
-    tolerance: 50
-  - name: 🇧🇬 保加利亚节点
-    type: url-test
-    use:
-      - ConfigForge
-    filter: '(?i)^\[BG\]'
-    url: https://cp.cloudflare.com/generate_204
-    interval: 300
-    tolerance: 50
-  - name: 🇨🇦 加拿大节点
-    type: url-test
-    use:
-      - ConfigForge
-    filter: '(?i)^\[CA\]'
-    url: https://cp.cloudflare.com/generate_204
-    interval: 300
-    tolerance: 50
-  - name: 🇨🇭 瑞士节点
-    type: url-test
-    use:
-      - ConfigForge
-    filter: '(?i)^\[CH\]'
-    url: https://cp.cloudflare.com/generate_204
-    interval: 300
-    tolerance: 50
-  - name: 🇨🇳 CN节点
-    type: url-test
-    use:
-      - ConfigForge
-    filter: '(?i)^\[CN\]'
-    url: https://cp.cloudflare.com/generate_204
-    interval: 300
-    tolerance: 50
   - name: 🇩🇪 德国节点
     type: url-test
     use:
       - ConfigForge
     filter: '(?i)^\[DE\]'
-    url: https://cp.cloudflare.com/generate_204
-    interval: 300
-    tolerance: 50
-  - name: 🇪🇪 爱沙尼亚节点
-    type: url-test
-    use:
-      - ConfigForge
-    filter: '(?i)^\[EE\]'
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
@@ -206,43 +128,11 @@ proxy-groups:
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
-  - name: 🇮🇪 爱尔兰节点
-    type: url-test
-    use:
-      - ConfigForge
-    filter: '(?i)^\[IE\]'
-    url: https://cp.cloudflare.com/generate_204
-    interval: 300
-    tolerance: 50
-  - name: 🇮🇳 印度节点
-    type: url-test
-    use:
-      - ConfigForge
-    filter: '(?i)^\[IN\]'
-    url: https://cp.cloudflare.com/generate_204
-    interval: 300
-    tolerance: 50
-  - name: 🇰🇷 韩国节点
-    type: url-test
-    use:
-      - ConfigForge
-    filter: '(?i)^\[KR\]'
-    url: https://cp.cloudflare.com/generate_204
-    interval: 300
-    tolerance: 50
   - name: 🇳🇱 荷兰节点
     type: url-test
     use:
       - ConfigForge
     filter: '(?i)^\[NL\]'
-    url: https://cp.cloudflare.com/generate_204
-    interval: 300
-    tolerance: 50
-  - name: 🇳🇴 挪威节点
-    type: url-test
-    use:
-      - ConfigForge
-    filter: '(?i)^\[NO\]'
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
@@ -262,27 +152,11 @@ proxy-groups:
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
-  - name: 🇸🇨 塞舌尔节点
-    type: url-test
-    use:
-      - ConfigForge
-    filter: '(?i)^\[SC\]'
-    url: https://cp.cloudflare.com/generate_204
-    interval: 300
-    tolerance: 50
-  - name: 🇸🇪 瑞典节点
-    type: url-test
-    use:
-      - ConfigForge
-    filter: '(?i)^\[SE\]'
-    url: https://cp.cloudflare.com/generate_204
-    interval: 300
-    tolerance: 50
   - name: 🌍 其他地区
     type: url-test
     use:
       - ConfigForge
-    filter: '(?i)^\[(AL|AM|AT|BE|BY|CY|CZ|ES|GR|HU|ID|IL|IR|IT|KZ|LT|LU|LV|MD|MN|MY|PE|RS|TR|UA|UN|VG|VN)\]'
+    filter: '(?i)^\[(AE|AR|AU|CA|CH|CN|CY|CZ|EE|IL|IN|IT|KR|LT|LV|SC|SE|UN|VN)\]'
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
