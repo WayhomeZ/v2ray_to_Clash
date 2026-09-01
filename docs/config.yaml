@@ -44,20 +44,18 @@ proxy-groups:
       - 🇦🇷 阿根廷节点
       - 🇦🇺 澳大利亚节点
       - 🇨🇦 加拿大节点
-      - 🇨🇭 瑞士节点
       - 🇩🇪 德国节点
       - 🇪🇸 西班牙节点
       - 🇫🇮 芬兰节点
       - 🇫🇷 法国节点
       - 🇬🇧 英国节点
-      - 🇬🇷 希腊节点
       - 🇮🇹 意大利节点
       - 🇰🇷 韩国节点
+      - 🇱🇹 立陶宛节点
       - 🇳🇱 荷兰节点
       - 🇳🇴 挪威节点
       - 🇵🇱 波兰节点
       - 🇷🇺 俄罗斯节点
-      - 🇸🇨 塞舌尔节点
       - 🇸🇪 瑞典节点
       - 🌍 其他地区
       - 🔯 故障转移
@@ -140,14 +138,6 @@ proxy-groups:
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
-  - name: 🇨🇭 瑞士节点
-    type: url-test
-    use:
-      - ConfigForge
-    filter: '(?i)^\[CH\]'
-    url: https://cp.cloudflare.com/generate_204
-    interval: 300
-    tolerance: 50
   - name: 🇩🇪 德国节点
     type: url-test
     use:
@@ -188,14 +178,6 @@ proxy-groups:
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
-  - name: 🇬🇷 希腊节点
-    type: url-test
-    use:
-      - ConfigForge
-    filter: '(?i)^\[GR\]'
-    url: https://cp.cloudflare.com/generate_204
-    interval: 300
-    tolerance: 50
   - name: 🇮🇹 意大利节点
     type: url-test
     use:
@@ -209,6 +191,14 @@ proxy-groups:
     use:
       - ConfigForge
     filter: '(?i)^\[KR\]'
+    url: https://cp.cloudflare.com/generate_204
+    interval: 300
+    tolerance: 50
+  - name: 🇱🇹 立陶宛节点
+    type: url-test
+    use:
+      - ConfigForge
+    filter: '(?i)^\[LT\]'
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
@@ -244,14 +234,6 @@ proxy-groups:
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
-  - name: 🇸🇨 塞舌尔节点
-    type: url-test
-    use:
-      - ConfigForge
-    filter: '(?i)^\[SC\]'
-    url: https://cp.cloudflare.com/generate_204
-    interval: 300
-    tolerance: 50
   - name: 🇸🇪 瑞典节点
     type: url-test
     use:
@@ -264,7 +246,7 @@ proxy-groups:
     type: url-test
     use:
       - ConfigForge
-    filter: '(?i)^\[(AL|AM|AT|BG|BR|BY|CY|CZ|DK|EE|ID|IL|IN|KZ|LT|LV|MD|RO|TH|TR|UA|UN)\]'
+    filter: '(?i)^\[(AL|AT|BG|BR|BY|CH|CY|CZ|EE|GR|HR|ID|IL|IN|KZ|LU|LV|MD|RO|SC|TH|TR|UA|UN)\]'
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
