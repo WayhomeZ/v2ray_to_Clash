@@ -48,7 +48,6 @@ proxy-groups:
       - 🇫🇮 芬兰节点
       - 🇫🇷 法国节点
       - 🇬🇧 英国节点
-      - 🇮🇹 意大利节点
       - 🇰🇷 韩国节点
       - 🇳🇱 荷兰节点
       - 🇳🇴 挪威节点
@@ -168,14 +167,6 @@ proxy-groups:
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
-  - name: 🇮🇹 意大利节点
-    type: url-test
-    use:
-      - ConfigForge
-    filter: '(?i)^\[IT\]'
-    url: https://cp.cloudflare.com/generate_204
-    interval: 300
-    tolerance: 50
   - name: 🇰🇷 韩国节点
     type: url-test
     use:
@@ -228,7 +219,7 @@ proxy-groups:
     type: url-test
     use:
       - ConfigForge
-    filter: '(?i)^\[(AL|AM|AT|BG|BY|CH|CY|CZ|EE|ES|GR|HR|IL|IN|IR|KZ|LT|LU|LV|RO|SE|TR|UN)\]'
+    filter: '(?i)^\[(AL|AM|AT|BG|BR|BY|CH|CY|CZ|EE|ES|GR|HR|HU|IL|IN|IR|IT|KZ|LT|LU|LV|RO|SE|TR|UN)\]'
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
