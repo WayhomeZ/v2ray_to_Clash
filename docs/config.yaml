@@ -46,17 +46,13 @@ proxy-groups:
       - 🇨🇦 加拿大节点
       - 🇨🇭 瑞士节点
       - 🇩🇪 德国节点
-      - 🇪🇪 爱沙尼亚节点
       - 🇫🇮 芬兰节点
       - 🇫🇷 法国节点
       - 🇬🇧 英国节点
-      - 🇬🇷 希腊节点
-      - 🇮🇹 意大利节点
-      - 🇰🇷 韩国节点
       - 🇳🇱 荷兰节点
       - 🇳🇴 挪威节点
+      - 🇵🇱 波兰节点
       - 🇷🇺 俄罗斯节点
-      - 🇸🇨 塞舌尔节点
       - 🇸🇪 瑞典节点
       - 🌍 其他地区
       - 🔯 故障转移
@@ -155,14 +151,6 @@ proxy-groups:
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
-  - name: 🇪🇪 爱沙尼亚节点
-    type: url-test
-    use:
-      - ConfigForge
-    filter: '(?i)^\[EE\]'
-    url: https://cp.cloudflare.com/generate_204
-    interval: 300
-    tolerance: 50
   - name: 🇫🇮 芬兰节点
     type: url-test
     use:
@@ -187,30 +175,6 @@ proxy-groups:
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
-  - name: 🇬🇷 希腊节点
-    type: url-test
-    use:
-      - ConfigForge
-    filter: '(?i)^\[GR\]'
-    url: https://cp.cloudflare.com/generate_204
-    interval: 300
-    tolerance: 50
-  - name: 🇮🇹 意大利节点
-    type: url-test
-    use:
-      - ConfigForge
-    filter: '(?i)^\[IT\]'
-    url: https://cp.cloudflare.com/generate_204
-    interval: 300
-    tolerance: 50
-  - name: 🇰🇷 韩国节点
-    type: url-test
-    use:
-      - ConfigForge
-    filter: '(?i)^\[KR\]'
-    url: https://cp.cloudflare.com/generate_204
-    interval: 300
-    tolerance: 50
   - name: 🇳🇱 荷兰节点
     type: url-test
     use:
@@ -227,19 +191,19 @@ proxy-groups:
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
+  - name: 🇵🇱 波兰节点
+    type: url-test
+    use:
+      - ConfigForge
+    filter: '(?i)^\[PL\]'
+    url: https://cp.cloudflare.com/generate_204
+    interval: 300
+    tolerance: 50
   - name: 🇷🇺 俄罗斯节点
     type: url-test
     use:
       - ConfigForge
     filter: '(?i)^\[RU\]'
-    url: https://cp.cloudflare.com/generate_204
-    interval: 300
-    tolerance: 50
-  - name: 🇸🇨 塞舌尔节点
-    type: url-test
-    use:
-      - ConfigForge
-    filter: '(?i)^\[SC\]'
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
@@ -255,7 +219,7 @@ proxy-groups:
     type: url-test
     use:
       - ConfigForge
-    filter: '(?i)^\[(AL|AM|AT|BG|BY|CY|CZ|ES|HR|HU|ID|IL|IN|IR|KZ|LT|LV|PL|TR|UN)\]'
+    filter: '(?i)^\[(AL|AM|AT|BG|BY|CY|CZ|EE|ES|GR|HU|IL|IN|IR|IT|KR|KZ|LT|LU|LV|PH|SC|TR|UN)\]'
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
