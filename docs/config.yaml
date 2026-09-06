@@ -40,7 +40,6 @@ proxy-groups:
       - 🇯🇵 日本节点
       - 🇸🇬 狮城节点
       - 🇺🇸 美国节点
-      - 🇦🇪 阿联酋节点
       - 🇦🇷 阿根廷节点
       - 🇦🇺 澳大利亚节点
       - 🇨🇦 加拿大节点
@@ -103,14 +102,6 @@ proxy-groups:
     interval: 300
     tolerance: 50
 
-  - name: 🇦🇪 阿联酋节点
-    type: url-test
-    use:
-      - ConfigForge
-    filter: '(?i)^\[AE\]'
-    url: https://cp.cloudflare.com/generate_204
-    interval: 300
-    tolerance: 50
   - name: 🇦🇷 阿根廷节点
     type: url-test
     use:
@@ -219,7 +210,7 @@ proxy-groups:
     type: url-test
     use:
       - ConfigForge
-    filter: '(?i)^\[(AL|AM|AT|BG|BY|CH|CY|CZ|EE|ES|GR|HR|HU|ID|IL|IN|IR|IT|KZ|LT|LU|LV|SC|TR|UN)\]'
+    filter: '(?i)^\[(AE|AL|AM|AT|BG|BY|CH|CY|CZ|EE|ES|GR|HR|HU|IL|IN|IR|IT|KZ|LT|LU|LV|SC|TR|UN)\]'
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
