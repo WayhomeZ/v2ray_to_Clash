@@ -43,16 +43,17 @@ proxy-groups:
       - 🇦🇷 阿根廷节点
       - 🇦🇺 澳大利亚节点
       - 🇨🇦 加拿大节点
+      - 🇨🇭 瑞士节点
       - 🇨🇾 塞浦路斯节点
       - 🇩🇪 德国节点
       - 🇪🇪 爱沙尼亚节点
+      - 🇪🇸 西班牙节点
       - 🇫🇮 芬兰节点
       - 🇫🇷 法国节点
       - 🇬🇧 英国节点
       - 🇰🇷 韩国节点
       - 🇳🇱 荷兰节点
       - 🇳🇴 挪威节点
-      - 🇵🇱 波兰节点
       - 🇷🇺 俄罗斯节点
       - 🇸🇨 塞舌尔节点
       - 🌍 其他地区
@@ -128,6 +129,14 @@ proxy-groups:
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
+  - name: 🇨🇭 瑞士节点
+    type: url-test
+    use:
+      - ConfigForge
+    filter: '(?i)^\[CH\]'
+    url: https://cp.cloudflare.com/generate_204
+    interval: 300
+    tolerance: 50
   - name: 🇨🇾 塞浦路斯节点
     type: url-test
     use:
@@ -149,6 +158,14 @@ proxy-groups:
     use:
       - ConfigForge
     filter: '(?i)^\[EE\]'
+    url: https://cp.cloudflare.com/generate_204
+    interval: 300
+    tolerance: 50
+  - name: 🇪🇸 西班牙节点
+    type: url-test
+    use:
+      - ConfigForge
+    filter: '(?i)^\[ES\]'
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
@@ -200,14 +217,6 @@ proxy-groups:
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
-  - name: 🇵🇱 波兰节点
-    type: url-test
-    use:
-      - ConfigForge
-    filter: '(?i)^\[PL\]'
-    url: https://cp.cloudflare.com/generate_204
-    interval: 300
-    tolerance: 50
   - name: 🇷🇺 俄罗斯节点
     type: url-test
     use:
@@ -228,7 +237,7 @@ proxy-groups:
     type: url-test
     use:
       - ConfigForge
-    filter: '(?i)^\[(AE|AM|AT|BG|BY|CH|CZ|ES|GR|HR|HU|IE|IL|IT|KZ|LT|LU|LV|MY|SE|TR|UN)\]'
+    filter: '(?i)^\[(AE|AT|BG|BY|CZ|GR|HR|HU|ID|IL|IT|KZ|LT|LU|LV|PL|SE|TR|UN)\]'
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
