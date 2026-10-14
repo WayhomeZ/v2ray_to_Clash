@@ -195,12 +195,6 @@ proxies:
   type: ss
   cipher: aes-128-gcm
   password: shadowsocks
-- name: '[FR] ️ ShatakVPN 229196'
-  server: "51.83.192.80"
-  port: 8388
-  type: ss
-  cipher: aes-256-gcm
-  password: itzvpn@321
 - name: '[US] ️ ShatakVPN 773630'
   server: "222.167.212.81"
   port: 8443
@@ -232,16 +226,6 @@ proxies:
   password: sOiWCQ2AdIV0OWNuqQVyWp4JZnRxdyLROSjX
   sni: cabinet.wwwinternetvideo.click
   skip-cert-verify: true
-- name: '[FI] ️ ShatakVPN 384278'
-  server: "31.76.80.69"
-  port: 443
-  type: hysteria2
-  ports: 443
-  password: 6aab8efdf13945829ae3699c342be406
-  obfs: salamander
-  obfs-password: uw9b2qq5rx
-  sni: fiproxy1.lockdwn.com
-  skip-cert-verify: false
 - name: '[US] ️ ShatakVPN 255531'
   server: "198.98.53.130"
   port: 443
@@ -342,6 +326,19 @@ proxies:
   alterId: 0
   cipher: auto
   tls: false
+- name: '[JP] ️ ShatakVPN 478918'
+  server: "168.138.43.75"
+  port: 80
+  type: vmess
+  uuid: 11c3627f-31e8-4695-dfbd-34076e2f1f5d
+  alterId: 0
+  cipher: auto
+  tls: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: jp01.a0a.xyz
 - name: '[JP] ️ ShatakVPN 980297'
   server: "84.247.155.196"
   port: 443
@@ -455,12 +452,18 @@ proxies:
   type: ss
   cipher: aes-256-gcm
   password: Y6R9pAtvxxzmGC
-- name: '[IT] ️ ShatakVPN 825719'
-  server: "57.131.48.45"
-  port: 8388
+- name: '[KR] ️ ShatakVPN 301710'
+  server: "141.164.45.187"
+  port: 9090
   type: ss
   cipher: aes-256-gcm
-  password: itzvpn@321
+  password: Y6R9pAtvxxzmGC
+- name: '[KR] ️ ShatakVPN 183920'
+  server: "141.164.45.187"
+  port: 5498
+  type: ss
+  cipher: aes-256-gcm
+  password: lGqs95QkFHo2NV
 - name: '[UN] ️ ShatakVPN 223885'
   server: "172.67.150.22"
   port: 443
@@ -519,12 +522,6 @@ proxies:
   type: ss
   cipher: chacha20-ietf-poly1305
   password: PWpjPo3tqhPN4yRZ
-- name: '[RO] ️ ShatakVPN 186044'
-  server: "154.46.31.106"
-  port: 443
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: QFWzCw2uX9B9i6qAYeFBIE
 - name: '[ZA] ️ ShatakVPN 416380'
   server: "102.133.165.160"
   port: 16233
@@ -1008,21 +1005,6 @@ proxies:
     headers:
       Host: bab-6.site
   skip-cert-verify: false
-- name: '[DE] ️ ShatakVPN 296888'
-  server: "94.103.168.133"
-  port: 2087
-  type: vless
-  tls: true
-  uuid: a5db5ab5-8d28-49c0-ad55-0ad4724e5c0d
-  servername: fert6.localip.ir
-  alpn:
-  - http/1.1
-  network: ws
-  ws-opts:
-    path: /hokm
-    headers:
-      Host: fert6.localip.ir
-  skip-cert-verify: false
 - name: '[DE] ️ ShatakVPN 133291'
   server: "94.103.168.54"
   port: 2087
@@ -1076,6 +1058,15 @@ proxies:
     public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
     short-id: c39cc7310a
   client-fingerprint: random
+- name: '[FI] ️ ShatakVPN 951315'
+  server: "78.17.116.201"
+  port: 443
+  type: vless
+  tls: true
+  uuid: 8535e46f-4c0b-4b02-9369-d4d553c9a892
+  servername: www.nokia.com
+  host: www.nokia.com
+  flow: xtls-rprx-vision
 - name: '[DE] ️ ShatakVPN 557437'
   server: "31.56.18.67"
   port: 2083
@@ -1154,15 +1145,6 @@ proxies:
     public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
     short-id: c39cc7310a
   client-fingerprint: random
-- name: '[US] ️ ShatakVPN 306280'
-  server: "47.253.226.114"
-  port: 443
-  type: vless
-  tls: true
-  uuid: 055a1ce8-2a16-4a0d-a2c2-22826c9b2413
-  servername: www.cloudflare.com
-  host: www.cloudflare.com
-  flow: xtls-rprx-vision
 - name: '[UN] ️ ShatakVPN 187216'
   server: "188.114.97.6"
   port: 443
@@ -1373,19 +1355,6 @@ proxies:
     public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
     short-id: c39cc7310a
   client-fingerprint: random
-- name: '[DE] ️ ShatakVPN 217796'
-  server: "169.40.42.95"
-  port: 443
-  type: vless
-  tls: true
-  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
-  servername: yahoo.com
-  host: yahoo.com
-  flow: xtls-rprx-vision
-  reality-opts:
-    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
-    short-id: c39cc7310a
-  client-fingerprint: random
 - name: '[RO] ️ ShatakVPN 296508'
   server: "205.237.110.254"
   port: 443
@@ -1399,3 +1368,17 @@ proxies:
     public-key: IG6lxrx_xkGOoBuo3DC8sgQoIFmqVgznIr0qOuNO0w4
     short-id: cd2d53510b4df2a8
   client-fingerprint: random
+- name: '[HK] ️ ShatakVPN 909718'
+  server: "47.243.194.125"
+  port: 443
+  type: vmess
+  uuid: f23bb427-c1f9-4373-876c-2f43e9f790f3
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: NYcQg19zkwaCPM1B.v.3dns.vip
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: NYcQg19zkwaCPM1B.v.3dns.vip
