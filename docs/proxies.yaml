@@ -1,5 +1,5 @@
 proxies:
-- name: '[UN] ShatakVPN 226936'
+- name: '[UN] ShatakVPN 208557'
   server: "188.114.98.0"
   port: 443
   type: trojan
@@ -10,7 +10,19 @@ proxies:
     path: /anyway
     headers:
       Host: nat3.xxai.dpdns.org
-- name: '[UN] ShatakVPN 246006'
+- name: '[UN] ShatakVPN 636209'
+  server: "188.114.98.0"
+  port: 443
+  type: trojan
+  password: humanity
+  sni: www.volumeroot.com
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.volumeroot.com
+- name: '[UN] ShatakVPN 411172'
   server: "188.114.98.0"
   port: 443
   type: trojan
@@ -21,31 +33,33 @@ proxies:
     path: /?Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET
     headers:
       Host: de.mitivpn.in.net
-- name: '[UN] ShatakVPN 106660'
-  server: "188.114.97.6"
-  port: 443
-  type: trojan
-  password: mitivpn
-  sni: d-e.mitivpn.in.net
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: d-e.mitivpn.in.net
-- name: '[UN] ShatakVPN 656465'
-  server: "104.21.13.183"
-  port: 443
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: www.v2nodes.com
-- name: '[NL] ️ ShatakVPN 393179'
+- name: '[NL] ️ ShatakVPN 540711'
   server: "158.173.20.208"
   port: 443
   type: ss
   cipher: aes-128-gcm
   password: shadowsocks
-- name: '[FR] ️ ShatakVPN 961095'
+- name: '[DE] ️ ShatakVPN 110016'
+  server: "185.226.172.8"
+  port: 8008
+  type: ss
+  cipher: aes-256-gcm
+  password: XKFKl2rULjIp74
+- name: '[GB] ️ ShatakVPN 434756'
+  server: "66.163.117.58"
+  port: 22324
+  type: vmess
+  uuid: 04621bae-ab36-11ec-b909-0242ac120002
+  alterId: 0
+  cipher: auto
+  tls: false
+- name: '[GB] ️ ShatakVPN 816791'
+  server: "82.38.31.155"
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+- name: '[FR] ️ ShatakVPN 397462'
   server: "62.210.124.146"
   port: 22000
   type: hysteria2
@@ -53,37 +67,25 @@ proxies:
   password: dongtaiwang.com
   sni: www.microsoft.com
   skip-cert-verify: true
-- name: '[GB] ️ ShatakVPN 813728'
-  server: "82.38.31.162"
+- name: '[GB] ️ ShatakVPN 459143'
+  server: "82.38.31.170"
   port: 443
   type: ss
   cipher: chacha20-ietf-poly1305
   password: oZIoA69Q8yhcQV8ka3Pa3A
-- name: '[IT] ️ ShatakVPN 340560'
-  server: "202.50.253.54"
-  port: 19999
-  type: ss
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: '[GB] ️ ShatakVPN 660576'
-  server: "82.38.31.155"
+- name: '[GB] ️ ShatakVPN 522831'
+  server: "82.38.31.175"
   port: 8080
   type: ss
   cipher: chacha20-ietf-poly1305
   password: oZIoA69Q8yhcQV8ka3Pa3A
-- name: '[IT] ️ ShatakVPN 669801'
-  server: "202.50.253.72"
+- name: '[IT] ️ ShatakVPN 575541'
+  server: "202.50.253.81"
   port: 19999
   type: ss
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: '[IT] ️ ShatakVPN 462802'
-  server: "57.131.48.45"
-  port: 8388
-  type: ss
-  cipher: aes-256-gcm
-  password: itzvpn@321
-- name: '[US] ️ ShatakVPN 836926'
+- name: '[US] ️ ShatakVPN 910973'
   server: "64.188.98.171"
   port: 443
   type: hysteria2
@@ -91,34 +93,40 @@ proxies:
   password: mkL3AfdSZIpTWRB9TcWPn9vywPGN89MRHg3ToRDj
   sni: germany3.h2corp.local
   skip-cert-verify: true
-- name: '[RU] ️ ShatakVPN 672943'
-  server: "91.196.32.163"
+- name: '[IT] ️ ShatakVPN 312121'
+  server: "57.131.48.45"
+  port: 8388
+  type: ss
+  cipher: aes-256-gcm
+  password: itzvpn@321
+- name: '[NL] ️ ShatakVPN 724973'
+  server: "72.56.92.120"
   port: 443
   type: hysteria2
   ports: 443
-  password: mkL3AfdSZIpTWRB9TcWPn9vywPGN89MRHg3ToRDj
-  sni: germany3.h2corp.local
+  password: CnVfXXvMzh
+  sni: hys13.wba-pn.ru
   skip-cert-verify: true
-- name: '[FR] ️ ShatakVPN 273592'
-  server: "54.36.174.134"
-  port: 443
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: ytw2awn
-- name: '[FR] ️ ShatakVPN 980233'
+- name: '[GB] ️ ShatakVPN 283453'
+  server: "57.129.132.223"
+  port: 80
+  type: vmess
+  uuid: a25cbf11-2908-4a1b-a3a8-9a571777dca3
+  alterId: 0
+  cipher: auto
+  tls: false
+  network: ws
+  ws-opts:
+    path: /vmess/
+    headers:
+      Host: google.com
+- name: '[FR] ️ ShatakVPN 154557'
   server: "54.36.174.140"
   port: 443
   type: ss
   cipher: chacha20-ietf-poly1305
   password: ytw2awn
-- name: '[PL] ️ ShatakVPN 185938'
-  server: "45.192.12.93"
-  port: 443
-  type: hysteria2
-  ports: 443
-  password: YutbgyXL1mGaSlBXDoEucWvYbrDCINgUcQ6R6_At5Pjr2xCc
-  skip-cert-verify: true
-- name: '[US] ️ ShatakVPN 947701'
+- name: '[US] ️ ShatakVPN 342678'
   server: "144.31.93.126"
   port: 443
   type: hysteria2
@@ -126,159 +134,173 @@ proxies:
   password: YutbgyXL1mGaSlBXDoEucWvYbrDCINgUcQ6R6_At5Pjr2xCc
   sni: admin.wwwinternetvideo.click
   skip-cert-verify: true
-- name: '[US] ShatakVPN 238495'
-  server: "144.31.49.47"
-  port: 443
-  type: hysteria2
-  ports: 443
-  password: YutbgyXL1mGaSlBXDoEucWvYbrDCINgUcQ6R6_At5Pjr2xCc
-  sni: admin.wwwinternetvideo.click
-  skip-cert-verify: true
-- name: '[US] ️ ShatakVPN 864501'
+- name: '[US] ️ ShatakVPN 957291'
   server: "15.204.247.124"
   port: 2375
   type: ss
   cipher: aes-256-gcm
   password: faBAoD54k87UJG7
-- name: '[CA] ️ ShatakVPN 583858'
-  server: "51.79.85.185"
-  port: 8118
-  type: ss
-  cipher: aes-256-gcm
-  password: cdBIDV42DCwnfIN
-- name: '[CA] ️ ShatakVPN 710413'
-  server: "51.79.49.116"
-  port: 8882
-  type: ss
-  cipher: aes-256-gcm
-  password: kDWvXYZoTBcGkC4
-- name: '[US] ️ ShatakVPN 363585'
-  server: "173.244.56.6"
-  port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-- name: '[NL] ️ ShatakVPN 790948'
-  server: "193.29.139.234"
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: 4a2rfixophdjffa8KVA4Aa
-- name: '[NL] ️ ShatakVPN 350533'
-  server: "193.29.139.168"
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: QCXDxuDlTTMD7jtgHUjIoj
-- name: '[NL] ️ ShatakVPN 487004'
-  server: "193.29.139.212"
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: QCXDxuDlTTMD7jtgHUjIoj
-- name: '[GB] ️ ShatakVPN 552515'
-  server: "82.38.31.176"
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-- name: '[GB] ️ ShatakVPN 210466'
-  server: "82.38.31.179"
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-- name: '[US] ️ ShatakVPN 740348'
+- name: '[US] ️ ShatakVPN 122019'
   server: "198.98.53.130"
   port: 443
   type: ss
   cipher: chacha20-ietf-poly1305
   password: eDfN7SODQceIOmIAbtJJtK
-- name: '[GB] ️ ShatakVPN 951615'
-  server: "82.38.31.186"
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-- name: '[GB] ️ ShatakVPN 580368'
-  server: "82.38.31.198"
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-- name: '[GB] ️ ShatakVPN 905813'
-  server: "82.38.31.201"
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-- name: '[GB] ️ ShatakVPN 345079'
-  server: "82.38.31.218"
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-- name: '[GB] ️ ShatakVPN 477860'
-  server: "82.38.31.205"
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-- name: '[GB] ️ ShatakVPN 721990'
-  server: "82.38.31.13"
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-- name: '[NL] ️ ShatakVPN 380066'
-  server: "193.29.139.151"
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-- name: '[NL] ️ ShatakVPN 880387'
-  server: "193.29.139.225"
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-- name: '[GB] ️ ShatakVPN 588909'
-  server: "82.38.31.9"
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-- name: '[KR] ️ ShatakVPN 341432'
-  server: "141.164.45.187"
-  port: 6679
-  type: ss
-  cipher: aes-256-gcm
-  password: TEzjfAYq2IjtuoS
-- name: '[US] ️ ShatakVPN 448401'
+- name: '[US] ️ ShatakVPN 389215'
   server: "15.204.246.107"
   port: 8888
   type: ss
   cipher: aes-256-gcm
   password: Y6R9pAtvxxzmGC
-- name: '[KR] ️ ShatakVPN 253452'
+- name: '[CA] ️ ShatakVPN 653401'
+  server: "51.79.49.116"
+  port: 8882
+  type: ss
+  cipher: aes-256-gcm
+  password: kDWvXYZoTBcGkC4
+- name: '[CA] ️ ShatakVPN 915397'
+  server: "51.79.85.185"
+  port: 8118
+  type: ss
+  cipher: aes-256-gcm
+  password: cdBIDV42DCwnfIN
+- name: '[CA] ️ ShatakVPN 997534'
+  server: "51.222.12.127"
+  port: 445
+  type: ss
+  cipher: aes-256-gcm
+  password: zDNVedRFPQexG9v
+- name: '[US] ️ ShatakVPN 652543'
+  server: "38.110.1.246"
+  port: 18000
+  type: vmess
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
+  cipher: auto
+  tls: false
+- name: '[SG] ️ ShatakVPN 564551'
+  server: "149.88.23.207"
+  port: 18000
+  type: vmess
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
+  cipher: auto
+  tls: false
+- name: '[NL] ️ ShatakVPN 764919'
+  server: "193.29.139.234"
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: 4a2rfixophdjffa8KVA4Aa
+- name: '[FR] ️ ShatakVPN 634174'
+  server: "54.36.174.134"
+  port: 443
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: ytw2awn
+- name: '[NL] ️ ShatakVPN 833478'
+  server: "193.29.139.168"
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: QCXDxuDlTTMD7jtgHUjIoj
+- name: '[NL] ️ ShatakVPN 930767'
+  server: "193.29.139.212"
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: QCXDxuDlTTMD7jtgHUjIoj
+- name: '[GB] ️ ShatakVPN 342894'
+  server: "82.38.31.176"
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: '[GB] ️ ShatakVPN 760163'
+  server: "82.38.31.179"
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: '[GB] ️ ShatakVPN 728003'
+  server: "82.38.31.186"
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: '[GB] ️ ShatakVPN 136436'
+  server: "82.38.31.198"
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: '[GB] ️ ShatakVPN 752456'
+  server: "82.38.31.201"
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: '[GB] ️ ShatakVPN 603925'
+  server: "82.38.31.218"
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: '[GB] ️ ShatakVPN 831189'
+  server: "82.38.31.205"
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: '[GB] ️ ShatakVPN 997657'
+  server: "82.38.31.13"
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+- name: '[NL] ️ ShatakVPN 963553'
+  server: "193.29.139.151"
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+- name: '[NL] ️ ShatakVPN 458541'
+  server: "193.29.139.225"
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+- name: '[GB] ️ ShatakVPN 656309'
+  server: "82.38.31.162"
+  port: 443
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+- name: '[GB] ️ ShatakVPN 594487'
+  server: "82.38.31.9"
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+- name: '[KR] ️ ShatakVPN 618434'
+  server: "141.164.45.187"
+  port: 6679
+  type: ss
+  cipher: aes-256-gcm
+  password: TEzjfAYq2IjtuoS
+- name: '[KR] ️ ShatakVPN 253615'
   server: "141.164.45.187"
   port: 9090
   type: ss
   cipher: aes-256-gcm
   password: Y6R9pAtvxxzmGC
-- name: '[DE] ️ ShatakVPN 420342'
-  server: "185.226.172.8"
-  port: 8008
-  type: ss
-  cipher: aes-256-gcm
-  password: XKFKl2rULjIp74
-- name: '[KR] ️ ShatakVPN 532818'
+- name: '[KR] ️ ShatakVPN 472406'
   server: "141.164.45.187"
   port: 5498
   type: ss
   cipher: aes-256-gcm
   password: lGqs95QkFHo2NV
-- name: '[US] ️ ShatakVPN 963545'
+- name: '[US] ️ ShatakVPN 765016'
   server: "167.68.4.199"
   port: 2053
   type: trojan
@@ -289,8 +311,8 @@ proxies:
     path: /?proxyip=ts.hpc.tw
     headers:
       Host: epge.muarua.filegear-sg.me
-- name: '[UN] ️ ShatakVPN 352141'
-  server: "172.67.150.22"
+- name: '[UN] ️ ShatakVPN 939895'
+  server: "104.21.29.250"
   port: 443
   type: trojan
   password: LcICDcp%21jD9TFV%24NbH
@@ -301,14 +323,8 @@ proxies:
     path: /tr/pg4wM48V9O859nmqsJg22EOFKN4S570y?ed=2560
     headers:
       Host: dl2uF-iVdeZILZ3E86rK18.Hhvt37tjm2XBOsQL5HXogN-Y.woRKERS.dEv
-- name: '[CA] ️ ShatakVPN 715665'
-  server: "51.222.12.127"
-  port: 445
-  type: ss
-  cipher: aes-256-gcm
-  password: zDNVedRFPQexG9v
-- name: '[UN] ️ ShatakVPN 243067'
-  server: "172.67.205.222"
+- name: '[UN] ️ ShatakVPN 711338'
+  server: "104.21.42.129"
   port: 2087
   type: trojan
   password: eabf1999fefbb7d2
@@ -318,7 +334,7 @@ proxies:
     path: /tr/sMpzOZ0eWEt6jbZ1jjN3BaM7LLoQ
     headers:
       Host: WaYSi.wAYsI6688.WOrkeRS.deV
-- name: '[US] ️ ShatakVPN 114998'
+- name: '[US] ️ ShatakVPN 717253'
   server: "199.232.78.160"
   port: 443
   type: trojan
@@ -329,7 +345,7 @@ proxies:
     path: /---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/NLSs---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN
     headers:
       Host: ssl.fastly.com
-- name: '[UN] ️ ShatakVPN 917780'
+- name: '[UN] ️ ShatakVPN 681898'
   server: "104.19.229.21"
   port: 443
   type: trojan
@@ -341,79 +357,70 @@ proxies:
     path: /assignment
     headers:
       Host: www.calmlunch.com
-- name: '[GB] ️ ShatakVPN 935062'
-  server: "66.163.117.58"
-  port: 22324
-  type: vmess
-  uuid: 04621bae-ab36-11ec-b909-0242ac120002
-  alterId: 0
-  cipher: auto
-  tls: false
-- name: '[SG] ️ ShatakVPN 772506'
-  server: "149.88.23.207"
-  port: 18000
-  type: vmess
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  alterId: 0
-  cipher: auto
-  tls: false
-- name: '[NL] ️ ShatakVPN 680795'
-  server: "72.56.92.120"
+- name: '[PL] ️ ShatakVPN 638154'
+  server: "45.192.12.93"
   port: 443
   type: hysteria2
   ports: 443
-  password: CnVfXXvMzh
-  sni: hys13.wba-pn.ru
+  password: YutbgyXL1mGaSlBXDoEucWvYbrDCINgUcQ6R6_At5Pjr2xCc
+  sni: admin.wwwinternetvideo.click
+- name: '[RU] ️ ShatakVPN 783356'
+  server: "91.196.32.163"
+  port: 443
+  type: hysteria2
+  ports: 443
+  password: mkL3AfdSZIpTWRB9TcWPn9vywPGN89MRHg3ToRDj
+  sni: germany3.h2corp.local
   skip-cert-verify: true
-- name: '[ZA] ️ ShatakVPN 991329'
-  server: "102.133.227.3"
+- name: '[UN] ️ ShatakVPN 786632'
+  server: "172.67.132.246"
   port: 443
   type: ss
   cipher: chacha20-ietf-poly1305
-  password: 93F6FFBh3CZiBUsG
-- name: '[ZA] ️ ShatakVPN 457248'
+  password: www.v2nodes.com
+- name: '[ZA] ️ ShatakVPN 953670'
   server: "102.37.156.224"
   port: 443
   type: ss
   cipher: chacha20-ietf-poly1305
   password: aduB9HGxQHjA2SBMRjkHX6
-- name: '[GB] ️ ShatakVPN 351103'
+- name: '[NL] ️ ShatakVPN 526979'
+  server: "193.29.139.132"
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: '[GB] ️ ShatakVPN 406061'
   server: "82.38.31.193"
   port: 8080
   type: ss
   cipher: chacha20-ietf-poly1305
   password: k1dBOmOB4oqi7Ump37a1bQ
-- name: '[GB] ShatakVPN 388085'
+- name: '[GB] ️ ShatakVPN 656494'
   server: "82.38.31.203"
   port: 8080
   type: ss
   cipher: chacha20-ietf-poly1305
   password: k1dBOmOB4oqi7Ump37a1bQ
-- name: '[NL] ️ ShatakVPN 626710'
-  server: "193.29.139.235"
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-- name: '[GB] ️ ShatakVPN 523858'
+- name: '[GB] ️ ShatakVPN 393098'
   server: "82.38.31.149"
   port: 443
   type: ss
   cipher: chacha20-ietf-poly1305
   password: oZIoA69Q8yhcQV8ka3Pa3A
-- name: '[GB] ️ ShatakVPN 294064'
-  server: "82.38.31.170"
-  port: 443
+- name: '[GB] ️ ShatakVPN 300011'
+  server: "82.38.31.18"
+  port: 8080
   type: ss
   cipher: chacha20-ietf-poly1305
   password: oZIoA69Q8yhcQV8ka3Pa3A
-- name: '[IT] ️ ShatakVPN 567376'
-  server: "202.50.253.36"
-  port: 19999
+- name: '[GB] ️ ShatakVPN 798535'
+  server: "82.38.31.26"
+  port: 8080
   type: ss
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: '[US] ShatakVPN 945585'
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+- name: '[US] ShatakVPN 534974'
   server: "208.103.161.5"
   port: 443
   type: vless
@@ -425,7 +432,7 @@ proxies:
     path: /
     headers:
       Host: dry-butterfly-8eb9.tmpgnacio83.workers.dev
-- name: '[US] ShatakVPN 749824'
+- name: '[US] ShatakVPN 318428'
   server: "63.141.128.22"
   port: 443
   type: vless
@@ -437,33 +444,7 @@ proxies:
     path: /eyJqdW5rIjoiTkNUaFg0ZnJNUjhhcyIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=
     headers:
       Host: MiSty-tooth-78cA.FoboGAH414-e7B.WoRKERs.DEv
-- name: '[DE] ShatakVPN 807230'
-  server: "68.183.65.82"
-  port: 2083
-  type: vless
-  tls: true
-  uuid: 8525fe74-67e6-4a55-8a26-95f227bd1384
-  servername: lucky-sky-0104.alvlirm444.workers.dev
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: lucky-sky-0104.alvlirm444.workers.dev
-- name: '[UN] ShatakVPN 298795'
-  server: "188.114.98.0"
-  port: 443
-  type: vless
-  tls: true
-  uuid: 2bdcf0ac-f84e-471f-98dc-a1807acab1cb
-  servername: redcloudport-bidarbash.sbs
-  alpn:
-  - http/1.1
-  network: ws
-  ws-opts:
-    path: /zoodi
-    headers:
-      Host: redcloudport-bidarbash.sbs
-- name: '[UN] ShatakVPN 760319'
+- name: '[UN] ShatakVPN 448826'
   server: "188.114.98.0"
   port: 443
   type: vless
@@ -477,7 +458,7 @@ proxies:
     path: /
     headers:
       Host: snip.edgeoneai.cc.cd
-- name: '[UN] ShatakVPN 765740'
+- name: '[UN] ShatakVPN 159674'
   server: "188.114.98.0"
   port: 443
   type: vless
@@ -488,7 +469,34 @@ proxies:
     path: /ws
     headers:
       Host: a.cwvps.eu.org
-- name: '[UN] ShatakVPN 304307'
+- name: '[UN] ShatakVPN 750380'
+  server: "188.114.98.0"
+  port: 443
+  type: vless
+  tls: true
+  uuid: e6df2095-a73c-4043-8693-8d5a03686870
+  servername: lucasjow.us.ci
+  alpn:
+  - http/1.1
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: lucasjow.us.ci
+- name: '[UN] ShatakVPN 782510'
+  server: "172.67.163.68"
+  port: 443
+  type: vless
+  tls: true
+  uuid: 26086552-5b79-d167-dd18-1ea000000000
+  servername: lczoox-b5gygc-24w8tc.rozhaghadri.workers.dev
+  network: ws
+  ws-opts:
+    path: /sync
+    headers:
+      Host: lczoox-b5gygc-24w8tc.rozhaghadri.workers.dev
+  skip-cert-verify: false
+- name: '[UN] ShatakVPN 876789'
   server: "188.114.96.37"
   port: 443
   type: vless
@@ -502,44 +510,19 @@ proxies:
     path: /eyJqdW5rIjoiU29DZFZoZzF6RG8iLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByZWZpeCIsInBhbmVsSVBzIjpbIlsyNjAyOmZjNTk6YjA6NjQ6Ol0iLCJbMjYwMjpmYzU5OjExOjY0OjpdIl19
     headers:
       Host: TeLegrAm.FREEPErSiANland1.woRKERS.DEv
-- name: '[UN] ShatakVPN 234179'
-  server: "172.67.163.68"
-  port: 443
-  type: vless
-  tls: true
-  uuid: 26086552-5b79-d167-dd18-1ea000000000
-  servername: lczoox-b5gygc-24w8tc.rozhaghadri.workers.dev
-  network: ws
-  ws-opts:
-    path: /sync
-    headers:
-      Host: lczoox-b5gygc-24w8tc.rozhaghadri.workers.dev
-  skip-cert-verify: false
-- name: '[UN] ShatakVPN 589738'
-  server: "172.64.145.93"
+- name: '[UN] ShatakVPN 199640'
+  server: "104.19.214.146"
   port: 2087
   type: vless
   tls: true
   uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
-  servername: fx3h2kf8xn.fx6hsv0.ccwu.cc
+  servername: faxf32gkfzoxqv.fx6hsv0.ccwu.cc
   network: ws
   ws-opts:
     path: /
     headers:
-      Host: fx3h2kf8xn.fx6hsv0.ccwu.cc
-- name: '[UN] ShatakVPN 403181'
-  server: "104.18.38.47"
-  port: 2087
-  type: vless
-  tls: true
-  uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
-  servername: fx3l5i2wdfxln0.fx6hsv0.ccwu.cc
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: fx3l5i2wdfxln0.fx6hsv0.ccwu.cc
-- name: '[SC] ShatakVPN 268144'
+      Host: faxf32gkfzoxqv.fx6hsv0.ccwu.cc
+- name: '[SC] ShatakVPN 795788'
   server: "45.130.125.126"
   port: 443
   type: vless
@@ -553,7 +536,19 @@ proxies:
     path: /eyJqdW5rIjoiY0U2T212Y21yeEhUZHRKYSIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0
     headers:
       Host: BItter-CreDIT-61b8.b76EbA0aBb.wORkerS.dEv
-- name: '[UN] ShatakVPN 334231'
+- name: '[UN] ShatakVPN 843615'
+  server: "104.18.42.163"
+  port: 2087
+  type: vless
+  tls: true
+  uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
+  servername: fx3h2kf8xn.fx6hsv0.ccwu.cc
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: fx3h2kf8xn.fx6hsv0.ccwu.cc
+- name: '[UN] ShatakVPN 118301'
   server: "8.6.112.6"
   port: 2087
   type: vless
@@ -565,19 +560,19 @@ proxies:
     path: /
     headers:
       Host: fx3l5i2wdfxln0.fx6hsv0.ccwu.cc
-- name: '[UN] ShatakVPN 190704'
-  server: "172.64.52.230"
-  port: 2087
+- name: '[UN] ShatakVPN 719340'
+  server: "172.67.222.62"
+  port: 443
   type: vless
   tls: true
-  uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
-  servername: faxf32gkfzoxqv.fx6hsv0.ccwu.cc
+  uuid: ea50b1a3-3a98-4c5e-a150-48ada40d68d7
+  servername: cf-vless-4cf55824.aimall.fr
   network: ws
   ws-opts:
-    path: /
+    path: /connect
     headers:
-      Host: faxf32gkfzoxqv.fx6hsv0.ccwu.cc
-- name: '[UN] ShatakVPN 592702'
+      Host: cf-vless-4cf55824.aimall.fr
+- name: '[UN] ShatakVPN 761030'
   server: "188.114.97.6"
   port: 443
   type: vless
@@ -589,7 +584,7 @@ proxies:
     path: /
     headers:
       Host: xwrivr.pages.dev
-- name: '[UN] ShatakVPN 456982'
+- name: '[UN] ShatakVPN 304181'
   server: "188.114.97.6"
   port: 443
   type: vless
@@ -602,7 +597,7 @@ proxies:
     headers:
       Host: FrEe.SeRVEr14peekCoNfIG.WoRKErS.dEV
   skip-cert-verify: false
-- name: '[UN] ShatakVPN 635904'
+- name: '[UN] ShatakVPN 105731'
   server: "188.114.97.6"
   port: 443
   type: vless
@@ -615,7 +610,21 @@ proxies:
     headers:
       Host: a.cwvps.eu.org
   skip-cert-verify: false
-- name: '[UN] ShatakVPN 746347'
+- name: '[UN] ShatakVPN 932868'
+  server: "188.114.97.6"
+  port: 443
+  type: vless
+  tls: true
+  uuid: e6df2095-a73c-4043-8693-8d5a03686870
+  servername: lucasjow.us.ci
+  alpn:
+  - http/1.1
+  network: ws
+  ws-opts:
+    headers:
+      Host: lucasjow.us.ci
+  skip-cert-verify: false
+- name: '[UN] ️ ShatakVPN 747051'
   server: "188.114.97.8"
   port: 8443
   type: vless
@@ -627,7 +636,22 @@ proxies:
     path: /eyJqdW5rIjoiODgwQ1AwWDV0MnFTRWE1cCIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=
     headers:
       Host: cRIMSON-LeAf-7E45.hzhdUuEBFjDCB.workERs.DEv
-- name: '[UN] ️ ShatakVPN 239056'
+- name: '[UN] ️ ShatakVPN 204526'
+  server: "104.21.91.244"
+  port: 443
+  type: vless
+  tls: true
+  uuid: e6df2095-a73c-4043-8693-8d5a03686870
+  servername: lucasjow.us.ci
+  alpn:
+  - http/1.1
+  network: ws
+  ws-opts:
+    path: /Chanel0111Net
+    headers:
+      Host: lucasjow.us.ci
+  skip-cert-verify: false
+- name: '[UN] ️ ShatakVPN 479620'
   server: "104.21.74.214"
   port: 8443
   type: vless
@@ -640,7 +664,7 @@ proxies:
     headers:
       Host: maike-tison.briqivo.ir
   skip-cert-verify: false
-- name: '[UN] ️ ShatakVPN 764349'
+- name: '[UN] ️ ShatakVPN 924248'
   server: "172.67.143.56"
   port: 2096
   type: vless
@@ -655,38 +679,59 @@ proxies:
     headers:
       Host: teLeGRaM.FrEEPerSiAnLaNd1.wOrkERS.DeV
   skip-cert-verify: false
-- name: '[DE] ️ ShatakVPN 169900'
-  server: "81.95.4.189"
+- name: '[DE] ️ ShatakVPN 223802'
+  server: "46.101.196.101"
+  port: 2096
+  type: vless
+  tls: true
+  uuid: 8525fe74-67e6-4a55-8a26-95f227bd1384
+  servername: lucky-sky-0104.alvlirm444.workers.dev
+  alpn:
+  - http/1.1
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: lucky-sky-0104.alvlirm444.workers.dev
+- name: '[AE] ️ ShatakVPN 471968'
+  server: "140.225.199.250"
   port: 443
   type: vless
   tls: true
-  uuid: b585dc5e-55bf-4a8b-913a-27c9ccac05c3
-  servername: bab-6.site
-  network: ws
-  ws-opts:
-    path: /vws/
-    headers:
-      Host: bab-6.site
-  skip-cert-verify: false
-- name: '[FR] ️ ShatakVPN 191729'
+  uuid: 6c713691-3ca2-0009-ad25-113d1bed6b03
+  servername: hatch.senko.ru
+  host: hatch.senko.ru
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: JWDpSUaLgiXGXpgZzzxfDnYGvi4MBFcadN6cHZ-He1E
+    short-id: b8c6965f3596688a
+  client-fingerprint: random
+- name: '[FR] ️ ShatakVPN 121979'
   server: "162.19.10.99"
   port: 443
   type: vless
   tls: true
   uuid: e8b1500b-e9e8-5492-8312-f4eadf7d0767
   servername: nasnet-162191099-direct.mbghalibaf.com
+  alpn:
+  - h2
   host: nasnet-162191099-direct.mbghalibaf.com
   flow: xtls-rprx-vision
-  skip-cert-verify: true
-- name: '[GB] ️ ShatakVPN 946216'
-  server: "51.38.71.147"
-  port: 2053
-  type: vmess
-  uuid: 72f2cbe4-2874-45b7-b6aa-b93077c10c72
-  alterId: 0
-  cipher: auto
+- name: '[US] ️ ShatakVPN 890960'
+  server: "45.128.60.127"
+  port: 443
+  type: vless
   tls: true
-- name: '[BG] ️ ShatakVPN 399602'
+  uuid: 1a11d3a8-f327-4f97-81b2-f776c138dec7
+  servername: www.nokia.com
+  host: www.nokia.com
+  path: /
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: kb93iSFmgqH_hIEAL15LZdrB9E-QfGFYG1mspAYJUzI
+    short-id: 557d83da1a36996f
+  client-fingerprint: random
+- name: '[BG] ️ ShatakVPN 329400'
   server: "45.9.156.42"
   port: 443
   type: vless
@@ -701,7 +746,48 @@ proxies:
     public-key: RDWvDEygSk1eyAQhIK95H9EteFbrS2d9JEjBrco54Bw
     short-id: 1a3102bb8e51399e
   client-fingerprint: random
-- name: '[US] ️ ShatakVPN 489005'
+- name: '[NL] ️ ShatakVPN 397863'
+  server: "185.192.22.159"
+  port: 8444
+  type: vless
+  tls: true
+  uuid: f55e9aba-7b14-4f6f-b59a-d5b3d45c9309
+  servername: github.com
+  network: grpc
+  grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: GunService
+  reality-opts:
+    public-key: FWitre1jinQR7qz5HQ0q2Q4Gg9xA9B0SyizCziN7Ch0
+    short-id: 457fab2ac885dbe0
+  client-fingerprint: random
+- name: '[RU] ️ ShatakVPN 789427'
+  server: "77.110.105.122"
+  port: 443
+  type: vless
+  tls: true
+  uuid: 019fbe0f-2d9f-4b89-9f81-e1e36129892a
+  servername: co-de.speedtec.ru
+  host: co-de.speedtec.ru
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: EBISh6QAVskJ_nvet-Qio9jS2yqxe9de6GMScYlbjhI
+    short-id: 226509f017e4c36d
+  client-fingerprint: random
+- name: '[LT] ️ ShatakVPN 651695'
+  server: "84.32.109.20"
+  port: 443
+  type: vless
+  tls: true
+  uuid: ee18d188-14cc-417e-beb1-70e4add6d023
+  servername: litv.nztvpn.com
+  host: litv.nztvpn.com
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: 3jySGemfaqPZ2vM66Qtzo5SotO3eoRn1FeGaKp6KBQ4
+    short-id: 0da7e14db353e7d0
+  client-fingerprint: random
+- name: '[US] ️ ShatakVPN 297638'
   server: "47.253.226.114"
   port: 443
   type: vless
@@ -710,16 +796,7 @@ proxies:
   servername: www.cloudflare.com
   host: www.cloudflare.com
   flow: xtls-rprx-vision
-- name: '[DE] ️ ShatakVPN 260363'
-  server: "159.195.137.29"
-  port: 8443
-  type: vless
-  tls: true
-  uuid: 2ae1bbd2-dd81-4737-bbec-6a8c1c74e8f1
-  servername: sellflow.org
-  host: sellflow.org
-  flow: xtls-rprx-vision
-- name: '[SG] ️ ShatakVPN 607099'
+- name: '[SG] ️ ShatakVPN 835003'
   server: "146.235.16.130"
   port: 19825
   type: vless
@@ -732,7 +809,16 @@ proxies:
     public-key: GvvkY8xYb9QjvwvzYq_uNC4tOGd0DCxRnz6770-xgkI
     short-id: 6ba85179e30d4fc2
   client-fingerprint: random
-- name: '[UN] ️ ShatakVPN 225251'
+- name: '[DE] ️ ShatakVPN 893026'
+  server: "159.195.137.29"
+  port: 8443
+  type: vless
+  tls: true
+  uuid: 2ae1bbd2-dd81-4737-bbec-6a8c1c74e8f1
+  servername: sellflow.org
+  host: sellflow.org
+  flow: xtls-rprx-vision
+- name: '[UN] ️ ShatakVPN 756076'
   server: "104.19.214.98"
   port: 2087
   type: vless
@@ -745,8 +831,8 @@ proxies:
     headers:
       Host: faxf32gkfzoxqv.fx6hsv0.ccwu.cc
   skip-cert-verify: false
-- name: '[UN] ️ ShatakVPN 870788'
-  server: "104.16.150.108"
+- name: '[UN] ️ ShatakVPN 363668'
+  server: "172.64.52.230"
   port: 2087
   type: vless
   tls: true
@@ -757,7 +843,19 @@ proxies:
     path: /
     headers:
       Host: faxf32gkfzoxqv.fx6hsv0.ccwu.cc
-- name: '[FI] ️ ShatakVPN 450998'
+- name: '[UN] ️ ShatakVPN 878954'
+  server: "104.18.38.47"
+  port: 2087
+  type: vless
+  tls: true
+  uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
+  servername: fx3l5i2wdfxln0.fx6hsv0.ccwu.cc
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: fx3l5i2wdfxln0.fx6hsv0.ccwu.cc
+- name: '[FI] ️ ShatakVPN 318149'
   server: "78.17.116.201"
   port: 443
   type: vless
@@ -766,21 +864,19 @@ proxies:
   servername: www.nokia.com
   host: www.nokia.com
   flow: xtls-rprx-vision
-- name: '[DE] ️ ShatakVPN 651399'
-  server: "46.101.196.101"
-  port: 2096
+- name: '[DE] ️ ShatakVPN 344589'
+  server: "68.183.65.82"
+  port: 2083
   type: vless
   tls: true
   uuid: 8525fe74-67e6-4a55-8a26-95f227bd1384
   servername: lucky-sky-0104.alvlirm444.workers.dev
-  alpn:
-  - http/1.1
   network: ws
   ws-opts:
     path: /
     headers:
       Host: lucky-sky-0104.alvlirm444.workers.dev
-- name: '[FR] ️ ShatakVPN 223452'
+- name: '[FR] ️ ShatakVPN 363417'
   server: "149.202.58.99"
   port: 443
   type: vless
@@ -793,42 +889,41 @@ proxies:
     headers:
       Host: bab-6.site
   skip-cert-verify: true
-- name: '[US] ️ ShatakVPN 733762'
-  server: "137.184.218.169"
-  port: 36925
-  type: vless
-  tls: true
-  uuid: c9fd0fb1-8251-4106-b09a-f4b426736f67
-  servername: www.cloudflare.com
-  host: www.cloudflare.com
-  flow: xtls-rprx-vision
-- name: '[UN] ️ ShatakVPN 661265'
-  server: "104.21.46.14"
+- name: '[DE] ️ ShatakVPN 986814'
+  server: "81.95.4.189"
   port: 443
   type: vless
   tls: true
-  uuid: ea50b1a3-3a98-4c5e-a150-48ada40d68d7
-  servername: cf-vless-4cf55824.aimall.fr
+  uuid: b585dc5e-55bf-4a8b-913a-27c9ccac05c3
+  servername: bab-6.site
   network: ws
   ws-opts:
-    path: /connect
+    path: /vws/
     headers:
-      Host: cf-vless-4cf55824.aimall.fr
-- name: '[DE] ️ ShatakVPN 255722'
-  server: "46.225.46.136"
-  port: 2087
+      Host: bab-6.site
+  skip-cert-verify: false
+- name: '[FR] ️ ShatakVPN 936406'
+  server: "161.97.160.224"
+  port: 443
   type: vless
   tls: true
-  uuid: a5db5ab5-8d28-49c0-ad55-0ad4724e4c0d
-  servername: hoert1rert.localip.ir
-  alpn:
-  - http/1.1
-  network: ws
-  ws-opts:
-    path: /hokm
-    headers:
-      Host: hoert1rert.localip.ir
-- name: '[RO] ️ ShatakVPN 224157'
+  uuid: b81b4d1b-7f20-48f1-82dc-d24bef898cab
+  servername: passport.yandex.ru
+  host: passport.yandex.ru
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: 33zaT3jHXjtynSQ0Ucw9bK92-XH2zolJmuIeZ1XyZB0
+    short-id: e6
+  client-fingerprint: random
+- name: '[GB] ️ ShatakVPN 183863'
+  server: "51.38.71.147"
+  port: 2053
+  type: vmess
+  uuid: 72f2cbe4-2874-45b7-b6aa-b93077c10c72
+  alterId: 0
+  cipher: auto
+  tls: true
+- name: '[RO] ️ ShatakVPN 841934'
   server: "205.237.110.254"
   port: 443
   type: vless
@@ -841,20 +936,27 @@ proxies:
     public-key: IG6lxrx_xkGOoBuo3DC8sgQoIFmqVgznIr0qOuNO0w4
     short-id: cd2d53510b4df2a8
   client-fingerprint: random
-- name: '[UN] ShatakVPN 369288'
-  server: "188.114.97.6"
+- name: '[DE] ️ ShatakVPN 308753'
+  server: "188.241.241.122"
   port: 443
   type: trojan
-  password: humanity
-- name: '[DE] ️ ShatakVPN 673422'
+  password: 4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA
+  sni: de2.dedushka.top
+- name: '[DE] ️ ShatakVPN 143082'
   server: "188.241.241.102"
   port: 443
   type: trojan
   password: 4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA
   sni: de4.dedushka.top
-- name: '[DE] ️ ShatakVPN 745862'
+- name: '[DE] ️ ShatakVPN 846046'
   server: "188.241.241.235"
   port: 443
   type: trojan
   password: 4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA
   sni: de9.dedushka.top
+- name: '[DE] ️ ShatakVPN 792287'
+  server: "188.241.241.236"
+  port: 443
+  type: trojan
+  password: 4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA
+  sni: de10.dedushka.top
