@@ -43,6 +43,7 @@ proxy-groups:
       - 🇩🇪 德国节点
       - 🇫🇷 法国节点
       - 🇬🇧 英国节点
+      - 🇳🇱 荷兰节点
       - 🌍 其他地区
       - 🔯 故障转移
       - 🎯 全球直连
@@ -116,11 +117,19 @@ proxy-groups:
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
+  - name: 🇳🇱 荷兰节点
+    type: url-test
+    use:
+      - ConfigForge
+    filter: '(?i)^\[NL\]'
+    url: https://cp.cloudflare.com/generate_204
+    interval: 300
+    tolerance: 50
   - name: 🌍 其他地区
     type: url-test
     use:
       - ConfigForge
-    filter: '(?i)^\[(AT|CA|CH|EE|IT|KZ|NL|PL|RU|SC|SE|UN)\]'
+    filter: '(?i)^\[(AE|CA|CH|EE|IT|KZ|PL|RU|SC|UN)\]'
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
