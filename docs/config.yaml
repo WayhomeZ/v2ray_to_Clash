@@ -41,10 +41,10 @@ proxy-groups:
       - 🇸🇬 狮城节点
       - 🇺🇸 美国节点
       - 🇨🇦 加拿大节点
+      - 🇨🇭 瑞士节点
       - 🇩🇪 德国节点
       - 🇫🇷 法国节点
       - 🇬🇧 英国节点
-      - 🇮🇹 意大利节点
       - 🇳🇱 荷兰节点
       - 🌍 其他地区
       - 🔯 故障转移
@@ -103,6 +103,14 @@ proxy-groups:
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
+  - name: 🇨🇭 瑞士节点
+    type: url-test
+    use:
+      - ConfigForge
+    filter: '(?i)^\[CH\]'
+    url: https://cp.cloudflare.com/generate_204
+    interval: 300
+    tolerance: 50
   - name: 🇩🇪 德国节点
     type: url-test
     use:
@@ -127,14 +135,6 @@ proxy-groups:
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
-  - name: 🇮🇹 意大利节点
-    type: url-test
-    use:
-      - ConfigForge
-    filter: '(?i)^\[IT\]'
-    url: https://cp.cloudflare.com/generate_204
-    interval: 300
-    tolerance: 50
   - name: 🇳🇱 荷兰节点
     type: url-test
     use:
@@ -147,7 +147,7 @@ proxy-groups:
     type: url-test
     use:
       - ConfigForge
-    filter: '(?i)^\[(AU|BR|CH|CY|IE|IN|KR|KZ|MY|NO|PL|RO|RU|SC|SE|UN|ZA)\]'
+    filter: '(?i)^\[(AU|BR|IN|IT|KR|KZ|MY|PL|RO|RU|SC|SE|UA|UN|ZA)\]'
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
